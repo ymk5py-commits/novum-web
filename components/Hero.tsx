@@ -60,10 +60,10 @@ export default function Hero() {
             className="col-span-12 md:col-span-6"
           >
             <p className="text-ivory-200/80 text-lg leading-[1.7] text-pretty max-w-lg">
-              NOVUM es un <em className="not-italic font-medium text-ivory-50">holding</em> de tres
-              productos propietarios y un studio que los implementa: <em className="not-italic font-medium text-cobalt-300">Botika</em> para
-              agentes conversacionales, <em className="not-italic font-medium text-cobalt-300">PAUTIK</em> para pauta programática
-              y <em className="not-italic font-medium text-cobalt-300">NOVUMed</em> para CRM clínico.
+              NOVUM es un <em className="not-italic font-medium text-ivory-50">holding</em> de cuatro
+              productos propietarios y un studio que los implementa: <em className="not-italic font-medium text-cobalt-300">Botika</em> (agentes),{" "}
+              <em className="not-italic font-medium text-cobalt-300">PAUTIK</em> (pauta), <em className="not-italic font-medium text-cobalt-300">NOVUMed</em> (CRM clínico)
+              y <em className="not-italic font-medium text-cobalt-300">NOVUdent</em> (software dental).
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">

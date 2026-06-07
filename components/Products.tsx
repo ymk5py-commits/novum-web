@@ -4,6 +4,7 @@ import { Send, Check, Instagram, Video, ChevronLeft, ChevronRight, TrendingUp } 
 import { GlassButton, GlassChip } from "./primitives/GlassButton";
 import { TiltCard } from "@/components/motion/TiltCard";
 import { BorderBeam } from "@/components/magic/BorderBeam";
+import { DentalVisual } from "./product/ProductVisuals";
 
 export default function Products() {
   return (
@@ -16,7 +17,7 @@ export default function Products() {
           tag="01 · Productos propietarios"
           title={
             <>
-              Tres productos.{" "}
+              Cuatro productos.{" "}
               <span className="aurora-text">Una sola tesis</span>
               :<br />
               <span className="font-serif italic text-ivory-200/90">software que opera por ti.</span>
@@ -28,6 +29,7 @@ export default function Products() {
           <Botika />
           <Pautik />
           <NovuMed />
+          <NovuDent />
         </div>
       </div>
     </section>
@@ -100,8 +102,27 @@ function NovuMed() {
       visual={<NovuMedVisual />}
       pageHref="/novumed"
       pageLabel="Conocer NOVUMed"
-      secondaryHref="/novudent"
-      secondaryLabel="¿Odontología? NOVUdent →"
+    />
+  );
+}
+
+function NovuDent() {
+  return (
+    <ProductRow
+      reverse
+      eyebrow="04 / Vertical SaaS · Odontología"
+      kicker="NOVUdent"
+      tagline="El software de tu clínica dental."
+      copy="La rama odontológica de NOVUM. Odontograma y periodontograma interactivos, plan de tratamiento y presupuesto por pieza, financiamiento en cuotas, ortodoncia y laboratorio — con IA para análisis de radiografías y simulador de sonrisa."
+      bullets={[
+        "Odontograma + periodontograma interactivos",
+        "Plan de tratamiento y presupuesto por pieza",
+        "Financiamiento, cuotas y control de morosidad",
+        "Análisis de RX y simulador de sonrisa con IA",
+      ]}
+      visual={<DentalVisual />}
+      pageHref="/novudent"
+      pageLabel="Conocer NOVUdent"
     />
   );
 }

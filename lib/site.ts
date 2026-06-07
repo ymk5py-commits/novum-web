@@ -54,6 +54,15 @@ export const SITE = {
       description:
         "NOVUMed es un CRM clínico de nueva generación diseñado junto a profesionales de la salud. Reemplaza agenda, historia clínica estructurada, facturación electrónica y comunicación con pacientes en un solo producto mobile-first, con recordatorios omnicanal, portal del paciente y telemedicina integrada.",
     },
+    {
+      slug: "novudent",
+      name: "NOVUdent",
+      category: "Vertical SaaS · Odontología",
+      tagline: "El software de tu clínica dental.",
+      short: "Software odontológico: odontograma, planes de tratamiento, presupuestos, financiamiento y agenda.",
+      description:
+        "NOVUdent es el software 100% odontológico de NOVUM: odontograma y periodontograma interactivos, plan de tratamiento y presupuesto por pieza, financiamiento en cuotas, ortodoncia, laboratorio y agenda con recordatorios por WhatsApp. Suma IA para análisis de radiografías y simulador de sonrisa.",
+    },
   ],
   faqs: [
     {
