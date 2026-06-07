@@ -1,6 +1,6 @@
 "use client";
 import { useEffect } from "react";
-import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 /**
  * Fondo de hero premium (base: componente "Aurora Hero" de 21st.dev, adaptado).
@@ -26,13 +26,12 @@ function AuroraKeyframes() {
       @keyframes phb-1 { 0%{transform:translate(0,0) scale(1)} 25%{transform:translate(16%,-14%) scale(1.18)} 50%{transform:translate(-14%,16%) scale(.86)} 75%{transform:translate(9%,-7%) scale(1.08)} 100%{transform:translate(0,0) scale(1)} }
       @keyframes phb-2 { 0%{transform:translate(0,0) scale(1)} 25%{transform:translate(-16%,14%) scale(1.1)} 50%{transform:translate(16%,-14%) scale(.9)} 75%{transform:translate(-9%,7%) scale(1.16)} 100%{transform:translate(0,0) scale(1)} }
       @keyframes phb-3 { 0%{transform:translate(0,0) scale(.95)} 33%{transform:translate(11%,11%) scale(1.12)} 66%{transform:translate(-11%,-9%) scale(.92)} 100%{transform:translate(0,0) scale(.95)} }
-      @media (prefers-reduced-motion: reduce){ .phb-blob{animation:none!important} }
     `}</style>
   );
 }
 
 export default function PremiumHeroBg() {
-  const reduce = useReducedMotion();
+  const reduce = false; // movimiento ambiental siempre activo (el dueño quiere verlo)
   const mx = useMotionValue(0.6);
   const my = useMotionValue(0.25);
   const sx = useSpring(mx, { stiffness: 50, damping: 20 });
@@ -63,7 +62,7 @@ export default function PremiumHeroBg() {
       {/* anillo conic rotando detrás del centro */}
       {!reduce && (
         <motion.div
-          className="conic-glow absolute left-1/2 top-[38%] h-[820px] w-[820px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-25"
+          className="conic-glow absolute left-1/2 top-[38%] h-[820px] w-[820px] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-40"
           style={{ filter: "blur(34px)" }}
           animate={{ rotate: 360 }}
           transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
@@ -72,10 +71,10 @@ export default function PremiumHeroBg() {
 
       {/* aurora blobs azules en movimiento */}
       <motion.div className="absolute inset-0" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.4, ease: "easeOut" }}>
-        <div className="phb-blob absolute -top-1/4 left-[14%] h-[30rem] w-[30rem] rounded-full blur-3xl" style={{ backgroundColor: AZURE, opacity: 0.34, animation: reduce ? "none" : "phb-1 22s ease-in-out infinite" }} />
-        <div className="phb-blob absolute -bottom-1/4 right-[10%] h-[32rem] w-[32rem] rounded-full blur-3xl" style={{ backgroundColor: AZURE_DEEP, opacity: 0.3, animation: reduce ? "none" : "phb-2 26s ease-in-out infinite" }} />
-        <div className="phb-blob absolute top-1/3 left-1/2 hidden h-[24rem] w-[24rem] -translate-x-1/2 rounded-full blur-3xl md:block" style={{ backgroundColor: AZURE_LIGHT, opacity: 0.22, animation: reduce ? "none" : "phb-3 30s ease-in-out infinite" }} />
-        <div className="phb-blob absolute top-[8%] right-1/4 hidden h-[16rem] w-[16rem] rounded-full blur-3xl md:block" style={{ backgroundColor: AZURE_PALE, opacity: 0.16, animation: reduce ? "none" : "phb-1 34s ease-in-out infinite reverse" }} />
+        <div className="phb-blob absolute -top-1/4 left-[14%] h-[30rem] w-[30rem] rounded-full blur-3xl" style={{ backgroundColor: AZURE, opacity: 0.42, animation: "phb-1 15s ease-in-out infinite" }} />
+        <div className="phb-blob absolute -bottom-1/4 right-[10%] h-[32rem] w-[32rem] rounded-full blur-3xl" style={{ backgroundColor: AZURE_DEEP, opacity: 0.38, animation: "phb-2 18s ease-in-out infinite" }} />
+        <div className="phb-blob absolute top-1/3 left-1/2 hidden h-[24rem] w-[24rem] -translate-x-1/2 rounded-full blur-3xl md:block" style={{ backgroundColor: AZURE_LIGHT, opacity: 0.3, animation: "phb-3 20s ease-in-out infinite" }} />
+        <div className="phb-blob absolute top-[8%] right-1/4 hidden h-[16rem] w-[16rem] rounded-full blur-3xl md:block" style={{ backgroundColor: AZURE_PALE, opacity: 0.22, animation: "phb-1 24s ease-in-out infinite reverse" }} />
       </motion.div>
 
       {/* rayos de luz diagonales */}

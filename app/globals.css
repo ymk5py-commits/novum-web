@@ -174,9 +174,6 @@ html.lenis, html.lenis body { height: auto; }
   animation: beam-sweep 8s linear infinite;
   will-change: transform, opacity;
 }
-@media (prefers-reduced-motion: reduce) {
-  .hero-beam { animation: none; opacity: 0.2; }
-}
 
 /* Aurora blob */
 .aurora {
@@ -314,6 +311,5 @@ html.lenis, html.lenis body { height: auto; }
   border-radius: 6px;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-}
+/* Nota: el movimiento ambiental (auroras, rayos, marquees) se mantiene siempre.
+   El movimiento pesado/scroll se modera por componente cuando hace falta. */
