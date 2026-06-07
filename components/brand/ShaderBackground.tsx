@@ -35,16 +35,16 @@ void main(void){
     uv+=.12*cos(i*vec2(.1+.01*i,.8)+i*i+T*.5+.1*uv.x);
     vec2 p=uv;
     float d=length(p);
-    // destellos en cobalto / ivory
-    col+=.0022/d*(cos(sin(i)*vec3(.7,1.05,1.9))+1.)*vec3(.55,.72,1.25);
+    // destellos en azul / ivory (menos rojo = menos lila)
+    col+=.0022/d*(cos(sin(i)*vec3(.55,1.05,1.95))+1.)*vec3(.30,.66,1.35);
     float b=noise(i+p+bg*1.731);
-    col+=.0028*b/length(max(p,vec2(b*p.x*.02,p.y)))*vec3(.5,.66,1.2);
-    // nubes en navy / cobalto
-    col=mix(col,vec3(bg*.10,bg*.20,bg*.46),d);
+    col+=.0028*b/length(max(p,vec2(b*p.x*.02,p.y)))*vec3(.26,.6,1.3);
+    // nubes en navy / azul
+    col=mix(col,vec3(bg*.05,bg*.18,bg*.5),d);
   }
-  // lift ambiental + viñeta hacia navy-950 (#040814)
-  col+=vec3(.02,.05,.12)*bg;
-  col=mix(col,vec3(.016,.031,.078),smoothstep(.1,1.4,length(uv)));
+  // lift ambiental + viñeta hacia navy-950 (#07142C)
+  col+=vec3(.015,.05,.13)*bg;
+  col=mix(col,vec3(.027,.078,.173),smoothstep(.1,1.4,length(uv)));
   O=vec4(col,1);
 }`;
 

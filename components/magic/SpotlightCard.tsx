@@ -20,7 +20,7 @@ export function SpotlightCard({
   className = "",
   index = 0,
   href,
-  glow = "rgba(122,156,255,0.18)",
+  glow = "rgba(96,165,250,0.18)",
 }: Props) {
   const mx = useMotionValue(-400);
   const my = useMotionValue(-400);

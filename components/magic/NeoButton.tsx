@@ -43,12 +43,12 @@ export function NeoButton({
       <span className="absolute inset-[1.5px] rounded-full bg-navy-900 opacity-95" />
       <span className="absolute inset-[1.5px] rounded-full bg-gradient-to-r from-navy-900 via-navy-800 to-navy-900 opacity-90" />
       <span className="absolute inset-[1.5px] rounded-full bg-gradient-to-br from-cobalt-400/15 via-navy-900 to-navy-800/60" />
-      <span className="absolute inset-[1.5px] rounded-full shadow-[inset_0_0_15px_rgba(77,124,255,0.20)]" />
+      <span className="absolute inset-[1.5px] rounded-full shadow-[inset_0_0_15px_rgba(59,130,246,0.20)]" />
 
       {/* contenido */}
       <span className="relative z-10 flex items-center gap-2">
         {leftIcon}
-        <span className="bg-gradient-to-b from-[#EAF2FF] to-[#A8C0FF] bg-clip-text font-medium tracking-snug text-transparent drop-shadow-[0_0_12px_rgba(77,124,255,0.35)]">
+        <span className="bg-gradient-to-b from-[#EAF2FF] to-[#BFDBFE] bg-clip-text font-medium tracking-snug text-transparent drop-shadow-[0_0_12px_rgba(59,130,246,0.35)]">
           {children}
         </span>
         {icon && (

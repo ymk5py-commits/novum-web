@@ -142,7 +142,7 @@ function ProductRow({
         <ul className="mt-7 grid grid-cols-1 gap-2.5">
           {bullets.map((b) => (
             <li key={b} className="flex items-start gap-3 text-sm text-ivory-100/90">
-              <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-cobalt-400 shrink-0 shadow-[0_0_12px_rgba(77,124,255,0.7)]" />
+              <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-cobalt-400 shrink-0 shadow-[0_0_12px_rgba(59,130,246,0.7)]" />
               <span>{b}</span>
             </li>
           ))}
@@ -299,8 +299,8 @@ function Sparkline() {
     <svg viewBox="0 0 400 110" className="w-full h-28">
       <defs>
         <linearGradient id="sp" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0%" stopColor="#4D7CFF" stopOpacity="0.45" />
-          <stop offset="100%" stopColor="#4D7CFF" stopOpacity="0" />
+          <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.45" />
+          <stop offset="100%" stopColor="#3B82F6" stopOpacity="0" />
         </linearGradient>
       </defs>
       <path
@@ -309,7 +309,7 @@ function Sparkline() {
       />
       <path
         d="M0,80 C 30,72 50,55 80,58 S 130,40 160,38 200,55 230,48 280,18 310,22 360,42 400,28"
-        stroke="#7A9CFF"
+        stroke="#60A5FA"
         strokeWidth="2"
         fill="none"
       />

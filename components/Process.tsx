@@ -14,7 +14,7 @@ export default function Process() {
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-navy-900/40 via-navy-950 to-navy-950" />
       <div
         className="aurora -z-10 top-[10%] left-1/2 -translate-x-1/2 h-[400px] w-[700px]"
-        style={{ background: "radial-gradient(closest-side, rgba(31,75,214,0.25), transparent)" }}
+        style={{ background: "radial-gradient(closest-side, rgba(29,78,216,0.25), transparent)" }}
       />
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
