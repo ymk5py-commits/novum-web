@@ -49,10 +49,12 @@ export function GlassChip({
   children,
   dot,
   tone = "neutral",
+  shiny = false,
 }: {
   children: ReactNode;
   dot?: boolean;
   tone?: "neutral" | "cobalt" | "mint" | "amber" | "coral";
+  shiny?: boolean;
 }) {
   const toneClass = {
     neutral: "glass-chip text-ivory-200",
@@ -71,7 +73,9 @@ export function GlassChip({
 
   return (
     <span
-      className={`inline-flex items-center gap-2 rounded-full px-3 py-1 font-mono text-[10px] uppercase tracking-ultrawide ${toneClass}`}
+      className={`inline-flex items-center gap-2 rounded-full px-3 py-1 font-mono text-[10px] uppercase tracking-ultrawide ${toneClass} ${
+        shiny ? "shiny-chip" : ""
+      }`}
     >
       {dot && <span className={`h-1.5 w-1.5 rounded-full ${dotClass}`} />}
       {children}

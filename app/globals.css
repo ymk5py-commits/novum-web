@@ -181,6 +181,42 @@ html.lenis, html.lenis body { height: auto; }
   .border-beam { animation: none; opacity: 0.5; }
 }
 
+/* Aurora — texto con gradiente azul animado */
+.aurora-text {
+  background-image: linear-gradient(110deg, #60A5FA, #3B82F6, #93C5FD, #2563EB, #60A5FA);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  animation: aurora-text 6s linear infinite;
+}
+@keyframes aurora-text {
+  to { background-position: 250% center; }
+}
+
+/* Chip con borde brillante animado */
+.shiny-chip { position: relative; isolation: isolate; }
+.shiny-chip::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--beam-angle, 0deg),
+    transparent 0 58%,
+    rgba(96, 165, 250, 0.9) 76%,
+    rgba(147, 197, 253, 1) 84%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  animation: beam-spin 5s linear infinite;
+  pointer-events: none;
+}
+
 /* Conic glow */
 .conic-glow {
   background: conic-gradient(

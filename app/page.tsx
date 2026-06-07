@@ -1,6 +1,6 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import Marquee from "@/components/Marquee";
+import LogoMarquee from "@/components/LogoMarquee";
 import Products from "@/components/Products";
 import Integrations from "@/components/Integrations";
 import Services from "@/components/Services";
@@ -19,7 +19,7 @@ export default function Page() {
       <Nav />
       <main className="relative bg-navy-950">
         <Hero />
-        <Marquee />
+        <LogoMarquee />
         <Products />
         <Integrations />
         <Services />

@@ -27,7 +27,7 @@ export default function Hero() {
           transition={{ duration: 0.6 }}
           className="flex flex-wrap items-center gap-3"
         >
-          <GlassChip dot tone="cobalt">Holding · Studio</GlassChip>
+          <GlassChip dot tone="cobalt" shiny>Holding · Studio</GlassChip>
           <span className="h-px w-10 bg-white/10 hidden sm:block" />
           <span className="eyebrow">Asunción · LATAM · Remoto global</span>
         </motion.div>
@@ -53,10 +53,8 @@ export default function Hero() {
           >
             Sistemas que{" "}
             <span className="relative inline-block">
-              <span className="relative z-10 bg-gradient-to-r from-cobalt-200 via-cobalt-300 to-cobalt-400 bg-clip-text text-transparent">
-                piensan
-              </span>
-              <span className="absolute -bottom-1 left-0 right-0 h-3 bg-cobalt-500/20 blur-2xl rounded-full" />
+              <span className="relative z-10 aurora-text">piensan</span>
+              <span className="absolute -bottom-1 left-0 right-0 h-3 bg-cobalt-500/30 blur-2xl rounded-full" />
             </span>
             , <span className="font-serif italic text-ivory-200/90">venden</span> y operan por ti.
           </motion.h1>
