@@ -3,15 +3,15 @@ import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import { GlassButton, GlassChip } from "./primitives/GlassButton";
 import { NovumLogo } from "./brand/NovumLogo";
-import HeroBackground from "./HeroBackground";
+import PremiumHeroBg from "./PremiumHeroBg";
 import { Counter } from "@/components/motion/Counter";
 import { NeoButton } from "@/components/magic/NeoButton";
 
 export default function Hero() {
   return (
     <section id="top" className="relative isolate overflow-hidden pt-36 pb-24 sm:pt-44 sm:pb-32">
-      {/* ===== Background animado (azul, fluido) ===== */}
-      <HeroBackground />
+      {/* ===== Background premium animado (azul, fluido) ===== */}
+      <div className="absolute inset-0 -z-[30]"><PremiumHeroBg /></div>
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         {/* eyebrow row */}
