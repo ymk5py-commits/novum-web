@@ -82,6 +82,18 @@ export default function SpecialtyPage({
           </div>
         </section>
 
+        {/* RESUMEN (answer block para GEO/IA) */}
+        <section className="relative border-t border-white/[0.06] py-12 sm:py-16">
+          <div className="mx-auto max-w-3xl px-5 sm:px-8">
+            <div className="rounded-3xl glass p-6 sm:p-8">
+              <div className="eyebrow">En resumen</div>
+              <p className="mt-3 text-lg leading-relaxed text-ivory-100/90 text-pretty">
+                <strong className="text-ivory-50">{s.seoLabel}:</strong> {s.intro}
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* PAINS */}
         <section className="relative border-t border-white/[0.06] py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
