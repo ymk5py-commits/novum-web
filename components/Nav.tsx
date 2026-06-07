@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import { GlassChip } from "./primitives/GlassButton";
 import { NeoButton } from "./magic/NeoButton";
 import { NovumLogo, NovumMark } from "./brand/NovumLogo";
+import { ProductsMenu } from "./ProductsMenu";
 
 const links = [
-  { href: "#productos", label: "Productos" },
   { href: "#servicios", label: "Servicios" },
   { href: "#proceso", label: "Proceso" },
   { href: "#proyectos", label: "Proyectos" },
@@ -45,6 +45,7 @@ export default function Nav() {
           </a>
 
           <nav className="hidden md:flex items-center gap-0.5 text-sm">
+            <ProductsMenu />
             {links.map((l) => (
               <a
                 key={l.href}
