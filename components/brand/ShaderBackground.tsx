@@ -35,12 +35,12 @@ void main(void){
     uv+=.12*cos(i*vec2(.1+.01*i,.8)+i*i+T*.5+.1*uv.x);
     vec2 p=uv;
     float d=length(p);
-    // destellos en azul / ivory (menos rojo = menos lila)
-    col+=.0022/d*(cos(sin(i)*vec3(.55,1.05,1.95))+1.)*vec3(.30,.66,1.35);
+    // destellos en AZUL fijo (sin ciclo de color -> nada de magenta/lila)
+    col+=.0024/d*vec3(.16,.45,1.0);
     float b=noise(i+p+bg*1.731);
-    col+=.0028*b/length(max(p,vec2(b*p.x*.02,p.y)))*vec3(.26,.6,1.3);
+    col+=.0026*b/length(max(p,vec2(b*p.x*.02,p.y)))*vec3(.14,.42,1.0);
     // nubes en navy / azul
-    col=mix(col,vec3(bg*.05,bg*.18,bg*.5),d);
+    col=mix(col,vec3(bg*.03,bg*.14,bg*.46),d);
   }
   // lift ambiental + viñeta hacia navy-950 (#07142C)
   col+=vec3(.015,.05,.13)*bg;
