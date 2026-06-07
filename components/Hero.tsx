@@ -3,29 +3,19 @@ import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import { GlassButton, GlassChip } from "./primitives/GlassButton";
 import { NovumLogo } from "./brand/NovumLogo";
+import ShaderBackground from "./brand/ShaderBackground";
 
 export default function Hero() {
   return (
     <section id="top" className="relative isolate overflow-hidden pt-36 pb-24 sm:pt-44 sm:pb-32">
       {/* ===== Background composition ===== */}
-      <div className="absolute inset-0 -z-30 bg-navy-950" />
-      <div className="absolute inset-0 -z-20 grid-lines opacity-40" />
-      <div className="absolute inset-0 -z-20 dotgrid opacity-25" />
-      <div className="absolute inset-0 -z-10 noise opacity-[0.35] mix-blend-overlay" />
-
-      {/* Aurora blobs */}
-      <div
-        className="aurora -z-10 top-[-200px] left-1/2 -translate-x-1/2 h-[520px] w-[820px] animate-aurora"
-        style={{ background: "radial-gradient(closest-side, rgba(77,124,255,0.55), transparent)" }}
-      />
-      <div
-        className="aurora -z-10 top-[200px] right-[-80px] h-[400px] w-[400px] animate-aurora"
-        style={{ background: "radial-gradient(closest-side, rgba(31,75,214,0.45), transparent)", animationDelay: "-7s" }}
-      />
-      <div
-        className="aurora -z-10 bottom-[-120px] left-[-80px] h-[420px] w-[420px] animate-aurora"
-        style={{ background: "radial-gradient(closest-side, rgba(15,31,61,0.7), transparent)", animationDelay: "-12s" }}
-      />
+      <div className="absolute inset-0 -z-[40] bg-navy-950" />
+      <ShaderBackground className="absolute inset-0 -z-[30] h-full w-full" />
+      <div className="absolute inset-0 -z-[20] grid-lines opacity-[0.18]" />
+      <div className="absolute inset-0 -z-[18] noise opacity-[0.22] mix-blend-overlay" />
+      {/* scrim para contraste del contenido sobre la nebulosa */}
+      <div className="absolute inset-0 -z-[15] bg-gradient-to-b from-navy-950/40 via-navy-950/10 to-navy-950" />
+      <div className="absolute inset-x-0 bottom-0 -z-[15] h-40 bg-gradient-to-t from-navy-950 to-transparent" />
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         {/* eyebrow row */}
