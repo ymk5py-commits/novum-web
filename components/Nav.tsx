@@ -5,6 +5,7 @@ import { GlassChip } from "./primitives/GlassButton";
 import { NeoButton } from "./magic/NeoButton";
 import { NovumLogo, NovumMark } from "./brand/NovumLogo";
 import { ProductsMenu } from "./ProductsMenu";
+import MobileMenu from "./MobileMenu";
 
 const links = [
   { href: "#servicios", label: "Servicios" },
@@ -66,6 +67,7 @@ export default function Nav() {
             <NeoButton href="#contacto" size="sm">
               Agendar
             </NeoButton>
+            <MobileMenu />
           </div>
         </div>
       </div>
