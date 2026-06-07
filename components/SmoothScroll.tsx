@@ -1,31 +1,31 @@
 "use client";
 import { useEffect } from "react";
 import Lenis from "lenis";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 /**
- * Scroll suave premium con Lenis, sincronizado con GSAP ScrollTrigger
- * (para el CinematicShowcase). Maneja anclas y respeta reduced-motion.
+ * Scroll suave con Lenis. No secuestra el scroll (sin preventDefault), así que
+ * es fluido en mobile. Maneja anclas y respeta prefers-reduced-motion.
  */
 export default function SmoothScroll() {
   useEffect(() => {
     if (typeof window === "undefined") return;
-    gsap.registerPlugin(ScrollTrigger);
-
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const lenis = new Lenis({
-      duration: 1.15,
+      duration: 1.1,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      touchMultiplier: 1.6,
+      touchMultiplier: 1.8,
     });
 
-    lenis.on("scroll", ScrollTrigger.update);
-    const onTick = (time: number) => lenis.raf(time * 1000);
-    gsap.ticker.add(onTick);
-    gsap.ticker.lagSmoothing(0);
+    let raf = 0;
+    let running = true;
+    const loop = (time: number) => {
+      if (!running) return;
+      lenis.raf(time);
+      raf = requestAnimationFrame(loop);
+    };
+    raf = requestAnimationFrame(loop);
 
     const onClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement | null;
@@ -41,9 +41,21 @@ export default function SmoothScroll() {
     };
     document.addEventListener("click", onClick);
 
+    const onVisibility = () => {
+      if (document.hidden) {
+        running = false;
+        cancelAnimationFrame(raf);
+      } else if (!running) {
+        running = true;
+        raf = requestAnimationFrame(loop);
+      }
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+
     return () => {
       document.removeEventListener("click", onClick);
-      gsap.ticker.remove(onTick);
+      document.removeEventListener("visibilitychange", onVisibility);
+      cancelAnimationFrame(raf);
       lenis.destroy();
     };
   }, []);
