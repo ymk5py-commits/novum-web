@@ -15,7 +15,7 @@ export type ProductConfig = {
   heroBullets: string[];
   problems: { t: string; d: string }[];
   modules: { t: string; d: string }[];
-  specialties?: { name: string; fields: string[] }[];
+  specialties?: { name: string; slug: string; fields: string[] }[];
   dental?: { t: string; d: string }[];
   ai: { t: string; d: string }[];
   integrations: string[];
@@ -54,14 +54,14 @@ export const NOVUMED: ProductConfig = {
     { t: "Multi-sucursal", d: "Convenios, seguros y prepagas, inventario y honorarios por profesional." },
   ],
   specialties: [
-    { name: "Kinesiología", fields: ["Evaluación funcional", "Plan de sesiones", "Evolución por sesión", "Registro de ejercicios y progreso"] },
-    { name: "Psicología", fields: ["Evoluciones por sesión", "Historia y antecedentes", "Consentimientos", "Telemedicina con confidencialidad reforzada"] },
-    { name: "Psiquiatría", fields: ["Evoluciones por sesión", "Recetas de psicofármacos", "Seguimiento de medicación", "Telemedicina"] },
-    { name: "Nutrición", fields: ["Antropometría y composición corporal", "Planes alimentarios", "Objetivos y metas", "Gráficos de progreso"] },
-    { name: "Oftalmología", fields: ["Agudeza visual", "Refracción", "Receta óptica", "Presión intraocular"] },
-    { name: "Pediatría", fields: ["Curvas de crecimiento (percentiles)", "Calendario de vacunas", "Control de niño sano", "Recordatorios a padres"] },
-    { name: "Dermatología", fields: ["Mapa de lesiones", "Seguimiento fotográfico", "Registro de procedimientos", "Antes / después"] },
-    { name: "Centros estéticos", fields: ["Ficha estética facial", "Presupuestos con esquema", "Consentimientos", "Fotos antes / después"] },
+    { name: "Kinesiología", slug: "kinesiologia", fields: ["Evaluación funcional", "Plan de sesiones", "Evolución por sesión", "Registro de ejercicios y progreso"] },
+    { name: "Psicología", slug: "psicologia", fields: ["Evoluciones por sesión", "Historia y antecedentes", "Consentimientos", "Telemedicina con confidencialidad reforzada"] },
+    { name: "Psiquiatría", slug: "psiquiatria", fields: ["Evoluciones por sesión", "Recetas de psicofármacos", "Seguimiento de medicación", "Telemedicina"] },
+    { name: "Nutrición", slug: "nutricion", fields: ["Antropometría y composición corporal", "Planes alimentarios", "Objetivos y metas", "Gráficos de progreso"] },
+    { name: "Oftalmología", slug: "oftalmologia", fields: ["Agudeza visual", "Refracción", "Receta óptica", "Presión intraocular"] },
+    { name: "Pediatría", slug: "pediatria", fields: ["Curvas de crecimiento (percentiles)", "Calendario de vacunas", "Control de niño sano", "Recordatorios a padres"] },
+    { name: "Dermatología", slug: "dermatologia", fields: ["Mapa de lesiones", "Seguimiento fotográfico", "Registro de procedimientos", "Antes / después"] },
+    { name: "Centros estéticos", slug: "centros-esteticos", fields: ["Ficha estética facial", "Presupuestos con esquema", "Consentimientos", "Fotos antes / después"] },
   ],
   ai: [
     { t: "Botika · Contact Center", d: "Agente de IA que atiende Instagram y WhatsApp, agenda, confirma y crea la oportunidad. 24/7." },

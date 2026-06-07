@@ -150,6 +150,15 @@ export default function ProductPage({ config, visual }: { config: ProductConfig;
                           </li>
                         ))}
                       </ul>
+                      {sp?.slug && (
+                        <a
+                          href={`/novumed/${sp.slug}`}
+                          className="mt-6 inline-flex items-center gap-1.5 text-sm text-cobalt-200 transition-colors hover:text-cobalt-100"
+                        >
+                          Ver software para {sp.name.toLowerCase()}
+                          <ArrowUpRight className="h-4 w-4" />
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
