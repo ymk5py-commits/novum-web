@@ -15,7 +15,7 @@ export default function FAQ() {
               <h2 className="mt-4 display-tight text-4xl sm:text-5xl text-ivory-50 text-pretty">
                 Lo que todos
                 <br />
-                <span className="font-serif italic text-cobalt-300">preguntan.</span>
+                <span className="aurora-text">preguntan.</span>
               </h2>
               <p className="mt-5 text-sm text-ivory-200/75 leading-relaxed max-w-xs">
                 ¿No está aquí? Escríbenos a{" "}

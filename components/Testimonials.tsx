@@ -74,7 +74,7 @@ export default function Testimonials() {
           <h2 className="col-span-12 md:col-span-9 display-tight text-4xl sm:text-5xl lg:text-6xl text-ivory-50 text-pretty">
             Lo que dicen quienes
             <br />
-            ya <span className="font-serif italic text-cobalt-300">trabajan</span> con nosotros.
+            ya <span className="aurora-text">trabajan</span> con nosotros.
           </h2>
         </div>
 

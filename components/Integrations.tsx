@@ -54,7 +54,7 @@ export default function Integrations() {
           <h2 className="col-span-12 md:col-span-9 display-tight text-4xl sm:text-5xl lg:text-6xl text-ivory-50 text-pretty">
             Conecta con todo
             <br />
-            tu <span className="font-serif italic text-cobalt-300">stack</span>. En minutos.
+            tu <span className="aurora-text">stack</span>. En minutos.
           </h2>
         </div>
 

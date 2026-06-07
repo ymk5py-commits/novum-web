@@ -17,9 +17,7 @@ export default function Products() {
           title={
             <>
               Tres productos.{" "}
-              <span className="bg-gradient-to-r from-cobalt-200 via-cobalt-300 to-cobalt-400 bg-clip-text text-transparent">
-                Una sola tesis
-              </span>
+              <span className="aurora-text">Una sola tesis</span>
               :<br />
               <span className="font-serif italic text-ivory-200/90">software que opera por ti.</span>
             </>

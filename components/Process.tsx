@@ -24,7 +24,7 @@ export default function Process() {
           </div>
           <h2 className="col-span-12 md:col-span-9 display-tight text-4xl sm:text-5xl lg:text-6xl text-ivory-50 text-pretty">
             Cuatro pasos.{" "}
-            <span className="font-serif italic text-ivory-200/85">Sin PowerPoints.</span>
+            <span className="aurora-text">Sin PowerPoints.</span>
           </h2>
         </div>
 

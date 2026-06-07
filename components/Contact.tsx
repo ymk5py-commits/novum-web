@@ -28,9 +28,7 @@ export default function Contact() {
             ¿Tienes un sistema
             <br />
             en mente?{" "}
-            <span className="font-serif italic bg-gradient-to-r from-cobalt-200 via-cobalt-300 to-cobalt-400 bg-clip-text text-transparent">
-              Lo construimos.
-            </span>
+            <span className="aurora-text">Lo construimos.</span>
           </h2>
 
           <p className="mx-auto mt-8 max-w-xl text-ivory-200/80 text-lg leading-relaxed text-pretty">

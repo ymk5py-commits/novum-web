@@ -1,5 +1,6 @@
 "use client";
 import { SpotlightCard } from "@/components/magic/SpotlightCard";
+import { BorderBeam } from "@/components/magic/BorderBeam";
 import {
   Brain,
   Workflow,
@@ -49,9 +50,7 @@ export default function Services() {
             <span className="font-serif italic text-ivory-200/85">no</span> quieres
             <br />
             tener{" "}
-            <span className="bg-gradient-to-r from-cobalt-200 to-cobalt-400 bg-clip-text text-transparent">
-              in-house.
-            </span>
+            <span className="aurora-text">in-house.</span>
           </h2>
         </div>
 
@@ -65,6 +64,7 @@ export default function Services() {
                 ${c.span ?? ""}
                 hover:-translate-y-1 hover:shadow-glass-lg`}
             >
+              {c.accent && <BorderBeam duration={8} />}
               <div className="relative z-10 flex grow flex-col justify-between">
                 <div className="flex items-center justify-between">
                   <div className="glass-chip h-10 w-10 rounded-2xl grid place-items-center">

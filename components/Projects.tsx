@@ -48,7 +48,7 @@ export default function Projects() {
           <h2 className="col-span-12 md:col-span-9 display-tight text-4xl sm:text-5xl lg:text-6xl text-ivory-50 text-pretty">
             Proyectos donde el
             <br />
-            <span className="font-serif italic text-cobalt-300">resultado</span> es público.
+            <span className="aurora-text">resultado</span> es público.
           </h2>
         </div>
 
