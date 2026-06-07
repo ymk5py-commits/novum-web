@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --font-logo: "Jost", var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Bricolage Grotesque", var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-logo: "Jost", "Clash Display", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Clash Display", var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Satoshi", var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
   --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
 
@@ -250,8 +250,8 @@ html.lenis, html.lenis body { height: auto; }
 .display-tight {
   font-family: var(--font-display);
   font-weight: 600;
-  letter-spacing: -0.035em;
-  line-height: 0.94;
+  letter-spacing: -0.02em;
+  line-height: 0.96;
 }
 
 .eyebrow {

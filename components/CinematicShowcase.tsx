@@ -37,7 +37,7 @@ const INJECTED_STYLES = `
       filter: drop-shadow(0px 12px 24px rgba(0,0,0,0.8)) drop-shadow(0px 4px 8px rgba(0,0,0,0.6));
   }
   .cine .premium-depth-card {
-      background: linear-gradient(145deg, #102347 0%, #060C18 100%);
+      background: linear-gradient(145deg, #0F1F3D 0%, #060C18 100%);
       box-shadow: 0 40px 100px -20px rgba(0,0,0,0.9), 0 20px 40px -20px rgba(0,0,0,0.8),
           inset 0 1px 2px rgba(255,255,255,0.16), inset 0 -2px 4px rgba(0,0,0,0.8);
       border: 1px solid rgba(255,255,255,0.05); position: relative;
