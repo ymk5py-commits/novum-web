@@ -75,8 +75,8 @@ export function AnimatedBeam({
       <defs>
         {reduce ? (
           <linearGradient id={id} gradientUnits="userSpaceOnUse" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop stopColor="#3B82F6" stopOpacity="0.5" />
-            <stop offset="100%" stopColor="#60A5FA" stopOpacity="0.5" />
+            <stop stopColor="#2E83F5" stopOpacity="0.5" />
+            <stop offset="100%" stopColor="#5FA1FB" stopOpacity="0.5" />
           </linearGradient>
         ) : (
           <motion.linearGradient
@@ -86,10 +86,10 @@ export function AnimatedBeam({
             animate={animateProps}
             transition={{ duration, delay, repeat: Infinity, ease: "linear" }}
           >
-            <stop stopColor="#3B82F6" stopOpacity="0" />
-            <stop stopColor="#3B82F6" />
-            <stop offset="32.5%" stopColor="#60A5FA" />
-            <stop offset="100%" stopColor="#BFDBFE" stopOpacity="0" />
+            <stop stopColor="#2E83F5" stopOpacity="0" />
+            <stop stopColor="#2E83F5" />
+            <stop offset="32.5%" stopColor="#5FA1FB" />
+            <stop offset="100%" stopColor="#9AC4FF" stopOpacity="0" />
           </motion.linearGradient>
         )}
       </defs>

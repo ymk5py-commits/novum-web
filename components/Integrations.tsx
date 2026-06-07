@@ -44,7 +44,7 @@ export default function Integrations() {
     <section id="integraciones" className="relative py-32 sm:py-44 border-t border-white/[0.06] overflow-hidden">
       <div
         className="aurora -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[420px] w-[760px]"
-        style={{ background: "radial-gradient(closest-side, rgba(37,99,235,0.18), transparent)" }}
+        style={{ background: "radial-gradient(closest-side, rgba(23,105,224,0.18), transparent)" }}
       />
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="grid grid-cols-12 gap-6 items-end">

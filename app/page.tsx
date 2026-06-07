@@ -2,6 +2,7 @@ import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import LogoMarquee from "@/components/LogoMarquee";
 import Products from "@/components/Products";
+import CinematicShowcase from "@/components/CinematicShowcase";
 import Integrations from "@/components/Integrations";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
@@ -21,6 +22,7 @@ export default function Page() {
         <Hero />
         <LogoMarquee />
         <Products />
+        <CinematicShowcase />
         <Integrations />
         <Services />
         <Process />

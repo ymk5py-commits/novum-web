@@ -11,7 +11,7 @@ export default function Contact() {
       <div className="absolute inset-0 -z-10 noise opacity-[0.4]" />
       <div
         className="aurora -z-10 bottom-[-200px] left-1/2 -translate-x-1/2 h-[600px] w-[1000px]"
-        style={{ background: "radial-gradient(closest-side, rgba(59,130,246,0.45), transparent)" }}
+        style={{ background: "radial-gradient(closest-side, rgba(46,131,245,0.45), transparent)" }}
       />
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8">

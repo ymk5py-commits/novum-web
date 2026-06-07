@@ -43,7 +43,7 @@ export default async function OG() {
             left: 120,
             width: 700,
             height: 500,
-            background: "radial-gradient(circle at center, rgba(59,130,246,0.45) 0%, rgba(7,15,34,0) 70%)",
+            background: "radial-gradient(circle at center, rgba(46,131,245,0.45) 0%, rgba(7,15,34,0) 70%)",
             display: "flex",
           }}
         />
@@ -57,16 +57,16 @@ export default async function OG() {
               gap: 10,
               padding: "8px 16px",
               borderRadius: 999,
-              border: "1px solid rgba(96,165,250,0.35)",
-              background: "rgba(59,130,246,0.12)",
-              color: "#BFDBFE",
+              border: "1px solid rgba(95,161,251,0.35)",
+              background: "rgba(46,131,245,0.12)",
+              color: "#9AC4FF",
               fontFamily: "InterSemi",
               fontSize: 22,
               letterSpacing: 4,
               textTransform: "uppercase",
             }}
           >
-            <div style={{ width: 10, height: 10, borderRadius: 999, background: "#3B82F6", display: "flex" }} />
+            <div style={{ width: 10, height: 10, borderRadius: 999, background: "#2E83F5", display: "flex" }} />
             Holding · Studio
           </div>
         </div>
@@ -126,7 +126,7 @@ export default async function OG() {
                   borderRadius: 999,
                   border: "1px solid rgba(255,255,255,0.12)",
                   background: "rgba(255,255,255,0.05)",
-                  color: "#DBEAFE",
+                  color: "#CBE0FF",
                   fontSize: 26,
                   letterSpacing: 1,
                 }}

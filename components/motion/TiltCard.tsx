@@ -28,7 +28,7 @@ export function TiltCard({
   const glareBg = useTransform(
     [glareX, glareY],
     ([gx, gy]: string[]) =>
-      `radial-gradient(420px circle at ${gx} ${gy}, rgba(96,165,250,0.14), transparent 60%)`
+      `radial-gradient(420px circle at ${gx} ${gy}, rgba(95,161,251,0.14), transparent 60%)`
   );
 
   if (reduce) return <div className={className}>{children}</div>;

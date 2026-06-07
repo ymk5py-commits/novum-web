@@ -141,7 +141,7 @@ function ProductRow({
         <ul className="mt-7 grid grid-cols-1 gap-2.5">
           {bullets.map((b) => (
             <li key={b} className="flex items-start gap-3 text-sm text-ivory-100/90">
-              <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-cobalt-400 shrink-0 shadow-[0_0_12px_rgba(59,130,246,0.7)]" />
+              <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-cobalt-400 shrink-0 shadow-[0_0_12px_rgba(46,131,245,0.7)]" />
               <span>{b}</span>
             </li>
           ))}
@@ -341,15 +341,15 @@ function AreaChart() {
     <svg viewBox="0 0 400 130" preserveAspectRatio="none" className="h-24 w-full sm:h-32">
       <defs>
         <linearGradient id="pa" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.5" />
-          <stop offset="100%" stopColor="#3B82F6" stopOpacity="0" />
+          <stop offset="0%" stopColor="#2E83F5" stopOpacity="0.5" />
+          <stop offset="100%" stopColor="#2E83F5" stopOpacity="0" />
         </linearGradient>
       </defs>
       {[0, 1, 2, 3].map((i) => (
         <line key={i} x1="0" x2="400" y1={i * 32 + 12} y2={i * 32 + 12} stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
       ))}
       <path d="M0,90 C30,82 55,60 85,64 S135,42 165,40 205,60 235,52 285,20 315,26 360,46 400,30 L400,130 L0,130 Z" fill="url(#pa)" />
-      <path d="M0,90 C30,82 55,60 85,64 S135,42 165,40 205,60 235,52 285,20 315,26 360,46 400,30" stroke="#60A5FA" strokeWidth="2.5" fill="none" vectorEffect="non-scaling-stroke" />
+      <path d="M0,90 C30,82 55,60 85,64 S135,42 165,40 205,60 235,52 285,20 315,26 360,46 400,30" stroke="#5FA1FB" strokeWidth="2.5" fill="none" vectorEffect="non-scaling-stroke" />
       <path d="M0,104 C60,100 100,90 150,94 S230,74 290,80 360,84 400,74" stroke="#F4C46A" strokeWidth="1.5" fill="none" opacity="0.7" strokeDasharray="4 4" vectorEffect="non-scaling-stroke" />
     </svg>
   );
