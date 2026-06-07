@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import { GlassButton, GlassChip } from "./primitives/GlassButton";
+import { NovumLogo } from "./brand/NovumLogo";
 
 export default function Hero() {
   return (
@@ -39,32 +40,39 @@ export default function Hero() {
           <span className="eyebrow">Bogotá · LATAM · Remoto global</span>
         </motion.div>
 
-        {/* Headline */}
-        <div className="mt-10 grid grid-cols-12 gap-y-10">
+        {/* Brand logo — home */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-12 sm:mt-14 relative"
+        >
+          <span className="absolute -inset-x-10 -top-10 bottom-0 -z-10 bg-cobalt-500/[0.07] blur-3xl rounded-full" />
+          <NovumLogo size="xl" align="left" className="text-ivory-50" />
+        </motion.div>
+
+        {/* Headline / value prop */}
+        <div className="mt-12 sm:mt-16 grid grid-cols-12 gap-y-10">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="col-span-12 display-tight text-[14vw] sm:text-[10vw] lg:text-[8.5vw] text-ivory-50"
+            transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            className="col-span-12 display-tight text-4xl sm:text-5xl lg:text-[3.6rem] text-ivory-50 max-w-4xl leading-[1.02]"
           >
-            <span className="block">Sistemas que</span>
-            <span className="block">
-              <em className="not-italic relative inline-block">
-                <span className="relative z-10 bg-gradient-to-r from-cobalt-200 via-cobalt-300 to-cobalt-400 bg-clip-text text-transparent">
-                  piensan
-                </span>
-                <span className="absolute -bottom-1 left-0 right-0 h-3 bg-cobalt-500/20 blur-2xl rounded-full" />
-              </em>
-              ,{" "}
-              <span className="font-serif italic text-ivory-200/90">venden</span>
+            Sistemas que{" "}
+            <span className="relative inline-block">
+              <span className="relative z-10 bg-gradient-to-r from-cobalt-200 via-cobalt-300 to-cobalt-400 bg-clip-text text-transparent">
+                piensan
+              </span>
+              <span className="absolute -bottom-1 left-0 right-0 h-3 bg-cobalt-500/20 blur-2xl rounded-full" />
             </span>
-            <span className="block">y operan por ti.</span>
+            , <span className="font-serif italic text-ivory-200/90">venden</span> y operan por ti.
           </motion.h1>
 
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
             className="col-span-12 md:col-span-6"
           >
             <p className="text-ivory-200/80 text-lg leading-[1.7] text-pretty max-w-lg">

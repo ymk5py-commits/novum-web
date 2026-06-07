@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { GlassButton, GlassChip } from "./primitives/GlassButton";
+import { NovumLogo, NovumMark } from "./brand/NovumLogo";
 
 const links = [
   { href: "#productos", label: "Productos" },
@@ -33,14 +34,12 @@ export default function Nav() {
         }`}
       >
         <div className="h-14 px-4 sm:px-6 flex items-center justify-between">
-          <a href="#top" className="flex items-center gap-3 group">
-            <Mark />
-            <div className="flex items-baseline gap-2">
-              <span className="display-tight text-xl text-ivory-50 tracking-ultrawide">NOVUM</span>
-              <span className="hidden sm:inline-block text-[9px] uppercase tracking-ultrawide text-ivory-300 border-l border-white/10 pl-2">
-                holding
-              </span>
-            </div>
+          <a href="#top" className="flex items-center gap-3 group" aria-label="NOVUM Holding — inicio">
+            <NovumMark />
+            <NovumLogo size="sm" subline={false} className="text-ivory-50" />
+            <span className="hidden sm:inline-block text-[9px] uppercase tracking-ultrawide text-ivory-300 border-l border-white/10 pl-2 self-center">
+              holding
+            </span>
           </a>
 
           <nav className="hidden md:flex items-center gap-0.5 text-sm">
@@ -71,12 +70,3 @@ export default function Nav() {
   );
 }
 
-function Mark() {
-  return (
-    <span className="relative inline-flex h-8 w-8 items-center justify-center rounded-full bg-cobalt-500/15 ring-1 ring-cobalt-400/40 overflow-hidden">
-      <span className="absolute inset-0 conic-glow opacity-50" />
-      <span className="absolute inset-0 rounded-full animate-pulseRing" />
-      <span className="relative z-10 h-2 w-2 rounded-full bg-cobalt-300" />
-    </span>
-  );
-}

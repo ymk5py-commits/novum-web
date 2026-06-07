@@ -5,21 +5,25 @@ import Products from "@/components/Products";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
 import Projects from "@/components/Projects";
+import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 export default function Page() {
   return (
-    <main className="relative bg-ink-950">
+    <>
       <Nav />
-      <Hero />
-      <Marquee />
-      <Products />
-      <Services />
-      <Process />
-      <Projects />
-      <Contact />
+      <main className="relative bg-navy-950">
+        <Hero />
+        <Marquee />
+        <Products />
+        <Services />
+        <Process />
+        <Projects />
+        <FAQ />
+        <Contact />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }

@@ -1,3 +1,5 @@
+import { NovumLogo } from "./brand/NovumLogo";
+
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
@@ -5,16 +7,8 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8 py-16">
         <div className="grid grid-cols-12 gap-8">
           <div className="col-span-12 md:col-span-5">
-            <div className="flex items-center gap-3">
-              <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-cobalt-500/15 ring-1 ring-cobalt-400/40">
-                <span className="h-2 w-2 rounded-full bg-cobalt-300" />
-              </span>
-              <div className="flex items-baseline gap-2">
-                <span className="display-tight text-2xl text-ivory-50 tracking-ultrawide">NOVUM</span>
-                <span className="text-[10px] uppercase tracking-ultrawide text-ivory-300 border-l border-white/10 pl-2">holding</span>
-              </div>
-            </div>
-            <p className="mt-5 max-w-sm text-sm text-ivory-200/75 leading-relaxed">
+            <NovumLogo size="md" align="left" className="text-ivory-50" />
+            <p className="mt-6 max-w-sm text-sm text-ivory-200/75 leading-relaxed">
               Holding y studio de sistemas inteligentes. Fundado en Bogotá,
               operando donde tu negocio lo necesite.
             </p>
