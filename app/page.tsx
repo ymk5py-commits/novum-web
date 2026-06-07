@@ -7,6 +7,7 @@ import Integrations from "@/components/Integrations";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
 import Projects from "@/components/Projects";
+import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
@@ -27,6 +28,7 @@ export default function Page() {
         <Services />
         <Process />
         <Projects />
+        <Pricing />
         <Testimonials />
         <FAQ />
         <Contact />
