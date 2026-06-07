@@ -98,6 +98,10 @@ function NovuMed() {
         "Portal del paciente y telemedicina integrada",
       ]}
       visual={<NovuMedVisual />}
+      pageHref="/novumed"
+      pageLabel="Conocer NOVUMed"
+      secondaryHref="/novudent"
+      secondaryLabel="¿Odontología? NOVUdent →"
     />
   );
 }
@@ -110,6 +114,10 @@ function ProductRow({
   bullets,
   visual,
   reverse,
+  pageHref,
+  pageLabel,
+  secondaryHref,
+  secondaryLabel,
 }: {
   eyebrow: string;
   kicker: string;
@@ -118,6 +126,10 @@ function ProductRow({
   bullets: string[];
   visual: React.ReactNode;
   reverse?: boolean;
+  pageHref?: string;
+  pageLabel?: string;
+  secondaryHref?: string;
+  secondaryLabel?: string;
 }) {
   return (
     <motion.article
@@ -146,10 +158,21 @@ function ProductRow({
             </li>
           ))}
         </ul>
-        <div className="mt-8">
-          <GlassButton href="#contacto" variant="outline" size="md">
-            Solicitar demo de {kicker}
-          </GlassButton>
+        <div className="mt-8 flex flex-wrap items-center gap-4">
+          {pageHref ? (
+            <GlassButton href={pageHref} variant="primary" size="md">
+              {pageLabel ?? `Conocer ${kicker}`}
+            </GlassButton>
+          ) : (
+            <GlassButton href="#contacto" variant="outline" size="md">
+              Solicitar demo de {kicker}
+            </GlassButton>
+          )}
+          {secondaryHref && (
+            <a href={secondaryHref} className="text-sm text-cobalt-200 hover:text-cobalt-100 transition-colors">
+              {secondaryLabel}
+            </a>
+          )}
         </div>
       </div>
       <div className={`col-span-12 lg:col-span-6 ${reverse ? "lg:order-1" : ""}`}>{visual}</div>
