@@ -67,7 +67,7 @@ export default function Integrations() {
         {/* Diagrama */}
         <div
           ref={container}
-          className="relative mt-14 mx-auto flex h-[420px] w-full max-w-3xl items-stretch justify-between"
+          className="relative mt-14 mx-auto flex h-[360px] sm:h-[440px] w-full max-w-3xl items-stretch justify-between"
         >
           {/* Beams (debajo de los nodos) */}
           {inputs.map((node, i) => (
@@ -95,9 +95,9 @@ export default function Integrations() {
           {/* Centro: hub Botika */}
           <div className="z-10 flex items-center">
             <div className="flex flex-col items-center gap-2">
-              <div ref={hub} className="relative glass-cobalt grid h-20 w-20 place-items-center rounded-3xl shadow-glow">
+              <div ref={hub} className="relative glass-cobalt grid h-16 w-16 sm:h-20 sm:w-20 place-items-center rounded-3xl shadow-glow">
                 <span className="absolute inset-0 conic-glow rounded-3xl opacity-40" />
-                <NovumMark className="!h-10 !w-10" />
+                <NovumMark className="!h-8 !w-8 sm:!h-10 sm:!w-10" />
               </div>
               <GlassChip dot tone="cobalt">Botika</GlassChip>
             </div>

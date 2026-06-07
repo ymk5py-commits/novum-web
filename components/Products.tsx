@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { Send, Check, Instagram, Video, ChevronLeft, ChevronRight, TrendingUp } from "lucide-react";
 import { GlassButton, GlassChip } from "./primitives/GlassButton";
 import { TiltCard } from "@/components/motion/TiltCard";
 import { BorderBeam } from "@/components/magic/BorderBeam";
@@ -184,48 +185,65 @@ function FrameShell({ children, label }: { children: React.ReactNode; label: str
   );
 }
 
+/* ---------- BOTIKA · chat ---------- */
 function BotikaVisual() {
   return (
     <FrameShell label="botika · runtime">
-      <div className="p-6 sm:p-7 grid gap-3.5 bg-gradient-to-br from-navy-900/40 via-transparent to-cobalt-500/[0.04]">
-        <Bubble side="user" name="Camila · Instagram">¿Tienes disponibilidad para una limpieza el sábado?</Bubble>
-        <Bubble side="agent" name="Botika">
-          Hola Camila. Sábado a las 10:30 con el Dr. Ruiz. ¿Reservo?
+      <div className="flex items-center gap-3 border-b border-white/[0.06] px-4 sm:px-6 py-3">
+        <span className="relative grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gradient-to-br from-[#F58529] via-[#DD2A7B] to-[#8134AF] text-white">
+          <Instagram className="h-4 w-4" strokeWidth={2} />
+          <span className="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-signal-mint ring-2 ring-navy-900" />
+        </span>
+        <div className="min-w-0">
+          <div className="text-sm text-ivory-50 truncate">Camila Restrepo</div>
+          <div className="eyebrow">Instagram DM · en línea</div>
+        </div>
+        <span className="ml-auto shrink-0"><GlassChip dot tone="mint">Auto</GlassChip></span>
+      </div>
+
+      <div className="p-4 sm:p-6 grid gap-2.5 bg-gradient-to-br from-navy-900/40 via-transparent to-cobalt-500/[0.04]">
+        <Bubble side="user" time="10:02">¿Tienen disponibilidad para una limpieza el sábado?</Bubble>
+        <Bubble side="agent" time="10:02">
+          ¡Hola Camila! El sábado tengo 10:30 con el Dr. Ruiz. ¿Te la reservo?
           <ToolCall name="calendar.checkAvailability" />
         </Bubble>
-        <Bubble side="user" name="Camila · Instagram">Sí, gracias.</Bubble>
-        <Bubble side="agent" name="Botika">
-          Listo. Cita confirmada y recordatorio enviado por WhatsApp.
+        <Bubble side="user" time="10:03">Sí, porfa 🙌</Bubble>
+        <Bubble side="agent" time="10:03">
+          Listo. Cita confirmada y te envié el recordatorio por WhatsApp.
           <ToolCall name="crm.createOpportunity" />
           <ToolCall name="whatsapp.sendTemplate" />
         </Bubble>
-        <div className="mt-3 flex items-center justify-between border-t border-white/5 pt-3 font-mono text-[10px] uppercase tracking-ultrawide text-ivory-300/60">
-          <span>412ms · 3 tools · closed-loop</span>
-          <span className="inline-flex items-center gap-1.5 text-signal-mint">
-            <span className="h-1.5 w-1.5 rounded-full bg-signal-mint" />
-            resolved
+
+        <div className="mt-1 flex items-center gap-2 rounded-full glass-chip px-3 py-2">
+          <span className="text-[13px] text-ivory-300/60">Botika está respondiendo…</span>
+          <span className="ml-auto grid h-7 w-7 place-items-center rounded-full bg-cobalt-500 text-white">
+            <Send className="h-3.5 w-3.5" />
           </span>
+        </div>
+        <div className="mt-1 flex items-center justify-between border-t border-white/5 pt-3 font-mono text-[10px] uppercase tracking-ultrawide text-ivory-300/60">
+          <span>412ms · 3 tools</span>
+          <span className="inline-flex items-center gap-1.5 text-signal-mint"><Check className="h-3 w-3" /> resolved</span>
         </div>
       </div>
     </FrameShell>
   );
 }
 
-function Bubble({ side, name, children }: { side: "user" | "agent"; name: string; children: React.ReactNode }) {
+function Bubble({ side, time, children }: { side: "user" | "agent"; time: string; children: React.ReactNode }) {
   const isAgent = side === "agent";
   return (
     <div className={`flex ${isAgent ? "" : "justify-end"}`}>
-      <div className={`max-w-[88%] ${isAgent ? "" : "text-right"}`}>
-        <div className="eyebrow mb-1.5">{name}</div>
+      <div className={`flex max-w-[85%] flex-col ${isAgent ? "items-start" : "items-end"}`}>
         <div
-          className={`rounded-2xl px-4 py-3 text-sm leading-relaxed ${
+          className={`px-3.5 py-2.5 text-[13px] sm:text-sm leading-relaxed ${
             isAgent
-              ? "glass-cobalt text-ivory-50"
-              : "glass-chip text-ivory-100"
+              ? "glass-cobalt text-ivory-50 rounded-2xl rounded-tl-md"
+              : "glass-chip text-ivory-100 rounded-2xl rounded-tr-md"
           }`}
         >
           {children}
         </div>
+        <span className="mt-1 font-mono text-[9px] text-ivory-300/50">{time}</span>
       </div>
     </div>
   );
@@ -233,37 +251,72 @@ function Bubble({ side, name, children }: { side: "user" | "agent"; name: string
 
 function ToolCall({ name }: { name: string }) {
   return (
-    <div className="mt-2.5 inline-flex items-center gap-2 rounded-md border border-cobalt-300/30 bg-cobalt-500/10 px-2 py-1 font-mono text-[10px] text-cobalt-100">
-      <span className="h-1 w-1 rounded-full bg-cobalt-300 animate-ticker" />
+    <div className="mt-2 inline-flex items-center gap-1.5 rounded-md border border-cobalt-300/30 bg-cobalt-500/10 px-2 py-1 font-mono text-[10px] text-cobalt-100">
+      <Check className="h-2.5 w-2.5 text-signal-mint" />
       {name}()
     </div>
   );
 }
 
+/* ---------- PAUTIK · cockpit ---------- */
 function PautikVisual() {
   return (
     <FrameShell label="pautik · cockpit">
-      <div className="p-6 sm:p-7 grid gap-5 bg-gradient-to-br from-navy-900/40 via-transparent to-cobalt-500/[0.04]">
-        <div className="grid grid-cols-3 gap-3">
-          <Kpi label="Spend / día" value="$18,420" delta="+12.3%" />
-          <Kpi label="CPA" value="$4.12" delta="−8.5%" positive />
-          <Kpi label="ROAS" value="6.41×" delta="+0.8×" positive />
-        </div>
-        <div className="glass-chip rounded-2xl p-4">
-          <div className="flex items-center justify-between mb-3">
-            <div className="eyebrow">Performance · últimos 30d</div>
-            <div className="flex gap-1.5">
-              <Tag color="cobalt">META</Tag>
-              <Tag color="ivory">GOOGLE</Tag>
-              <Tag color="coral">TIKTOK</Tag>
-            </div>
+      <div className="p-4 sm:p-6 grid gap-4 bg-gradient-to-br from-navy-900/40 via-transparent to-cobalt-500/[0.04]">
+        <div className="flex items-center justify-between gap-2">
+          <div className="eyebrow">Cuenta · NOVUM</div>
+          <div className="flex gap-0.5 rounded-full glass-chip p-0.5">
+            {["7d", "30d", "90d"].map((d, i) => (
+              <span
+                key={d}
+                className={`rounded-full px-2.5 py-0.5 font-mono text-[10px] ${
+                  i === 1 ? "bg-cobalt-500 text-white" : "text-ivory-300/70"
+                }`}
+              >
+                {d}
+              </span>
+            ))}
           </div>
-          <Sparkline />
         </div>
-        <div className="glass-chip rounded-2xl p-3 flex items-center gap-3">
+
+        <div className="grid grid-cols-3 gap-2 sm:gap-3">
+          <Kpi label="Spend" value="$18.4k" delta="+12.3%" />
+          <Kpi label="CPA" value="$4.12" delta="−8.5%" />
+          <Kpi label="ROAS" value="6.41×" delta="+0.8×" />
+        </div>
+
+        <div className="glass-chip rounded-2xl p-3 sm:p-4">
+          <div className="mb-3 flex items-center justify-between">
+            <div className="flex items-center gap-3 text-[11px]">
+              <span className="inline-flex items-center gap-1.5 text-cobalt-200">
+                <span className="h-1.5 w-1.5 rounded-full bg-cobalt-400" />Ingresos
+              </span>
+              <span className="inline-flex items-center gap-1.5 text-signal-amber">
+                <span className="h-1.5 w-1.5 rounded-full bg-signal-amber" />Inversión
+              </span>
+            </div>
+            <span className="eyebrow hidden sm:block">30 días</span>
+          </div>
+          <AreaChart />
+        </div>
+
+        <div className="grid gap-2">
+          <div className="flex h-2 w-full overflow-hidden rounded-full">
+            <span className="bg-cobalt-500" style={{ width: "52%" }} />
+            <span className="bg-cobalt-300" style={{ width: "31%" }} />
+            <span className="bg-signal-coral" style={{ width: "17%" }} />
+          </div>
+          <div className="flex justify-between font-mono text-[10px] text-ivory-300/70">
+            <span>Meta 52%</span>
+            <span>Google 31%</span>
+            <span>TikTok 17%</span>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2.5 rounded-xl glass-chip px-3 py-2">
           <span className="h-2 w-2 rounded-full bg-signal-mint animate-ticker shadow-[0_0_12px_rgba(123,227,179,0.7)]" />
-          <span className="font-mono text-xs text-ivory-200">
-            Auto-bid · subió presupuesto en <span className="text-cobalt-300">VENTA — RT</span> (+8%)
+          <span className="font-mono text-[11px] text-ivory-200">
+            Auto-bid · +8% en <span className="text-cobalt-300">VENTA — RT</span>
           </span>
         </div>
       </div>
@@ -271,81 +324,87 @@ function PautikVisual() {
   );
 }
 
-function Tag({ color, children }: { color: "cobalt" | "ivory" | "coral"; children: React.ReactNode }) {
-  const c = {
-    cobalt: "bg-cobalt-500/15 text-cobalt-100 border-cobalt-300/30",
-    ivory: "bg-white/10 text-ivory-100 border-white/15",
-    coral: "bg-signal-coral/15 text-signal-coral border-signal-coral/30",
-  }[color];
+function Kpi({ label, value, delta }: { label: string; value: string; delta: string }) {
+  const up = delta.includes("+") || delta.includes("−");
   return (
-    <span className={`rounded-md border px-1.5 py-0.5 font-mono text-[9.5px] tracking-ultrawide ${c}`}>
-      {children}
-    </span>
-  );
-}
-
-function Kpi({ label, value, delta, positive }: { label: string; value: string; delta: string; positive?: boolean }) {
-  return (
-    <div className="glass-chip rounded-2xl p-3.5">
-      <div className="eyebrow">{label}</div>
-      <div className="display-tight text-2xl text-ivory-50 mt-1.5">{value}</div>
-      <div className={`text-[11px] mt-0.5 font-mono ${positive ? "text-signal-mint" : "text-ivory-300/70"}`}>{delta}</div>
+    <div className="glass-chip rounded-xl sm:rounded-2xl p-2.5 sm:p-3.5">
+      <div className="eyebrow truncate">{label}</div>
+      <div className="display-tight text-lg sm:text-2xl text-ivory-50 mt-1">{value}</div>
+      <div className="mt-0.5 inline-flex items-center gap-0.5 font-mono text-[10px] text-signal-mint">
+        {up && <TrendingUp className="h-3 w-3" />}
+        {delta}
+      </div>
     </div>
   );
 }
 
-function Sparkline() {
+function AreaChart() {
   return (
-    <svg viewBox="0 0 400 110" className="w-full h-28">
+    <svg viewBox="0 0 400 130" preserveAspectRatio="none" className="h-24 w-full sm:h-32">
       <defs>
-        <linearGradient id="sp" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.45" />
+        <linearGradient id="pa" x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.5" />
           <stop offset="100%" stopColor="#3B82F6" stopOpacity="0" />
         </linearGradient>
       </defs>
-      <path
-        d="M0,80 C 30,72 50,55 80,58 S 130,40 160,38 200,55 230,48 280,18 310,22 360,42 400,28 L400,110 L0,110 Z"
-        fill="url(#sp)"
-      />
-      <path
-        d="M0,80 C 30,72 50,55 80,58 S 130,40 160,38 200,55 230,48 280,18 310,22 360,42 400,28"
-        stroke="#60A5FA"
-        strokeWidth="2"
-        fill="none"
-      />
-      <path
-        d="M0,92 C 60,88 100,78 150,82 S 230,62 290,68 360,72 400,62"
-        stroke="#F4C46A"
-        strokeWidth="1.5"
-        fill="none"
-        opacity="0.7"
-        strokeDasharray="3 4"
-      />
+      {[0, 1, 2, 3].map((i) => (
+        <line key={i} x1="0" x2="400" y1={i * 32 + 12} y2={i * 32 + 12} stroke="rgba(255,255,255,0.05)" strokeWidth="1" />
+      ))}
+      <path d="M0,90 C30,82 55,60 85,64 S135,42 165,40 205,60 235,52 285,20 315,26 360,46 400,30 L400,130 L0,130 Z" fill="url(#pa)" />
+      <path d="M0,90 C30,82 55,60 85,64 S135,42 165,40 205,60 235,52 285,20 315,26 360,46 400,30" stroke="#60A5FA" strokeWidth="2.5" fill="none" vectorEffect="non-scaling-stroke" />
+      <path d="M0,104 C60,100 100,90 150,94 S230,74 290,80 360,84 400,74" stroke="#F4C46A" strokeWidth="1.5" fill="none" opacity="0.7" strokeDasharray="4 4" vectorEffect="non-scaling-stroke" />
     </svg>
   );
 }
 
+/* ---------- NOVUMED · agenda ---------- */
 function NovuMedVisual() {
   return (
     <FrameShell label="novumed · agenda">
-      <div className="p-6 sm:p-7 grid gap-4 bg-gradient-to-br from-navy-900/40 via-transparent to-cobalt-500/[0.04]">
+      <div className="p-4 sm:p-6 grid gap-4 bg-gradient-to-br from-navy-900/40 via-transparent to-cobalt-500/[0.04]">
         <div className="flex items-center justify-between">
-          <div className="display-tight text-3xl text-ivory-50">Jueves 14</div>
-          <div className="eyebrow">7 citas · 92% ocup.</div>
+          <div>
+            <div className="display-tight text-2xl sm:text-3xl text-ivory-50">Jueves 14</div>
+            <div className="eyebrow mt-0.5">Marzo · 7 citas</div>
+          </div>
+          <div className="flex items-center gap-1">
+            <span className="grid h-7 w-7 place-items-center rounded-full glass-chip"><ChevronLeft className="h-3.5 w-3.5 text-ivory-200" /></span>
+            <span className="grid h-7 w-7 place-items-center rounded-full glass-chip"><ChevronRight className="h-3.5 w-3.5 text-ivory-200" /></span>
+          </div>
         </div>
-        <div className="grid grid-cols-1 gap-2">
+
+        <div className="flex justify-between">
+          {[11, 12, 13, 14, 15, 16, 17].map((n, i) => (
+            <span
+              key={n}
+              className={`grid h-8 w-8 place-items-center rounded-full font-mono text-[11px] ${
+                i === 3 ? "bg-cobalt-500 text-white" : "glass-chip text-ivory-300/70"
+              }`}
+            >
+              {n}
+            </span>
+          ))}
+        </div>
+
+        <div className="grid gap-2">
           <Appt h="08:30" who="María González" what="Control · Hipertensión" tag="Confirmada" tone="mint" />
           <Appt h="09:00" who="Juan P. Ríos" what="Primera consulta" tag="Pendiente" tone="amber" />
-          <Appt h="09:45" who="Camila Ortega" what="Resultados de laboratorio" tag="Telemedicina" tone="cobalt" />
+          <Appt h="09:45" who="Camila Ortega" what="Resultados de lab" tag="Telemedicina" tone="cobalt" video />
           <Appt h="10:30" who="Andrés Mejía" what="Procedimiento menor" tag="Confirmada" tone="mint" />
         </div>
-        <div className="grid grid-cols-2 gap-3 mt-1">
-          <MiniMetric n="48" l="Pacientes activos" />
-          <MiniMetric n="$12.4M" l="Facturado mes" />
+
+        <div className="grid grid-cols-3 gap-2 sm:gap-3">
+          <MiniMetric n="48" l="Pacientes" />
+          <MiniMetric n="92%" l="Ocupación" />
+          <MiniMetric n="$12.4M" l="Facturado" />
         </div>
       </div>
     </FrameShell>
   );
+}
+
+function apptInitials(n: string) {
+  return n.split(" ").map((w) => w[0]).slice(0, 2).join("").toUpperCase();
 }
 
 function Appt({
@@ -354,32 +413,40 @@ function Appt({
   what,
   tag,
   tone,
+  video,
 }: {
   h: string;
   who: string;
   what: string;
   tag: string;
   tone: "mint" | "amber" | "cobalt";
+  video?: boolean;
 }) {
+  const dot = { mint: "bg-signal-mint", amber: "bg-signal-amber", cobalt: "bg-cobalt-400" }[tone];
   return (
-    <div className="grid grid-cols-12 items-center gap-3 glass-chip rounded-2xl px-3.5 py-2.5">
-      <div className="col-span-2 font-mono text-sm text-ivory-50">{h}</div>
-      <div className="col-span-6">
-        <div className="text-sm text-ivory-50">{who}</div>
-        <div className="text-[11px] text-ivory-300/70">{what}</div>
+    <div className="flex items-center gap-3 glass-chip rounded-2xl px-3 py-2.5">
+      <div className="w-10 shrink-0 font-mono text-xs text-ivory-300/70">{h}</div>
+      <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-cobalt-500/15 font-mono text-[10px] text-cobalt-100 ring-1 ring-cobalt-300/20">
+        {apptInitials(who)}
+      </span>
+      <div className="min-w-0 flex-1">
+        <div className="flex items-center gap-1.5 truncate text-sm text-ivory-50">
+          {who}
+          {video && <Video className="h-3 w-3 shrink-0 text-cobalt-300" />}
+        </div>
+        <div className="truncate text-[11px] text-ivory-300/70">{what}</div>
       </div>
-      <div className="col-span-4 flex justify-end">
-        <GlassChip tone={tone}>{tag}</GlassChip>
-      </div>
+      <span className="hidden sm:flex"><GlassChip tone={tone}>{tag}</GlassChip></span>
+      <span className={`h-2 w-2 shrink-0 rounded-full sm:hidden ${dot}`} />
     </div>
   );
 }
 
 function MiniMetric({ n, l }: { n: string; l: string }) {
   return (
-    <div className="glass-chip rounded-2xl p-3.5">
-      <div className="display-tight text-2xl text-ivory-50">{n}</div>
-      <div className="eyebrow mt-1">{l}</div>
+    <div className="glass-chip rounded-xl sm:rounded-2xl p-2.5 sm:p-3.5">
+      <div className="display-tight text-lg sm:text-2xl text-ivory-50">{n}</div>
+      <div className="eyebrow mt-0.5 truncate">{l}</div>
     </div>
   );
 }
