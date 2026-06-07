@@ -2,13 +2,13 @@ export const SITE = {
   name: "NOVUM Holding",
   shortName: "NOVUM",
   url: "https://novum-web-six.vercel.app",
-  locale: "es_CO",
+  locale: "es_PY",
   lang: "es",
   email: "hola@novum.studio",
-  phone: "+57 300 000 0000",
-  whatsapp: "https://wa.me/573000000000",
-  city: "Bogotá",
-  country: "Colombia",
+  phone: "+595 981 000 000",
+  whatsapp: "https://wa.me/595981000000",
+  city: "Asunción",
+  country: "Paraguay",
   founder: "NOVUM",
   tagline: "Sistemas que piensan, venden y operan por ti.",
   description:
@@ -23,7 +23,8 @@ export const SITE = {
     "CRM para médicos",
     "software a la medida",
     "desarrollo de producto SaaS",
-    "Bogotá Colombia",
+    "agencia de software Paraguay",
+    "Asunción Paraguay",
   ],
   products: [
     {
@@ -72,8 +73,8 @@ export const SITE = {
       a: "Un MVP de producto sale en 8 semanas y un agente conversacional puede estar en producción en 4–6 semanas. Trabajamos en sprints semanales con demos en vivo y despliegue continuo desde el día 5, así que ves avances reales cada semana.",
     },
     {
-      q: "¿Trabajan con empresas fuera de Colombia?",
-      a: "Sí. Operamos en remoto para LATAM, Estados Unidos y Europa. Tenemos sede en Bogotá pero el equipo está distribuido y respondemos en menos de 12 horas hábiles. Firmamos NDA cuando el proyecto lo requiere.",
+      q: "¿Trabajan con empresas fuera de Paraguay?",
+      a: "Sí. Operamos en remoto para Paraguay, LATAM, Estados Unidos y Europa. Tenemos sede en Asunción pero el equipo está distribuido y respondemos en menos de 12 horas hábiles. Firmamos NDA cuando el proyecto lo requiere.",
     },
     {
       q: "¿El software es propio o de terceros?",

@@ -1,6 +1,6 @@
 # NOVUM Holding
 
-> Holding y studio de sistemas inteligentes con sede en Bogotá, Colombia. Diseñamos, construimos y operamos software con IA, automatización, pauta digital y CRM clínico. Operamos para LATAM, Estados Unidos y Europa.
+> Holding y studio de sistemas inteligentes con sede en Asunción, Paraguay. Diseñamos, construimos y operamos software con IA, automatización, pauta digital y CRM clínico. Operamos para Paraguay, LATAM, Estados Unidos y Europa.
 
 ## Qué hacemos
 NOVUM combina tres productos propietarios con un studio de implementación a la medida. Cada proyecto termina en producción, con métricas de negocio definidas y código que es del cliente.
@@ -21,9 +21,9 @@ IA aplicada a negocio (asistentes verticales, copilotos, RAG), automatización e
 
 ## Contacto
 - Email: hola@novum.studio
-- WhatsApp: https://wa.me/573000000000
-- Sede: Bogotá, Colombia
-- Cobertura: LATAM, Estados Unidos, Europa (remoto)
+- WhatsApp: https://wa.me/595981000000
+- Sede: Asunción, Paraguay
+- Cobertura: Paraguay, LATAM, Estados Unidos, Europa (remoto)
 - Respuesta: menos de 12 horas hábiles
 
 ## Notas

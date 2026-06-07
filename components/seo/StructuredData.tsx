@@ -20,10 +20,10 @@ export default function StructuredData() {
           address: {
             "@type": "PostalAddress",
             addressLocality: SITE.city,
-            addressCountry: "CO",
+            addressCountry: "PY",
           },
         },
-        areaServed: ["Colombia", "Latinoamérica", "Estados Unidos", "Europa"],
+        areaServed: ["Paraguay", "Latinoamérica", "Estados Unidos", "Europa"],
         knowsAbout: [
           "Inteligencia artificial aplicada",
           "Agentes conversacionales",

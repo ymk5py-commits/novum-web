@@ -2,6 +2,7 @@ import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
 import Products from "@/components/Products";
+import Integrations from "@/components/Integrations";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
 import Projects from "@/components/Projects";
@@ -19,6 +20,7 @@ export default function Page() {
         <Hero />
         <Marquee />
         <Products />
+        <Integrations />
         <Services />
         <Process />
         <Projects />

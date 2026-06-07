@@ -24,7 +24,7 @@ export function Counter({
   const reduce = useReducedMotion();
 
   const fmt = (n: number) =>
-    `${prefix}${n.toLocaleString("es-CO", {
+    `${prefix}${n.toLocaleString("es-PY", {
       minimumFractionDigits: decimals,
       maximumFractionDigits: decimals,
     })}${suffix}`;

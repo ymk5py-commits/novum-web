@@ -1,4 +1,5 @@
 import { NovumLogo } from "./brand/NovumLogo";
+import { SITE } from "@/lib/site";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -9,7 +10,7 @@ export default function Footer() {
           <div className="col-span-12 md:col-span-5">
             <NovumLogo size="md" align="left" className="text-ivory-50" />
             <p className="mt-6 max-w-sm text-sm text-ivory-200/75 leading-relaxed">
-              Holding y studio de sistemas inteligentes. Fundado en Bogotá,
+              Holding y studio de sistemas inteligentes. Fundado en Asunción,
               operando donde tu negocio lo necesite.
             </p>
             <div className="mt-6 inline-flex items-center gap-2 glass-chip rounded-full px-3 py-1.5">
@@ -40,8 +41,8 @@ export default function Footer() {
             <h4 className="eyebrow">Contacto</h4>
             <ul className="mt-4 space-y-2.5 text-sm text-ivory-100/90">
               <li><a href="mailto:hola@novum.studio" className="hover:text-cobalt-300 transition-colors">hola@novum.studio</a></li>
-              <li><a href="https://wa.me/573000000000" className="hover:text-cobalt-300 transition-colors">WhatsApp</a></li>
-              <li><span className="text-ivory-300/70">Bogotá, Colombia</span></li>
+              <li><a href={SITE.whatsapp} className="hover:text-cobalt-300 transition-colors">WhatsApp</a></li>
+              <li><span className="text-ivory-300/70">Asunción, Paraguay</span></li>
             </ul>
           </div>
         </div>

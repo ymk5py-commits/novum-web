@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { GlassButton, GlassChip } from "./primitives/GlassButton";
 import { TiltCard } from "@/components/motion/TiltCard";
+import { BorderBeam } from "@/components/magic/BorderBeam";
 
 export default function Products() {
   return (
@@ -163,7 +164,8 @@ function FrameShell({ children, label }: { children: React.ReactNode; label: str
     <TiltCard className="group">
       {/* glow */}
       <div className="absolute -inset-4 bg-cobalt-500/10 blur-3xl rounded-3xl -z-10" />
-      <div className="glass-strong rounded-3xl overflow-hidden shadow-glass-lg">
+      <div className="relative glass-strong rounded-3xl overflow-hidden shadow-glass-lg">
+        <BorderBeam />
         <div className="flex items-center justify-between border-b border-white/[0.07] px-5 py-3">
           <div className="flex items-center gap-1.5">
             <span className="h-2.5 w-2.5 rounded-full bg-white/15" />

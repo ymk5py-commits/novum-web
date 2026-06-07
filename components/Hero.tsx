@@ -28,7 +28,7 @@ export default function Hero() {
         >
           <GlassChip dot tone="cobalt">Holding · Studio</GlassChip>
           <span className="h-px w-10 bg-white/10 hidden sm:block" />
-          <span className="eyebrow">Bogotá · LATAM · Remoto global</span>
+          <span className="eyebrow">Asunción · LATAM · Remoto global</span>
         </motion.div>
 
         {/* Brand logo — home */}
@@ -134,7 +134,7 @@ export default function Hero() {
             {/* Bottom caption */}
             <div className="absolute left-5 sm:left-8 bottom-5 sm:bottom-8 right-5 sm:right-8 flex items-end justify-between">
               <div>
-                <div className="eyebrow">Diseñado en Bogotá</div>
+                <div className="eyebrow">Diseñado en Asunción</div>
                 <div className="display-tight text-2xl sm:text-3xl text-ivory-50 mt-1">
                   Desplegado donde lo necesites.
                 </div>

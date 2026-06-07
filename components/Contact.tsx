@@ -1,7 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
 import { Mail, MessageCircle, Phone } from "lucide-react";
-import { GlassButton, GlassChip } from "./primitives/GlassButton";
+import { GlassChip } from "./primitives/GlassButton";
+import { SITE } from "@/lib/site";
 
 export default function Contact() {
   return (
@@ -45,23 +46,23 @@ export default function Contact() {
               hola@novum.studio
             </a>
             <a
-              href="https://wa.me/573000000000"
+              href={SITE.whatsapp}
               className="sheen group inline-flex items-center gap-2 rounded-full glass px-6 py-3.5 text-sm text-ivory-100 hover:bg-white/[0.08] transition-all"
             >
               <MessageCircle className="h-4 w-4 text-signal-mint" />
               WhatsApp directo
             </a>
             <a
-              href="tel:+573000000000"
+              href={`tel:${SITE.phone.replace(/\s/g, "")}`}
               className="sheen group inline-flex items-center gap-2 rounded-full glass px-6 py-3.5 text-sm text-ivory-100 hover:bg-white/[0.08] transition-all"
             >
               <Phone className="h-4 w-4 text-signal-amber" />
-              +57 300 000 0000
+              {SITE.phone}
             </a>
           </div>
 
           <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto">
-            <Pill k="HQ" v="Bogotá" />
+            <Pill k="HQ" v="Asunción" />
             <Pill k="Remoto" v="LATAM · USA · EU" />
             <Pill k="Respuesta" v="< 12 horas" />
             <Pill k="NDA" v="Disponible" />
