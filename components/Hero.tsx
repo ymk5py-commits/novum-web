@@ -4,6 +4,7 @@ import { Play } from "lucide-react";
 import { GlassButton, GlassChip } from "./primitives/GlassButton";
 import { NovumLogo } from "./brand/NovumLogo";
 import ShaderBackground from "./brand/ShaderBackground";
+import { Counter } from "@/components/motion/Counter";
 
 export default function Hero() {
   return (
@@ -89,9 +90,9 @@ export default function Hero() {
             className="col-span-12 md:col-span-5 md:col-start-8 self-end"
           >
             <div className="glass rounded-3xl p-6 grid grid-cols-3 gap-5">
-              <Stat n="+34" label="En producción" />
-              <Stat n="11" label="Verticales" />
-              <Stat n="99.9%" label="Uptime" mono />
+              <Stat value={34} prefix="+" label="En producción" />
+              <Stat value={11} label="Verticales" />
+              <Stat value={99.9} decimals={1} suffix="%" label="Uptime" mono />
             </div>
           </motion.div>
         </div>
@@ -146,16 +147,32 @@ export default function Hero() {
   );
 }
 
-function Stat({ n, label, mono = false }: { n: string; label: string; mono?: boolean }) {
+function Stat({
+  value,
+  label,
+  prefix,
+  suffix,
+  decimals = 0,
+  mono = false,
+}: {
+  value: number;
+  label: string;
+  prefix?: string;
+  suffix?: string;
+  decimals?: number;
+  mono?: boolean;
+}) {
   return (
     <div>
-      <div
-        className={`text-ivory-50 leading-none ${
+      <Counter
+        value={value}
+        prefix={prefix}
+        suffix={suffix}
+        decimals={decimals}
+        className={`block text-ivory-50 leading-none ${
           mono ? "font-mono text-2xl sm:text-3xl" : "display-tight text-3xl sm:text-4xl"
         }`}
-      >
-        {n}
-      </div>
+      />
       <div className="eyebrow mt-2">{label}</div>
     </div>
   );

@@ -8,10 +8,12 @@ import Projects from "@/components/Projects";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import { ScrollProgress } from "@/components/motion/ScrollProgress";
 
 export default function Page() {
   return (
     <>
+      <ScrollProgress />
       <Nav />
       <main className="relative bg-navy-950">
         <Hero />

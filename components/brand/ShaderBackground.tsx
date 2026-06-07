@@ -4,7 +4,8 @@ import { useEffect, useRef } from "react";
 /**
  * Fondo WebGL2 — nebulosa navy/cobalto generada por fragment shader.
  * Adaptado de un shader de Matthias Hurrle (@atzedent), recoloreado a la
- * paleta NOVUM. Respeta prefers-reduced-motion y se pausa al ocultar la pestaña.
+ * paleta NOVUM. Se pausa al ocultar la pestaña; con prefers-reduced-motion
+ * reduce la velocidad (deriva suave) en vez de congelarse.
  */
 
 const FRAG = `#version 300 es
@@ -28,21 +29,22 @@ float clouds(vec2 p){float d=1.,t=.0;
 void main(void){
   vec2 uv=(FC-.5*R)/MN, st=uv*vec2(2,1);
   vec3 col=vec3(0);
-  float bg=clouds(vec2(st.x+T*.35,-st.y));
-  uv*=1.-.28*(sin(T*.18)*.5+.5);
+  float bg=clouds(vec2(st.x+T*.6,-st.y));
+  uv*=1.-.3*(sin(T*.25)*.5+.5);
   for(float i=1.;i<12.;i++){
-    uv+=.1*cos(i*vec2(.1+.01*i,.8)+i*i+T*.35+.1*uv.x);
+    uv+=.12*cos(i*vec2(.1+.01*i,.8)+i*i+T*.5+.1*uv.x);
     vec2 p=uv;
     float d=length(p);
     // destellos en cobalto / ivory
-    col+=.00095/d*(cos(sin(i)*vec3(.7,1.1,1.9))+1.)*vec3(.5,.66,1.18);
+    col+=.0022/d*(cos(sin(i)*vec3(.7,1.05,1.9))+1.)*vec3(.55,.72,1.25);
     float b=noise(i+p+bg*1.731);
-    col+=.0013*b/length(max(p,vec2(b*p.x*.02,p.y)))*vec3(.42,.58,1.1);
-    // nubes en navy profundo
-    col=mix(col,vec3(bg*.045,bg*.085,bg*.21),d);
+    col+=.0028*b/length(max(p,vec2(b*p.x*.02,p.y)))*vec3(.5,.66,1.2);
+    // nubes en navy / cobalto
+    col=mix(col,vec3(bg*.10,bg*.20,bg*.46),d);
   }
-  // viñeta hacia navy-950 (#040814)
-  col=mix(col,vec3(.016,.031,.078),smoothstep(.15,1.35,length(uv)));
+  // lift ambiental + viñeta hacia navy-950 (#040814)
+  col+=vec3(.02,.05,.12)*bg;
+  col=mix(col,vec3(.016,.031,.078),smoothstep(.1,1.4,length(uv)));
   O=vec4(col,1);
 }`;
 
@@ -61,9 +63,9 @@ export default function ShaderBackground({ className = "" }: { className?: strin
     if (!gl) return; // sin WebGL2 → queda el fondo CSS
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const QUALITY = 0.7; // downsample para rendimiento (nebulosa tolera blur)
+    const speed = reduce ? 0.3 : 1; // deriva suave si el usuario prefiere menos movimiento
+    const QUALITY = 0.7; // downsample para rendimiento (la nebulosa tolera blur)
 
-    // compilar
     const vs = gl.createShader(gl.VERTEX_SHADER)!;
     gl.shaderSource(vs, VERT);
     gl.compileShader(vs);
@@ -105,34 +107,24 @@ export default function ShaderBackground({ className = "" }: { className?: strin
     let running = true;
     const start = performance.now();
 
-    const renderFrame = (t: number) => {
-      gl.uniform2f(uRes, canvas.width, canvas.height);
-      gl.uniform1f(uTime, t * 1e-3);
-      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-    };
-
     const loop = (now: number) => {
       if (!running) return;
       resize();
-      renderFrame(now - start);
+      gl.uniform2f(uRes, canvas.width, canvas.height);
+      gl.uniform1f(uTime, (now - start) * 1e-3 * speed);
+      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
       raf = requestAnimationFrame(loop);
     };
 
     resize();
-
-    if (reduce) {
-      // un solo frame estático, sin animación
-      renderFrame(8200);
-    } else {
-      raf = requestAnimationFrame(loop);
-    }
+    raf = requestAnimationFrame(loop);
 
     const onResize = () => resize();
     const onVisibility = () => {
       if (document.hidden) {
         running = false;
         cancelAnimationFrame(raf);
-      } else if (!reduce && !running) {
+      } else if (!running) {
         running = true;
         raf = requestAnimationFrame(loop);
       }

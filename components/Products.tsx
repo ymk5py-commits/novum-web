@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { GlassButton, GlassChip } from "./primitives/GlassButton";
+import { TiltCard } from "@/components/motion/TiltCard";
 
 export default function Products() {
   return (
@@ -159,7 +160,7 @@ function ProductRow({
 /* ============ VISUALS ============ */
 function FrameShell({ children, label }: { children: React.ReactNode; label: string }) {
   return (
-    <div className="relative">
+    <TiltCard className="group">
       {/* glow */}
       <div className="absolute -inset-4 bg-cobalt-500/10 blur-3xl rounded-3xl -z-10" />
       <div className="glass-strong rounded-3xl overflow-hidden shadow-glass-lg">
@@ -177,7 +178,7 @@ function FrameShell({ children, label }: { children: React.ReactNode; label: str
         </div>
         {children}
       </div>
-    </div>
+    </TiltCard>
   );
 }
 
