@@ -6,6 +6,7 @@ import Integrations from "@/components/Integrations";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
 import Projects from "@/components/Projects";
+import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -24,6 +25,7 @@ export default function Page() {
         <Services />
         <Process />
         <Projects />
+        <Testimonials />
         <FAQ />
         <Contact />
       </main>

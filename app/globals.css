@@ -3,24 +3,40 @@
 @tailwind utilities;
 
 :root {
-  --font-logo: "Jost", "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-logo: "Jost", var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
   --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
 
-  --navy-700: #0F1F3D;
-  --navy-800: #0A1530;
-  --navy-900: #070F22;
-  --navy-950: #040814;
+  --navy-800: #0F1F3D;
+  --navy-900: #0B1D3D;
+  --navy-950: #07142C;
 }
 
 html, body {
-  background: var(--navy-950);
+  background: #07142C;
   color: #F3F1EA;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  font-feature-settings: "ss01" on, "ss02" on, "cv11" on, "tnum" on;
+  font-feature-settings: "tnum" on, "ss01" on;
+}
+
+body {
+  background:
+    radial-gradient(1200px 700px at 50% -10%, rgba(31,75,214,0.10), transparent 60%),
+    linear-gradient(180deg, #07142C 0%, #0A1A38 50%, #07142C 100%);
+  background-attachment: fixed;
+}
+
+/* Lenis smooth scroll */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: smooth; }
 }
 
 ::selection { background: #4D7CFF; color: #fff; }
@@ -56,6 +72,31 @@ html, body {
   border: 1px solid rgba(122,156,255,0.30);
   backdrop-filter: blur(18px) saturate(160%);
   -webkit-backdrop-filter: blur(18px) saturate(160%);
+}
+
+/* Liquid glass — vidrio líquido con borde especular (cross-browser) */
+.liquid-glass {
+  position: relative;
+  background: linear-gradient(135deg, rgba(122,156,255,0.20) 0%, rgba(77,124,255,0.06) 100%);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(122,156,255,0.32);
+  box-shadow:
+    inset 1.5px 1.5px 0.5px -1.5px rgba(255,255,255,0.75),
+    inset -1px -1px 1px -0.5px rgba(255,255,255,0.4),
+    inset 0 0 8px 2px rgba(77,124,255,0.12),
+    0 10px 28px -10px rgba(31,75,214,0.55),
+    0 0 18px rgba(77,124,255,0.18);
+}
+.liquid-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0) 45%);
+  -webkit-mask: linear-gradient(#000 0 0);
+  pointer-events: none;
+  opacity: 0.6;
 }
 
 /* Reflection sheen — barre por encima del botón */

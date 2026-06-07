@@ -1,7 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import { SITE } from "@/lib/site";
 import StructuredData from "@/components/seo/StructuredData";
+import SmoothScroll from "@/components/SmoothScroll";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -54,16 +57,17 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang={SITE.lang} className="bg-navy-950 scroll-smooth">
+    <html lang={SITE.lang} className={`${GeistSans.variable} ${GeistMono.variable} bg-navy-950`}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Instrument+Serif:ital@0;1&display=swap"
         />
       </head>
       <body className="font-sans bg-navy-950 text-ivory-100 antialiased selection:bg-cobalt-400 selection:text-white">
+        <SmoothScroll />
         {children}
         <StructuredData />
       </body>

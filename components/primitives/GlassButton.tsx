@@ -28,7 +28,7 @@ export function GlassButton({
 
   const styles = {
     primary:
-      "glass-cobalt text-ivory-50 hover:shadow-glow hover:border-cobalt-200/60",
+      "liquid-glass text-ivory-50 hover:-translate-y-0.5 hover:shadow-glow active:translate-y-0",
     ghost:
       "glass text-ivory-50 hover:bg-white/[0.06]",
     outline:

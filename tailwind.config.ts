@@ -15,12 +15,12 @@ const config: Config = {
           200: "#92A3C5",
           300: "#5B73A2",
           400: "#34507F",
-          500: "#1E3A66",
-          600: "#15294A",
-          700: "#0F1F3D",   // brand exacto del logo
-          800: "#0A1530",
-          900: "#070F22",
-          950: "#040814",
+          500: "#2A4C8A",
+          600: "#1F3A66",
+          700: "#15294A",
+          800: "#0F1F3D",   // brand exacto del logo
+          900: "#0B1D3D",
+          950: "#07142C",   // base — navy azulado, no negro
         },
         // Azul cobalto premium para CTAs y acentos
         cobalt: {
