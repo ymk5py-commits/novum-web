@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --font-logo: "Jost", "Clash Display", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Clash Display", var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Satoshi", var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
-  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-logo: var(--font-jost), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-syne), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jbmono), ui-monospace, monospace;
+  --font-serif: var(--font-instrument), ui-serif, Georgia, serif;
 
   --navy-800: #0F1F3D;
   --navy-900: #0B1D3D;
@@ -30,9 +30,7 @@ html, body {
 }
 
 body {
-  background:
-    radial-gradient(1200px 700px at 50% -10%, rgba(17,83,184,0.10), transparent 60%),
-    linear-gradient(180deg, #07142C 0%, #0A1A38 50%, #07142C 100%);
+  background: linear-gradient(180deg, #08152E 0%, #0B1B39 52%, #08152E 100%);
   background-attachment: fixed;
 }
 
@@ -66,8 +64,8 @@ html.lenis, html.lenis body { height: auto; }
 /* ============ GLASSMORPHISM PRIMITIVES ============ */
 .glass {
   background: linear-gradient(135deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.02) 100%);
-  backdrop-filter: blur(18px) saturate(140%);
-  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(115%);
+  -webkit-backdrop-filter: blur(18px) saturate(115%);
   border: 1px solid rgba(255,255,255,0.08);
   box-shadow:
     0 1px 0 0 rgba(255,255,255,0.07) inset,
@@ -77,31 +75,31 @@ html.lenis, html.lenis body { height: auto; }
 
 .glass-strong {
   background: linear-gradient(135deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.03) 100%);
-  backdrop-filter: blur(22px) saturate(150%);
-  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  backdrop-filter: blur(22px) saturate(120%);
+  -webkit-backdrop-filter: blur(22px) saturate(120%);
   border: 1px solid rgba(255,255,255,0.10);
 }
 
 .glass-chip {
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
-  backdrop-filter: blur(14px) saturate(140%);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(115%);
+  -webkit-backdrop-filter: blur(14px) saturate(115%);
 }
 
 .glass-cobalt {
   background: linear-gradient(135deg, rgba(46,131,245,0.18) 0%, rgba(46,131,245,0.04) 100%);
   border: 1px solid rgba(95,161,251,0.30);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  backdrop-filter: blur(18px) saturate(120%);
+  -webkit-backdrop-filter: blur(18px) saturate(120%);
 }
 
 /* Liquid glass — vidrio líquido con borde especular (cross-browser) */
 .liquid-glass {
   position: relative;
   background: linear-gradient(135deg, rgba(95,161,251,0.20) 0%, rgba(46,131,245,0.06) 100%);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  backdrop-filter: blur(16px) saturate(125%);
+  -webkit-backdrop-filter: blur(16px) saturate(125%);
   border: 1px solid rgba(95,161,251,0.32);
   box-shadow:
     inset 1.5px 1.5px 0.5px -1.5px rgba(255,255,255,0.75),
@@ -264,9 +262,9 @@ html.lenis, html.lenis body { height: auto; }
 
 .display-tight {
   font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 0.96;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 0.95;
 }
 
 .eyebrow {
