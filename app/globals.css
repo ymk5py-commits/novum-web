@@ -158,6 +158,26 @@ html.lenis, html.lenis body { height: auto; }
   background-size: 28px 28px;
 }
 
+/* Rayos de luz del hero (azul, sin lila) */
+@keyframes beam-sweep {
+  0% { transform: translateX(-40%) scaleX(0.5); opacity: 0; }
+  18% { opacity: 1; }
+  82% { opacity: 1; }
+  100% { transform: translateX(150%) scaleX(1); opacity: 0; }
+}
+.hero-beam {
+  position: absolute;
+  height: 1.5px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, transparent, rgba(95,161,251,0.85), rgba(154,196,255,1), transparent);
+  filter: drop-shadow(0 0 8px rgba(46,131,245,0.9));
+  animation: beam-sweep 8s linear infinite;
+  will-change: transform, opacity;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-beam { animation: none; opacity: 0.2; }
+}
+
 /* Aurora blob */
 .aurora {
   position: absolute;

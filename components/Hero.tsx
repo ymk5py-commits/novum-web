@@ -3,33 +3,15 @@ import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import { GlassButton, GlassChip } from "./primitives/GlassButton";
 import { NovumLogo } from "./brand/NovumLogo";
+import HeroBackground from "./HeroBackground";
 import { Counter } from "@/components/motion/Counter";
 import { NeoButton } from "@/components/magic/NeoButton";
 
 export default function Hero() {
   return (
     <section id="top" className="relative isolate overflow-hidden pt-36 pb-24 sm:pt-44 sm:pb-32">
-      {/* ===== Background — navy profundo del logo, sutil ===== */}
-      <div className="absolute inset-0 -z-[40] bg-navy-950" />
-      <div
-        className="absolute inset-0 -z-[36]"
-        style={{
-          background:
-            "radial-gradient(900px 560px at 72% 8%, rgba(23,105,224,0.16), transparent 60%), radial-gradient(760px 520px at 12% 26%, rgba(15,31,61,0.55), transparent 62%)",
-        }}
-      />
-      {/* auroras lentas, azul navy, baja opacidad */}
-      <div
-        className="aurora -z-[34] top-[-180px] left-1/3 h-[520px] w-[640px] animate-aurora"
-        style={{ background: "radial-gradient(closest-side, rgba(23,105,224,0.26), transparent)", opacity: 0.45 }}
-      />
-      <div
-        className="aurora -z-[34] top-[140px] right-[-100px] h-[420px] w-[420px] animate-aurora"
-        style={{ background: "radial-gradient(closest-side, rgba(15,31,61,0.7), transparent)", opacity: 0.6, animationDelay: "-9s" }}
-      />
-      <div className="absolute inset-0 -z-[20] grid-lines opacity-[0.12]" />
-      <div className="absolute inset-0 -z-[18] noise opacity-[0.18] mix-blend-overlay" />
-      <div className="absolute inset-x-0 bottom-0 -z-[15] h-48 bg-gradient-to-t from-navy-950 to-transparent" />
+      {/* ===== Background animado (azul, fluido) ===== */}
+      <HeroBackground />
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         {/* eyebrow row */}
