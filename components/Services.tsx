@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+import { SpotlightCard } from "@/components/magic/SpotlightCard";
 import {
   Brain,
   Workflow,
@@ -57,32 +57,28 @@ export default function Services() {
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-4">
           {cards.map((c, i) => (
-            <motion.div
+            <SpotlightCard
               key={c.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.55, delay: i * 0.04 }}
-              className={`group relative overflow-hidden rounded-3xl p-7 sm:p-8 min-h-[220px] flex flex-col justify-between transition-all duration-500
+              index={i}
+              className={`flex flex-col rounded-3xl p-7 sm:p-8 min-h-[220px] transition-all duration-500
                 ${c.accent ? "glass-cobalt" : "glass"}
                 ${c.span ?? ""}
                 hover:-translate-y-1 hover:shadow-glass-lg`}
             >
-              {/* hover glow */}
-              <div className="absolute -right-20 -top-20 h-48 w-48 rounded-full bg-cobalt-400/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-              <div className="flex items-center justify-between">
-                <div className="glass-chip h-10 w-10 rounded-2xl grid place-items-center">
-                  <c.icon className="h-4 w-4 text-cobalt-300" strokeWidth={1.5} />
+              <div className="relative z-10 flex grow flex-col justify-between">
+                <div className="flex items-center justify-between">
+                  <div className="glass-chip h-10 w-10 rounded-2xl grid place-items-center">
+                    <c.icon className="h-4 w-4 text-cobalt-300" strokeWidth={1.5} />
+                  </div>
+                  <span className="font-mono text-[10px] text-ivory-300/60">0{i + 1}</span>
                 </div>
-                <span className="font-mono text-[10px] text-ivory-300/60">0{i + 1}</span>
+                <div>
+                  <div className="display-tight text-2xl sm:text-[28px] text-ivory-50 leading-tight">{c.title}</div>
+                  <p className="mt-2.5 text-sm text-ivory-200/75 max-w-sm leading-relaxed">{c.body}</p>
+                </div>
+                <div className="h-px w-10 bg-cobalt-400/60 group-hover:w-20 transition-all duration-500" />
               </div>
-              <div>
-                <div className="display-tight text-2xl sm:text-[28px] text-ivory-50 leading-tight">{c.title}</div>
-                <p className="mt-2.5 text-sm text-ivory-200/75 max-w-sm leading-relaxed">{c.body}</p>
-              </div>
-              <div className="h-px w-10 bg-cobalt-400/60 group-hover:w-20 transition-all duration-500" />
-            </motion.div>
+            </SpotlightCard>
           ))}
         </div>
       </div>
