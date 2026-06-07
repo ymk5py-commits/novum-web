@@ -29,14 +29,26 @@ export default function Page({ params }: { params: { especialidad: string } }) {
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: `NOVUdent · ${s.name}`,
-    applicationCategory: "HealthApplication",
-    operatingSystem: "Web, iOS, Android",
-    description: s.intro,
-    url: `${SITE.url}/novudent/${s.slug}`,
-    offers: { "@type": "Offer", price: "45", priceCurrency: "USD", availability: "https://schema.org/InStock" },
-    publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        name: `NOVUdent · ${s.name}`,
+        applicationCategory: "HealthApplication",
+        operatingSystem: "Web, iOS, Android",
+        description: s.intro,
+        url: `${SITE.url}/novudent/${s.slug}`,
+        offers: { "@type": "Offer", price: "45", priceCurrency: "USD", availability: "https://schema.org/InStock" },
+        publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "NOVUM", item: SITE.url },
+          { "@type": "ListItem", position: 2, name: "NOVUdent", item: `${SITE.url}/novudent` },
+          { "@type": "ListItem", position: 3, name: s.name, item: `${SITE.url}/novudent/${s.slug}` },
+        ],
+      },
+    ],
   };
 
   return (

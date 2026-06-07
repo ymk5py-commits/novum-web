@@ -29,14 +29,26 @@ export default function Page({ params }: { params: { especialidad: string } }) {
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: `NOVUMed · ${s.name}`,
-    applicationCategory: "HealthApplication",
-    operatingSystem: "Web, iOS, Android",
-    description: s.intro,
-    url: `${SITE.url}/novumed/${s.slug}`,
-    offers: { "@type": "Offer", price: "39", priceCurrency: "USD", availability: "https://schema.org/InStock" },
-    publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        name: `NOVUMed · ${s.name}`,
+        applicationCategory: "HealthApplication",
+        operatingSystem: "Web, iOS, Android",
+        description: s.intro,
+        url: `${SITE.url}/novumed/${s.slug}`,
+        offers: { "@type": "Offer", price: "39", priceCurrency: "USD", availability: "https://schema.org/InStock" },
+        publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "NOVUM", item: SITE.url },
+          { "@type": "ListItem", position: 2, name: "NOVUMed", item: `${SITE.url}/novumed` },
+          { "@type": "ListItem", position: 3, name: s.name, item: `${SITE.url}/novumed/${s.slug}` },
+        ],
+      },
+    ],
   };
 
   return (

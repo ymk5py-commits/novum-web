@@ -8,7 +8,21 @@ NOVUM combina tres productos propietarios con un studio de implementación a la 
 ## Productos
 - **Botika** — Conversational AI. Agentes agénticos que atienden, agendan, califican leads, cobran y venden en Instagram, WhatsApp y Messenger. Integración nativa con Meta, Google Calendar, CRMs y ERPs. Modelo de IA agnóstico (GPT, Claude, Gemini o modelos locales) con observabilidad y guardrails.
 - **PAUTIK** — Plataforma de pauta programática. Unifica Meta, Google, TikTok y X con optimización por reglas y asistente de medios con IA, atribución unificada y reportes white-label. Operación multi-cuenta, multi-cliente y multi-moneda.
-- **NOVUMed** — CRM clínico de nueva generación para profesionales de la salud. Historia clínica estructurada, agenda inteligente con recordatorios omnicanal, facturación electrónica, portal del paciente y telemedicina integrada.
+- **NOVUMed** (/novumed) — Software médico / CRM clínico multiespecialidad. Ficha clínica personalizable por especialidad, agenda con recordatorios por WhatsApp, facturación electrónica, telemedicina y agente de IA (Botika). Especialidades con página propia:
+  - Kinesiología (/novumed/kinesiologia)
+  - Psicología (/novumed/psicologia)
+  - Psiquiatría (/novumed/psiquiatria)
+  - Nutrición (/novumed/nutricion)
+  - Oftalmología (/novumed/oftalmologia)
+  - Pediatría (/novumed/pediatria)
+  - Dermatología (/novumed/dermatologia)
+  - Centros estéticos (/novumed/centros-esteticos)
+- **NOVUdent** (/novudent) — Software odontológico. Odontograma y periodontograma interactivos, plan de tratamiento y presupuesto por pieza, financiamiento en cuotas, ortodoncia, laboratorio, análisis de RX con IA y simulador de sonrisa. Especialidades con página propia:
+  - Ortodoncia (/novudent/ortodoncia)
+  - Implantología (/novudent/implantologia)
+  - Estética dental (/novudent/estetica-dental)
+  - Odontopediatría (/novudent/odontopediatria)
+  - Endodoncia (/novudent/endodoncia)
 
 ## Servicios
 IA aplicada a negocio (asistentes verticales, copilotos, RAG), automatización end-to-end (n8n, Make, Zapier o código propio), integraciones a medida (ERPs, CRMs, pasarelas, mensajería, agenda), pauta y performance (Meta, Google, TikTok), producto SaaS de cero a MVP en 8 semanas, web y mobile, data y analítica (GA4, Looker), DevOps y operación con SLAs.
