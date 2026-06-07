@@ -177,3 +177,130 @@ export const SPECIALTIES: Specialty[] = [
 export const SPECIALTY_MAP: Record<string, Specialty> = Object.fromEntries(
   SPECIALTIES.map((s) => [s.slug, s])
 );
+
+/* Módulos "núcleo" mostrados en cada página de especialidad */
+export const MEDICAL_CORE = [
+  { t: "Agenda inteligente", d: "Online, por profesional y box, con reagendamiento automático." },
+  { t: "Recordatorios WhatsApp", d: "Confirmación automática por el canal #1 de Paraguay (anti no-show)." },
+  { t: "Facturación electrónica", d: "Emisión, medios de pago, caja y cobranzas." },
+  { t: "Telemedicina", d: "Videoconsulta integrada y portal del paciente." },
+  { t: "Botika (agente IA)", d: "Atiende, agenda y confirma por WhatsApp e Instagram, 24/7." },
+  { t: "Reportes y KPIs", d: "Más de 50 reportes para decidir con datos." },
+];
+
+export const DENTAL_CORE = [
+  { t: "Odontograma + presupuesto", d: "Marcás sobre la pieza y el presupuesto se arma solo." },
+  { t: "Financiamiento y cuotas", d: "Cobro en cuotas, créditos y control de morosidad." },
+  { t: "Recordatorios WhatsApp", d: "Confirmación automática y reagendamiento (anti no-show)." },
+  { t: "Análisis de RX con IA", d: "Diagnóstico asistido sobre radiografías." },
+  { t: "Botika (agente IA)", d: "Atiende y agenda por WhatsApp e Instagram, 24/7." },
+  { t: "Caja y comisiones", d: "Control de caja, gastos y comisiones por odontólogo." },
+];
+
+/* ===== Especialidades dentales (NOVUdent) ===== */
+export const DENTAL_SPECIALTIES: Specialty[] = [
+  {
+    slug: "ortodoncia",
+    name: "Ortodoncia",
+    pro: "ortodoncistas",
+    seoLabel: "Software para ortodoncistas",
+    tagline: "Control del tratamiento, cuotas mensuales y evolución por control.",
+    intro:
+      "NOVUdent para ortodoncia: control integral del tratamiento, cobro en cuotas, evolución por control y fotos/radiografías en la ficha. Recordatorios por WhatsApp para que el paciente no falte a sus controles.",
+    ficha: ["Control integral del tratamiento", "Cobro en cuotas mensuales", "Evolución por control", "Fotos y radiografías", "Recordatorios de control"],
+    pains: [
+      { t: "Controles que se saltan", d: "Pacientes de tratamiento largo que faltan a sus controles." },
+      { t: "Cuotas sin seguir", d: "Cobros mensuales que se pierden sin control de morosidad." },
+      { t: "Evolución dispersa", d: "Avances anotados sueltos, sin historial claro." },
+    ],
+    faqs: [
+      { q: "¿Maneja cuotas mensuales?", a: "Sí, cobro en cuotas con seguimiento de morosidad y avisos automáticos." },
+      { q: "¿Registra la evolución del tratamiento?", a: "Sí, cada control queda con su evolución, fotos y radiografías." },
+    ],
+    keywords: ["software ortodoncia", "software para ortodoncistas", "control ortodoncia software", "cuotas ortodoncia"],
+  },
+  {
+    slug: "implantologia",
+    name: "Implantología",
+    pro: "implantólogos",
+    seoLabel: "Software para implantología",
+    tagline: "Planificación, registro por pieza y análisis de RX con IA.",
+    intro:
+      "NOVUdent para implantología: planificación de implantes, registro por pieza, radiografías con análisis asistido por IA, consentimientos y presupuestos con financiamiento.",
+    ficha: ["Planificación de implantes", "Registro por pieza", "Radiografías + análisis con IA", "Consentimientos informados", "Presupuesto y financiamiento"],
+    pains: [
+      { t: "Sin trazabilidad", d: "Difícil seguir qué implante va en cada pieza y su estado." },
+      { t: "Presupuestos altos sin cierre", d: "Tratamientos caros que no se cierran por falta de financiamiento." },
+      { t: "RX sin registro", d: "Radiografías sueltas sin asociar a la ficha." },
+    ],
+    faqs: [
+      { q: "¿Registra implantes por pieza?", a: "Sí, con planificación y seguimiento por cada pieza." },
+      { q: "¿Ofrece financiamiento?", a: "Sí, presupuestos con cobro en cuotas y créditos en línea." },
+    ],
+    keywords: ["software implantología", "software para implantólogos", "registro de implantes software"],
+  },
+  {
+    slug: "estetica-dental",
+    name: "Estética dental",
+    pro: "odontólogos estéticos",
+    seoLabel: "Software para estética dental",
+    tagline: "Simulador de sonrisa con IA, presupuestos y antes/después.",
+    intro:
+      "NOVUdent para estética dental: simulador de sonrisa con IA para presentar el tratamiento, presupuestos con financiamiento, fotos antes/después y plan de tratamiento estético.",
+    ficha: ["Simulador de sonrisa con IA", "Presupuestos y financiamiento", "Fotos antes / después", "Plan de tratamiento estético", "Consentimientos informados"],
+    pains: [
+      { t: "Difícil cerrar tratamientos", d: "El paciente no visualiza el resultado y duda." },
+      { t: "Presupuestos lentos", d: "Cotizar a mano y perder al paciente." },
+      { t: "Sin registro visual", d: "Resultados sin antes/después documentado." },
+    ],
+    faqs: [
+      { q: "¿Tiene simulador de sonrisa?", a: "Sí, genera una proyección con IA del antes/después para presentar el tratamiento." },
+      { q: "¿Maneja financiamiento?", a: "Sí, presupuestos financiables en cuotas para cerrar más tratamientos." },
+    ],
+    keywords: ["software estética dental", "simulador de sonrisa", "diseño de sonrisa software"],
+  },
+  {
+    slug: "odontopediatria",
+    name: "Odontopediatría",
+    pro: "odontopediatras",
+    seoLabel: "Software para odontopediatría",
+    tagline: "Odontograma infantil, prevención y recordatorios a los padres.",
+    intro:
+      "NOVUdent para odontopediatría: odontograma infantil, control y prevención (fluorización, sellantes), historia clínica y recordatorios automáticos a los padres por WhatsApp.",
+    ficha: ["Odontograma infantil", "Control y prevención", "Fluorización y sellantes", "Historia clínica", "Recordatorios a los padres"],
+    pains: [
+      { t: "Controles olvidados", d: "Familias que no vuelven al control preventivo." },
+      { t: "Sin historial claro", d: "Difícil seguir la evolución del niño." },
+      { t: "Comunicación con padres", d: "Avisos manuales que consumen tiempo." },
+    ],
+    faqs: [
+      { q: "¿Recuerda los controles a los padres?", a: "Sí, recordatorios automáticos por WhatsApp a los responsables." },
+      { q: "¿Tiene odontograma infantil?", a: "Sí, adaptado a dentición temporal y mixta." },
+    ],
+    keywords: ["software odontopediatría", "software para odontopediatras", "odontograma infantil"],
+  },
+  {
+    slug: "endodoncia",
+    name: "Endodoncia",
+    pro: "endodoncistas",
+    seoLabel: "Software para endodoncia",
+    tagline: "Registro por conducto, radiografías y evolución del tratamiento.",
+    intro:
+      "NOVUdent para endodoncia: registro por conducto, radiografías con análisis asistido por IA, evolución del tratamiento y presupuesto por pieza.",
+    ficha: ["Registro por conducto", "Radiografías + análisis con IA", "Evolución del tratamiento", "Presupuesto por pieza", "Consentimientos informados"],
+    pains: [
+      { t: "Detalle por conducto", d: "Difícil registrar el detalle de cada conducto." },
+      { t: "RX sin asociar", d: "Radiografías sueltas, fuera de la ficha." },
+      { t: "Presupuestos a mano", d: "Cotizaciones lentas por pieza." },
+    ],
+    faqs: [
+      { q: "¿Registra el detalle por conducto?", a: "Sí, con registro por pieza y por conducto, más radiografías asociadas." },
+      { q: "¿Analiza radiografías?", a: "Sí, con análisis asistido por IA dentro de la ficha." },
+    ],
+    keywords: ["software endodoncia", "software para endodoncistas", "registro por conducto"],
+  },
+];
+
+export const DENTAL_MAP: Record<string, Specialty> = Object.fromEntries(
+  DENTAL_SPECIALTIES.map((s) => [s.slug, s])
+);

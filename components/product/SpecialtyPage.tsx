@@ -17,16 +17,19 @@ const reveal = {
   transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
 };
 
-const CORE = [
-  { t: "Agenda inteligente", d: "Online, por profesional y box, con reagendamiento automático." },
-  { t: "Recordatorios WhatsApp", d: "Confirmación automática por el canal #1 de Paraguay (anti no-show)." },
-  { t: "Facturación electrónica", d: "Emisión, medios de pago, caja y cobranzas." },
-  { t: "Telemedicina", d: "Videoconsulta integrada y portal del paciente." },
-  { t: "Botika (agente IA)", d: "Atiende, agenda y confirma por WhatsApp e Instagram, 24/7." },
-  { t: "Reportes y KPIs", d: "Más de 50 reportes para decidir con datos." },
-];
+type Brand = { name: string; base: string };
 
-export default function SpecialtyPage({ s, others }: { s: Specialty; others: Specialty[] }) {
+export default function SpecialtyPage({
+  s,
+  others,
+  brand,
+  core,
+}: {
+  s: Specialty;
+  others: Specialty[];
+  brand: Brand;
+  core: { t: string; d: string }[];
+}) {
   return (
     <>
       <ProductHeader />
@@ -41,16 +44,16 @@ export default function SpecialtyPage({ s, others }: { s: Specialty; others: Spe
             <div>
               <nav className="mb-5 flex items-center gap-2 font-mono text-[10px] uppercase tracking-ultrawide text-ivory-300/60">
                 <a href="/" className="hover:text-ivory-100">NOVUM</a><span>/</span>
-                <a href="/novumed" className="hover:text-ivory-100">NOVUMed</a><span>/</span>
+                <a href={`/${brand.base}`} className="hover:text-ivory-100">{brand.name}</a><span>/</span>
                 <span className="text-cobalt-300">{s.name}</span>
               </nav>
-              <GlassChip dot tone="cobalt">NOVUMed · Especialidad</GlassChip>
+              <GlassChip dot tone="cobalt">{brand.name} · Especialidad</GlassChip>
               <h1 className="mt-5 display-tight text-5xl sm:text-6xl lg:text-7xl text-ivory-50">{s.seoLabel}</h1>
               <p className="mt-4 text-xl text-ivory-100/90">{s.tagline}</p>
               <p className="mt-5 max-w-xl text-ivory-200/80 leading-relaxed">{s.intro}</p>
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <NeoButton href="#contacto" size="lg">Agendar demo</NeoButton>
-                <GlassButton href="/novumed" variant="ghost" size="lg" icon={false}>Ver NOVUMed</GlassButton>
+                <GlassButton href={`/${brand.base}`} variant="ghost" size="lg" icon={false}>Ver {brand.name}</GlassButton>
               </div>
             </div>
 
@@ -100,10 +103,10 @@ export default function SpecialtyPage({ s, others }: { s: Specialty; others: Spe
         <section className="relative border-t border-white/[0.06] py-24 sm:py-32">
           <div className="mx-auto max-w-7xl px-5 sm:px-8">
             <motion.h2 {...reveal} className="display-tight text-3xl sm:text-4xl lg:text-5xl text-ivory-50 text-pretty max-w-3xl">
-              Y todo NOVUMed, <span className="aurora-text">incluido</span>.
+              Y todo {brand.name}, <span className="aurora-text">incluido</span>.
             </motion.h2>
             <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {CORE.map((m, i) => (
+              {core.map((m, i) => (
                 <SpotlightCard key={m.t} index={i} className="rounded-3xl glass p-6 min-h-[140px]">
                   <div className="relative z-10">
                     <div className="display-tight text-lg text-ivory-50">{m.t}</div>
@@ -143,7 +146,7 @@ export default function SpecialtyPage({ s, others }: { s: Specialty; others: Spe
               {others.map((o) => (
                 <a
                   key={o.slug}
-                  href={`/novumed/${o.slug}`}
+                  href={`/${brand.base}/${o.slug}`}
                   className="group inline-flex items-center gap-1.5 rounded-full glass-chip px-4 py-2 text-sm text-ivory-200/80 transition-colors hover:text-cobalt-100"
                 >
                   {o.seoLabel}

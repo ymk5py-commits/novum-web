@@ -152,7 +152,7 @@ export default function ProductPage({ config, visual }: { config: ProductConfig;
                       </ul>
                       {sp?.slug && (
                         <a
-                          href={`/novumed/${sp.slug}`}
+                          href={`/${config.slug}/${sp.slug}`}
                           className="mt-6 inline-flex items-center gap-1.5 text-sm text-cobalt-200 transition-colors hover:text-cobalt-100"
                         >
                           Ver software para {sp.name.toLowerCase()}

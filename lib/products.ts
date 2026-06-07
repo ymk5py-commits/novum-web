@@ -114,6 +114,13 @@ export const NOVUDENT: ProductConfig = {
     { t: "Agenda + WhatsApp", d: "Agendamiento online, recordatorios y reagendamiento automático." },
     { t: "Caja y comisiones", d: "Control de caja, gastos y cálculo de comisiones por odontólogo." },
   ],
+  specialties: [
+    { name: "Ortodoncia", slug: "ortodoncia", fields: ["Control del tratamiento", "Cobro en cuotas", "Evolución por control", "Fotos y radiografías"] },
+    { name: "Implantología", slug: "implantologia", fields: ["Planificación de implantes", "Registro por pieza", "RX + análisis con IA", "Financiamiento"] },
+    { name: "Estética dental", slug: "estetica-dental", fields: ["Simulador de sonrisa con IA", "Fotos antes / después", "Presupuestos", "Financiamiento"] },
+    { name: "Odontopediatría", slug: "odontopediatria", fields: ["Odontograma infantil", "Control y prevención", "Recordatorios a padres", "Historia clínica"] },
+    { name: "Endodoncia", slug: "endodoncia", fields: ["Registro por conducto", "RX + análisis con IA", "Evolución del tratamiento", "Presupuesto por pieza"] },
+  ],
   dental: [
     { t: "Odontograma interactivo", d: "Marcá lesiones y tratamientos sobre cada pieza; el presupuesto se arma solo." },
     { t: "Análisis de RX con IA", d: "Diagnóstico asistido sobre radiografías para no pasar nada por alto." },
