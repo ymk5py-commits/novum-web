@@ -1,7 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { GlassButton, GlassChip } from "./primitives/GlassButton";
+import { GlassChip } from "./primitives/GlassButton";
+import { NeoButton } from "./magic/NeoButton";
 import { NovumLogo, NovumMark } from "./brand/NovumLogo";
 
 const links = [
@@ -60,9 +61,9 @@ export default function Nav() {
                 Disponible
               </GlassChip>
             </span>
-            <GlassButton href="#contacto" size="sm">
+            <NeoButton href="#contacto" size="sm">
               Agendar
-            </GlassButton>
+            </NeoButton>
           </div>
         </div>
       </div>

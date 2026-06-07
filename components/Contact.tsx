@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { Mail, MessageCircle, Phone } from "lucide-react";
 import { GlassChip } from "./primitives/GlassButton";
+import { NeoButton } from "./magic/NeoButton";
 import { SITE } from "@/lib/site";
 
 export default function Contact() {
@@ -38,13 +39,14 @@ export default function Contact() {
           </p>
 
           <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
-            <a
-              href="mailto:hola@novum.studio"
-              className="sheen group inline-flex items-center gap-2 rounded-full glass-cobalt px-6 py-3.5 text-sm font-medium text-ivory-50 hover:shadow-glow transition-all"
+            <NeoButton
+              href={`mailto:${SITE.email}`}
+              size="lg"
+              icon={false}
+              leftIcon={<Mail className="h-4 w-4 text-cobalt-100" />}
             >
-              <Mail className="h-4 w-4 text-cobalt-200" />
-              hola@novum.studio
-            </a>
+              {SITE.email}
+            </NeoButton>
             <a
               href={SITE.whatsapp}
               className="sheen group inline-flex items-center gap-2 rounded-full glass px-6 py-3.5 text-sm text-ivory-100 hover:bg-white/[0.08] transition-all"

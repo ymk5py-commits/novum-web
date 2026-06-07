@@ -5,6 +5,7 @@ import { GlassButton, GlassChip } from "./primitives/GlassButton";
 import { NovumLogo } from "./brand/NovumLogo";
 import ShaderBackground from "./brand/ShaderBackground";
 import { Counter } from "@/components/motion/Counter";
+import { NeoButton } from "@/components/magic/NeoButton";
 
 export default function Hero() {
   return (
@@ -74,9 +75,9 @@ export default function Hero() {
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <GlassButton href="#productos" variant="primary" size="lg">
+              <NeoButton href="#productos" size="lg">
                 Ver productos
-              </GlassButton>
+              </NeoButton>
               <GlassButton href="#contacto" variant="ghost" size="lg" icon={false}>
                 Hablar con fundadores
               </GlassButton>
