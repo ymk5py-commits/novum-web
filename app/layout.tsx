@@ -1,15 +1,16 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { Syne, Manrope, Jost, JetBrains_Mono, Instrument_Serif } from "next/font/google";
+import { Syne, Manrope, Jost, JetBrains_Mono } from "next/font/google";
 import { SITE } from "@/lib/site";
 import StructuredData from "@/components/seo/StructuredData";
 import SmoothScroll from "@/components/SmoothScroll";
 
 const syne = Syne({ subsets: ["latin"], weight: ["600", "700", "800"], variable: "--font-syne", display: "swap" });
 const manrope = Manrope({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700"], variable: "--font-manrope", display: "swap" });
-const jost = Jost({ subsets: ["latin"], weight: ["300", "400", "500"], variable: "--font-jost", display: "swap" });
+/* El 200 es el que hace el display ultra-fino de la identidad; el 600 queda
+   para los pocos lugares que necesitan peso (chips, botones). */
+const jost = Jost({ subsets: ["latin"], weight: ["200", "300", "400", "500", "600"], variable: "--font-jost", display: "swap" });
 const mono = JetBrains_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-jbmono", display: "swap" });
-const serif = Instrument_Serif({ subsets: ["latin"], weight: "400", style: ["normal", "italic"], variable: "--font-instrument", display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -58,9 +59,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang={SITE.lang}
-      className={`${syne.variable} ${manrope.variable} ${jost.variable} ${mono.variable} ${serif.variable} bg-navy-950`}
+      className={`${syne.variable} ${manrope.variable} ${jost.variable} ${mono.variable} bg-navy-950`}
     >
-      <body className="font-sans bg-navy-950 text-ivory-100 antialiased selection:bg-cobalt-400 selection:text-white">
+      <body className="font-sans bg-navy-950 text-ivory-100 antialiased selection:bg-cobalt-400 selection:text-navy-950">
         <SmoothScroll />
         {children}
         <StructuredData />

@@ -23,7 +23,7 @@ export default function Services() {
             <div className="lg:sticky lg:top-28">
               <div className="eyebrow border-l border-cobalt-400/60 pl-3">02 · Capacidades</div>
               <h2 className="mt-5 display-tight text-4xl sm:text-5xl text-ivory-50 text-pretty">
-                Todo lo que <span className="font-serif italic text-ivory-200/85">no</span>
+                Todo lo que <span className="font-display font-light text-cobalt-300">no</span>
                 <br className="hidden sm:block" /> quieres tener{" "}
                 <span className="aurora-text">in-house.</span>
               </h2>

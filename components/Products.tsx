@@ -20,7 +20,7 @@ export default function Products() {
               Cuatro productos.{" "}
               <span className="aurora-text">Una sola tesis</span>
               :<br />
-              <span className="font-serif italic text-ivory-200/90">software que opera por ti.</span>
+              <span className="font-display font-light text-cobalt-300">software que opera por ti.</span>
             </>
           }
         />
@@ -164,7 +164,7 @@ function ProductRow({
         <GlassChip tone="cobalt">{eyebrow}</GlassChip>
         <h3 className="mt-5 display-tight text-6xl sm:text-7xl text-ivory-50">
           <span className="block text-cobalt-300">{kicker}</span>
-          <span className="font-serif italic text-ivory-100/85 text-4xl sm:text-5xl block mt-2 leading-tight">
+          <span className="font-display font-light text-cobalt-300 text-4xl sm:text-5xl block mt-2 leading-tight">
             {tagline}
           </span>
         </h3>
@@ -258,7 +258,7 @@ function BotikaVisual() {
 
         <div className="mt-1 flex items-center gap-2 rounded-full glass-chip px-3 py-2">
           <span className="text-[13px] text-ivory-300/60">Botika está respondiendo…</span>
-          <span className="ml-auto grid h-7 w-7 place-items-center rounded-full bg-cobalt-500 text-white">
+          <span className="ml-auto grid h-7 w-7 place-items-center rounded-full bg-cobalt-400 text-navy-950">
             <Send className="h-3.5 w-3.5" />
           </span>
         </div>
@@ -312,7 +312,7 @@ function PautikVisual() {
               <span
                 key={d}
                 className={`rounded-full px-2.5 py-0.5 font-mono text-[10px] ${
-                  i === 1 ? "bg-cobalt-500 text-white" : "text-ivory-300/70"
+                  i === 1 ? "bg-cobalt-400 text-navy-950" : "text-ivory-300/70"
                 }`}
               >
                 {d}
@@ -420,7 +420,7 @@ function NovuMedVisual() {
             <span
               key={n}
               className={`grid h-8 w-8 place-items-center rounded-full font-mono text-[11px] ${
-                i === 3 ? "bg-cobalt-500 text-white" : "glass-chip text-ivory-300/70"
+                i === 3 ? "bg-cobalt-400 text-navy-950" : "glass-chip text-ivory-300/70"
               }`}
             >
               {n}

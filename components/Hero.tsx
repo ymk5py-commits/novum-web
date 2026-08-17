@@ -50,7 +50,7 @@ export default function Hero() {
               <span className="relative z-10 aurora-text">piensan</span>
               <span className="absolute -bottom-1 left-0 right-0 h-3 bg-cobalt-500/30 blur-2xl rounded-full" />
             </span>
-            , <span className="font-serif italic text-ivory-200/90">venden</span> y operan por ti.
+            , <span className="font-display font-light text-cobalt-300">venden</span> y operan por ti.
           </motion.h1>
 
           <motion.div

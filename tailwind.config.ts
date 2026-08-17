@@ -8,7 +8,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Navy extraído del logo NOVUM — #0F1F3D base
+        /* Navy NOVUM, corrido al de la identidad de several.: un punto más
+           profundo y más azul. Se mantienen los nombres 50–950 para no tocar
+           los ~14 componentes que ya los usan. */
         navy: {
           50:  "#EAEEF6",
           100: "#C9D2E6",
@@ -17,21 +19,32 @@ const config: Config = {
           400: "#34507F",
           500: "#2A4C8A",
           600: "#1F3A66",
-          700: "#15294A",
-          800: "#0F1F3D",   // brand exacto del logo
-          900: "#0B1D3D",
-          950: "#07142C",   // base — navy azulado, no negro
+          700: "#182155",
+          800: "#131C55",
+          900: "#0E1548",
+          950: "#0A1240",   // base — el navy de la referencia
         },
-        // Azul cobalto premium para CTAs y acentos
+        /* EL ACENTO PASA DE COBALTO A MENTA.
+         *
+         * La escala conserva el nombre `cobalt` a propósito: está usada en ~105
+         * lugares y renombrarla obligaba a tocar los 14 componentes de la home
+         * para un cambio puramente cromático. Redefinir los valores mueve el
+         * sitio entero a la identidad nueva en un solo archivo.
+         *
+         * Reparto pensado por USO real, no por prolijidad de escala:
+         *  · 100–300 son texto sobre el navy → menta brillante (≈9:1, sobra AA).
+         *  · 400–500 son glows y rellenos tintados con opacidad → el menta firma.
+         *  · 700 es el menta oscuro, el único que sirve para texto sobre claro
+         *    (el menta puro sobre blanco no llega a 4.5:1). */
         cobalt: {
-          50:  "#EDF2FF",
-          100: "#D3DFFF",
-          200: "#A8C0FF",
-          300: "#7A9CFF",
-          400: "#4D7CFF",
-          500: "#2F62F5",
-          600: "#1F4BD6",
-          700: "#1838A0",
+          50:  "#E8FCF4",
+          100: "#BCF5E0",
+          200: "#86ECC8",
+          300: "#55E3B4",
+          400: "#2FE3AE",   // la menta de la marca
+          500: "#21C994",
+          600: "#12A97A",
+          700: "#0B7A5B",   // menta legible sobre fondos claros
         },
         // Ivory cálido (no blanco puro)
         ivory: {
@@ -66,8 +79,8 @@ const config: Config = {
       },
       boxShadow: {
         glass: "0 1px 0 0 rgba(255,255,255,0.08) inset, 0 0 0 1px rgba(255,255,255,0.06), 0 24px 60px -20px rgba(0,0,0,0.55)",
-        "glass-lg": "0 1px 0 0 rgba(255,255,255,0.10) inset, 0 0 0 1px rgba(255,255,255,0.07), 0 40px 100px -30px rgba(15,31,61,0.7)",
-        glow: "0 0 0 1px rgba(122,156,255,0.35), 0 8px 32px -8px rgba(77,124,255,0.55)",
+        "glass-lg": "0 1px 0 0 rgba(255,255,255,0.10) inset, 0 0 0 1px rgba(255,255,255,0.07), 0 40px 100px -30px rgba(10,18,64,0.7)",
+        glow: "0 0 0 1px rgba(85,227,180,0.35), 0 8px 32px -8px rgba(47,227,174,0.55)",
       },
       keyframes: {
         marquee: { from: { transform: "translateX(0)" }, to: { transform: "translateX(-50%)" } },
@@ -80,8 +93,8 @@ const config: Config = {
           "50%": { transform: "translateY(-10px)" },
         },
         pulseRing: {
-          "0%": { boxShadow: "0 0 0 0 rgba(77,124,255,0.6)" },
-          "100%": { boxShadow: "0 0 0 22px rgba(77,124,255,0)" },
+          "0%": { boxShadow: "0 0 0 0 rgba(47,227,174,0.6)" },
+          "100%": { boxShadow: "0 0 0 22px rgba(47,227,174,0)" },
         },
         shine: {
           "0%": { transform: "translateX(-100%)" },
