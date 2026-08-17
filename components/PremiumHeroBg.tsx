@@ -7,11 +7,11 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
  * Aurora azul en movimiento + anillo conic rotando + rayos diagonales + spotlight.
  * 100% azul (sin lila), solo transform/opacity → fluido en mobile.
  */
-const NAVY = "#07142C";
-const AZURE = "#2E83F5";
-const AZURE_DEEP = "#1769E0";
-const AZURE_LIGHT = "#5FA1FB";
-const AZURE_PALE = "#9AC4FF";
+const NAVY = "#0A1240";
+const AZURE = "#2FE3AE";
+const AZURE_DEEP = "#12A97A";
+const AZURE_LIGHT = "#55E3B4";
+const AZURE_PALE = "#B4FAE1";
 
 const beams = [
   { top: "20%", width: "55%", left: "-8%", delay: "0s", dur: "7.5s" },
@@ -37,7 +37,7 @@ export default function PremiumHeroBg() {
   const sx = useSpring(mx, { stiffness: 50, damping: 20 });
   const sy = useSpring(my, { stiffness: 50, damping: 20 });
   const spot = useTransform([sx, sy], ([x, y]: number[]) =>
-    `radial-gradient(620px circle at ${x * 100}% ${y * 100}%, rgba(46,131,245,0.16), transparent 60%)`
+    `radial-gradient(620px circle at ${x * 100}% ${y * 100}%, rgba(47,227,174,0.16), transparent 60%)`
   );
 
   useEffect(() => {

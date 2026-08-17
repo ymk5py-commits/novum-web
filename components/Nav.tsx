@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 import { GlassChip } from "./primitives/GlassButton";
 import { NeoButton } from "./magic/NeoButton";
 import { NovumLogo, NovumMark } from "./brand/NovumLogo";
@@ -24,13 +23,13 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  /* Sin animación de entrada, por la misma razón que el hero (ver Hero.tsx): se
+     servía con `opacity: 0` y dependía de que React hidratara para aparecer. Si
+     la hidratación fallaba, el visitante se quedaba sin menú — peor que un hero
+     en blanco, porque encima no puede navegar a ningún lado. La navegación es lo
+     último que puede depender de un efecto. */
   return (
-    <motion.header
-      initial={{ y: -24, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed inset-x-0 top-0 z-50 px-4 pt-4"
-    >
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
       <div
         className={`mx-auto max-w-7xl rounded-full transition-all duration-500 ${
           scrolled ? "glass-strong" : "glass"
@@ -71,7 +70,7 @@ export default function Nav() {
           </div>
         </div>
       </div>
-    </motion.header>
+    </header>
   );
 }
 
