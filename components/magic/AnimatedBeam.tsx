@@ -25,7 +25,13 @@ export function AnimatedBeam({
   delay?: number;
 }) {
   const id = useId();
-  const reduce = useReducedMotion();
+  /* Igual que en TiltCard: en el primer render vale false —lo mismo que sirve el
+     servidor— porque abajo el <defs> cambia de nodo según este valor, y un árbol
+     distinto entre servidor y cliente tumba la hidratación de toda la página. */
+  const prefiereMenosMovimiento = useReducedMotion();
+  const [montado, setMontado] = useState(false);
+  useEffect(() => setMontado(true), []);
+  const reduce = montado && prefiereMenosMovimiento;
   const [d, setD] = useState("");
   const [dims, setDims] = useState({ w: 0, h: 0 });
 

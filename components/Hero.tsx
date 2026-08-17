@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "framer-motion";
+
 import { Play } from "lucide-react";
 import { GlassButton, GlassChip } from "./primitives/GlassButton";
 import { NovumLogo } from "./brand/NovumLogo";
@@ -7,6 +7,25 @@ import PremiumHeroBg from "./PremiumHeroBg";
 import { Counter } from "@/components/motion/Counter";
 import { NeoButton } from "@/components/magic/NeoButton";
 
+/**
+ * ⚠️ EL HERO NO LLEVA ANIMACIÓN DE ENTRADA, Y NO HAY QUE REPONERLA.
+ *
+ * Antes el logo, el titular y el copy eran `motion.div`/`motion.h1` con
+ * `initial={{ opacity: 0 }}`. Eso significa que el HTML sale del servidor con
+ * `opacity: 0` y depende de que React hidrate y framer levante la opacidad.
+ * Cuando eso no pasa —y pasaba— la portada del sitio queda EN BLANCO: fondo
+ * navy y nada más.
+ *
+ * El disparador que encontramos fue un mismatch de hidratación en TiltCard
+ * (ver el comentario ahí), pero la causa de fondo es más simple: una animación
+ * de entrada no puede ser lo que decide si el contenido se ve. Cualquier cosa
+ * que rompa la hidratación —un componente nuevo, una extensión del navegador,
+ * un chunk que no carga— vuelve a dejar la home vacía.
+ *
+ * Así que el contenido crítico se sirve visible y punto. El movimiento ambiental
+ * (PremiumHeroBg, los rayos) sigue: eso es decoración, y si falla no se lleva
+ * puesto el mensaje.
+ */
 export default function Hero() {
   return (
     <section id="top" className="relative isolate overflow-hidden pt-36 pb-24 sm:pt-44 sm:pb-32">
@@ -15,34 +34,25 @@ export default function Hero() {
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         {/* eyebrow row */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+        <div
           className="flex flex-wrap items-center gap-3"
         >
           <GlassChip dot tone="cobalt" shiny>Holding · Studio</GlassChip>
           <span className="h-px w-10 bg-white/10 hidden sm:block" />
           <span className="eyebrow">Asunción · LATAM · Remoto global</span>
-        </motion.div>
+        </div>
 
         {/* Brand logo — home */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+        <div
           className="mt-12 sm:mt-14 relative"
         >
           <span className="absolute -inset-x-10 -top-10 bottom-0 -z-10 bg-cobalt-500/[0.07] blur-3xl rounded-full" />
           <NovumLogo size="xl" align="left" className="text-ivory-50" />
-        </motion.div>
+        </div>
 
         {/* Headline / value prop */}
         <div className="mt-12 sm:mt-16 grid grid-cols-12 gap-y-10">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+          <h1
             className="col-span-12 display-tight text-4xl sm:text-5xl lg:text-[3.6rem] text-ivory-50 max-w-4xl leading-[1.02]"
           >
             Sistemas que{" "}
@@ -51,12 +61,9 @@ export default function Hero() {
               <span className="absolute -bottom-1 left-0 right-0 h-3 bg-cobalt-500/30 blur-2xl rounded-full" />
             </span>
             , <span className="font-display font-light text-cobalt-300">venden</span> y operan por ti.
-          </motion.h1>
+          </h1>
 
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
+          <div
             className="col-span-12 md:col-span-6"
           >
             <p className="text-ivory-200/80 text-lg leading-[1.7] text-pretty max-w-lg">
@@ -74,12 +81,9 @@ export default function Hero() {
                 Hablar con fundadores
               </GlassButton>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.45 }}
+          <div
             className="col-span-12 md:col-span-5 md:col-start-8 self-end"
           >
             <div className="glass rounded-3xl p-6 grid grid-cols-3 gap-5">
@@ -87,14 +91,11 @@ export default function Hero() {
               <Stat value={11} label="Verticales" />
               <Stat value={99.9} decimals={1} suffix="%" label="Uptime" mono />
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Showreel card */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.6 }}
+        <div
           className="mt-16 sm:mt-20 relative glass rounded-3xl overflow-hidden"
         >
           <div className="aspect-[16/7] relative">
@@ -134,7 +135,7 @@ export default function Hero() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import DottedMap from "dotted-map";
 import Image from "next/image";
@@ -32,11 +32,24 @@ const DEFAULT_DOTS: Dot[] = [
   { start: ASUNCION, end: { lat: 25.7617, lng: -80.1918, label: "Miami" } },
 ];
 
+/** Devuelve false en el primer render (igual que en el servidor) y el valor real
+ *  recién después de montar.
+ *
+ *  Leer `matchMedia` durante el render hacía que el servidor dijera false y el
+ *  cliente true, y como abajo hay nodos que se pintan solo si es false, los dos
+ *  árboles no coincidían y React abortaba la hidratación de la página entera.
+ *  Ver el comentario largo en components/motion/TiltCard.tsx. */
 function useReducedMotion() {
-  return useMemo(() => {
-    if (typeof window === "undefined" || !window.matchMedia) return false;
-    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const [reducido, setReducido] = useState(false);
+  useEffect(() => {
+    if (!window.matchMedia) return;
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducido(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setReducido(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
   }, []);
+  return reducido;
 }
 
 export default function WorldMap({ dots = DEFAULT_DOTS, lineColor = AZURE, className }: WorldMapProps) {
