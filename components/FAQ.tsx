@@ -4,8 +4,10 @@ import { Plus } from "lucide-react";
 import { SITE } from "@/lib/site";
 
 export default function FAQ() {
+  /* Navy explícito, mismo motivo que en Testimonials: con el bloque claro
+     arriba, el oscuro tiene que declararse y no heredarse del <body>. */
   return (
-    <section id="faq" className="relative py-32 sm:py-44 border-t border-white/[0.06]">
+    <section id="faq" className="relative bg-navy-950 py-32 sm:py-44">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="grid grid-cols-12 gap-10">
           {/* Sticky header */}

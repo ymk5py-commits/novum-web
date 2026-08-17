@@ -64,8 +64,14 @@ function Column({ items, duration, className = "" }: { items: T[]; duration: num
 }
 
 export default function Testimonials() {
+  /* Fondo navy EXPLÍCITO. Antes esta sección no declaraba fondo y dejaba ver el
+     degradé del <body>; ahora que el bloque de contenido (Servicios → Precios)
+     va sobre papel claro, la vuelta al oscuro tiene que ser una decisión del
+     componente y no un efecto secundario de lo que haya debajo. Se saca el
+     `border-t` blanco: separaba dos zonas oscuras, pero contra una sección
+     clara no se ve y no separa nada. */
   return (
-    <section id="testimonios" className="relative py-32 sm:py-44 border-t border-white/[0.06] overflow-hidden">
+    <section id="testimonios" className="relative overflow-hidden bg-navy-950 py-32 sm:py-44">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="grid grid-cols-12 gap-6 items-end">
           <div className="col-span-12 md:col-span-3">

@@ -6,8 +6,10 @@ import { NeoButton } from "./magic/NeoButton";
 import { SITE } from "@/lib/site";
 
 export default function Contact() {
+  /* Navy explícito: es el cierre de la página y no puede depender del degradé
+     del <body> ahora que arriba hay secciones claras. */
   return (
-    <section id="contacto" className="relative py-32 sm:py-44 overflow-hidden">
+    <section id="contacto" className="relative overflow-hidden bg-navy-950 py-32 sm:py-44">
       <div className="absolute inset-0 -z-10 noise opacity-[0.4]" />
       <div
         className="aurora -z-10 bottom-[-200px] left-1/2 -translate-x-1/2 h-[600px] w-[1000px]"

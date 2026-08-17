@@ -46,6 +46,18 @@ const config: Config = {
           600: "#12A97A",
           700: "#0B7A5B",   // menta legible sobre fondos claros
         },
+        /* Superficie CLARA — la mitad que le faltaba al sitio.
+         * La referencia alterna: portadas oscuras y páginas de contenido sobre
+         * un gris cálido con tarjetas blancas encima. Sin estos tokens el sitio
+         * era oscuro de punta a punta y el contenido no respiraba. */
+        paper: {
+          DEFAULT: "#E9E9E9",  // fondo de las secciones claras
+          soft: "#F1F1F1",     // bandas alternas dentro de una sección clara
+          card: "#FFFFFF",     // tarjetas que flotan sobre el papel
+          line: "#D5D5D8",     // reglas finas y bordes
+          ink: "#0A1240",      // texto principal sobre papel
+          muted: "#545B6B",    // texto secundario que pasa AA sobre papel
+        },
         // Ivory cálido (no blanco puro)
         ivory: {
           50:  "#FBFAF7",
