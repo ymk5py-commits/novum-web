@@ -31,7 +31,12 @@ export default function Services() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionBar label="Capacidades" tone="light" />
 
-        <div className="grid grid-cols-12 gap-x-10 gap-y-12">
+        {/* El `gap-x` es 0 hasta lg A PROPÓSITO. Con `gap-x-10` fijo, una grilla
+            de 12 columnas mide como mínimo 11 huecos × 40px = 440px de puro
+            espacio: más que un teléfono de 375px. Resultado: scroll horizontal
+            en toda la página. Y en móvil las dos columnas se apilan, así que ese
+            hueco horizontal no separaba nada — solo rompía. */}
+        <div className="grid grid-cols-12 gap-x-0 gap-y-12 lg:gap-x-10">
           {/* Intro sticky: acompaña al listado mientras se scrollea. */}
           <div className="col-span-12 lg:col-span-4">
             <div className="lg:sticky lg:top-28">

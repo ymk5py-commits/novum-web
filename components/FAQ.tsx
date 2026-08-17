@@ -9,7 +9,10 @@ export default function FAQ() {
   return (
     <section id="faq" className="relative bg-navy-950 py-32 sm:py-44">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="grid grid-cols-12 gap-10">
+        {/* Mismo motivo que en Services: `gap-10` en una grilla de 12 columnas
+            son 11 huecos × 40px = 440px de espacio mínimo, más que un teléfono.
+            En móvil las columnas se apilan, así que el hueco horizontal sobra. */}
+        <div className="grid grid-cols-12 gap-y-10 gap-x-0 lg:gap-x-10">
           {/* Sticky header */}
           <div className="col-span-12 lg:col-span-4">
             <div className="lg:sticky lg:top-28">

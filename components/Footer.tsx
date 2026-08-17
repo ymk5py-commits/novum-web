@@ -6,7 +6,9 @@ export default function Footer() {
   return (
     <footer className="relative border-t border-white/[0.06] bg-navy-950">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 py-16">
-        <div className="grid grid-cols-12 gap-8">
+        {/* gap-x solo desde lg: 11 huecos × 32px = 352px de mínimo, que en un
+            teléfono de 375 deja al contenido sin lugar y mete scroll lateral. */}
+        <div className="grid grid-cols-12 gap-y-8 gap-x-0 lg:gap-x-8">
           <div className="col-span-12 md:col-span-5">
             <NovumLogo size="md" align="left" className="text-ivory-50" />
             <p className="mt-6 max-w-sm text-sm text-ivory-200/75 leading-relaxed">
