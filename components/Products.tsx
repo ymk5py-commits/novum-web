@@ -5,6 +5,7 @@ import { GlassButton, GlassChip } from "./primitives/GlassButton";
 import { TiltCard } from "@/components/motion/TiltCard";
 import { BorderBeam } from "@/components/magic/BorderBeam";
 import { DentalVisual } from "./product/ProductVisuals";
+import { SectionBar, SectionTitle } from "@/components/several/Section";
 
 export default function Products() {
   return (
@@ -13,17 +14,10 @@ export default function Products() {
       <div className="absolute inset-x-0 top-0 h-[40vh] bg-gradient-to-b from-cobalt-500/[0.08] to-transparent -z-10" />
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
-        <SectionHeader
-          tag="01 · Productos propietarios"
-          title={
-            <>
-              Cuatro productos.{" "}
-              <span className="aurora-text">Una sola tesis</span>
-              :<br />
-              <span className="font-display font-light text-cobalt-300">software que opera por ti.</span>
-            </>
-          }
-        />
+        <SectionBar label="Productos" />
+        <SectionTitle className="max-w-[20ch]">
+          Cuatro productos. <span className="text-cobalt-400">Una sola tesis</span>: software que opera por ti.
+        </SectionTitle>
 
         <div className="mt-20 space-y-28">
           <Botika />
@@ -33,19 +27,6 @@ export default function Products() {
         </div>
       </div>
     </section>
-  );
-}
-
-function SectionHeader({ tag, title }: { tag: string; title: React.ReactNode }) {
-  return (
-    <div className="grid grid-cols-12 gap-6 items-end">
-      <div className="col-span-12 md:col-span-3">
-        <div className="eyebrow border-l border-cobalt-400/60 pl-3">{tag}</div>
-      </div>
-      <h2 className="col-span-12 md:col-span-9 display-tight text-4xl sm:text-5xl lg:text-6xl text-ivory-50 text-pretty">
-        {title}
-      </h2>
-    </div>
   );
 }
 
@@ -153,28 +134,44 @@ function ProductRow({
   secondaryLabel?: string;
 }) {
   return (
+    /* `y` sin `opacity`: si la hidratación falla, el producto igual se lee.
+       Ver el comentario largo en components/motion/TiltCard.tsx. */
     <motion.article
-      initial={{ opacity: 0, y: 32 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ y: 28 }}
+      whileInView={{ y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className="grid grid-cols-12 gap-6 lg:gap-12 items-center"
+      className="grid grid-cols-12 items-center gap-y-8 gap-x-0 lg:gap-x-12"
     >
       <div className={`col-span-12 lg:col-span-6 ${reverse ? "lg:order-2" : ""}`}>
-        <GlassChip tone="cobalt">{eyebrow}</GlassChip>
-        <h3 className="mt-5 display-tight text-6xl sm:text-7xl text-ivory-50">
-          <span className="block text-cobalt-300">{kicker}</span>
-          <span className="font-display font-light text-cobalt-300 text-4xl sm:text-5xl block mt-2 leading-tight">
-            {tagline}
-          </span>
+        {/* JERARQUÍA — el problema que tenía esta sección.
+            Antes el NOMBRE del producto y su bajada eran los dos menta y los dos
+            enormes (72px y 48px). Dos cosas gritando a la vez no son jerarquía:
+            el ojo no sabe dónde parar y todo se siente igual de importante.
+
+            Ahora hay un solo protagonista: el nombre, grande y en blanco. La
+            bajada baja de tamaño y de peso, y el menta queda reservado para UN
+            acento —la regla y el numeral—, que es como lo usa la referencia. */}
+        <div className="flex items-center gap-4">
+          <span className="font-display text-sm font-medium tabular-nums text-cobalt-400">{eyebrow.split(" / ")[0]}</span>
+          <span className="h-px w-8 bg-cobalt-400/50" />
+          <span className="eyebrow">{eyebrow.split(" / ")[1] ?? eyebrow}</span>
+        </div>
+
+        <h3 className="mt-6 font-display text-[3.25rem] font-extralight leading-[0.98] tracking-tight text-ivory-50 sm:text-[4rem]">
+          {kicker}
         </h3>
-        <p className="mt-6 max-w-xl text-ivory-200/80 text-base leading-[1.75] text-pretty">
+        <p className="mt-3 font-display text-2xl font-light leading-snug text-cobalt-300 sm:text-[1.75rem]">
+          {tagline}
+        </p>
+
+        <p className="mt-6 max-w-xl text-base font-light leading-[1.75] text-ivory-200/75 text-pretty">
           {copy}
         </p>
         <ul className="mt-7 grid grid-cols-1 gap-2.5">
           {bullets.map((b) => (
-            <li key={b} className="flex items-start gap-3 text-sm text-ivory-100/90">
-              <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-cobalt-400 shrink-0 shadow-[0_0_12px_rgba(46,131,245,0.7)]" />
+            <li key={b} className="flex items-start gap-3 text-sm font-light text-ivory-100/85">
+              <span className="mt-2 h-px w-3 shrink-0 bg-cobalt-400" />
               <span>{b}</span>
             </li>
           ))}
@@ -190,7 +187,9 @@ function ProductRow({
             </GlassButton>
           )}
           {secondaryHref && (
-            <a href={secondaryHref} className="text-sm text-cobalt-200 hover:text-cobalt-100 transition-colors">
+            /* min-h-44: es el enlace secundario de cada producto, pero en un
+               teléfono se toca con el dedo igual que el botón principal. */
+            <a href={secondaryHref} className="inline-flex min-h-[44px] items-center text-sm font-light text-cobalt-200 transition-colors hover:text-cobalt-100">
               {secondaryLabel}
             </a>
           )}

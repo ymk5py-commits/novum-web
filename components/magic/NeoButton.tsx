@@ -9,7 +9,7 @@ import { ArrowUpRight } from "lucide-react";
 type Size = "sm" | "md" | "lg";
 
 const SIZES: Record<Size, string> = {
-  sm: "h-10 px-5 text-sm",
+  sm: "h-11 px-5 text-sm",
   md: "h-12 px-6 text-sm",
   lg: "h-[52px] px-7 text-base",
 };

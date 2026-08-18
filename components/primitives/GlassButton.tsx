@@ -21,9 +21,12 @@ export function GlassButton({
     "group sheen relative inline-flex items-center gap-2 rounded-full font-medium tracking-snug transition-all duration-300 select-none";
 
   const sizes = {
-    sm: "px-4 py-2 text-xs",
-    md: "px-5 py-2.5 text-sm",
-    lg: "px-6 py-3 text-sm",
+    /* `min-h-[44px]` en los tres tamaños: es el mínimo táctil en un teléfono.
+       Con solo el padding, `md` quedaba en 42px y `sm` bastante menos — se
+       arregla acá, en el primitivo, y no botón por botón en cada sección. */
+    sm: "min-h-[44px] px-4 py-2 text-xs",
+    md: "min-h-[44px] px-5 py-2.5 text-sm",
+    lg: "min-h-[44px] px-6 py-3 text-sm",
   }[size];
 
   const styles = {

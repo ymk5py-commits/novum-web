@@ -30,7 +30,7 @@ export default function MobileMenu() {
       <button
         onClick={() => setOpen(true)}
         aria-label="Abrir menú"
-        className="grid h-9 w-9 place-items-center rounded-full glass-chip text-ivory-100"
+        className="grid h-11 w-11 place-items-center rounded-full glass-chip text-ivory-100"
       >
         <Menu className="h-5 w-5" />
       </button>
@@ -51,7 +51,7 @@ export default function MobileMenu() {
                 <button
                   onClick={() => setOpen(false)}
                   aria-label="Cerrar menú"
-                  className="grid h-9 w-9 place-items-center rounded-full glass-chip text-ivory-100"
+                  className="grid h-11 w-11 place-items-center rounded-full glass-chip text-ivory-100"
                 >
                   <X className="h-5 w-5" />
                 </button>

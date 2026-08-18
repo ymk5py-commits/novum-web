@@ -23,27 +23,27 @@ export default function Footer() {
 
           <div className="col-span-6 md:col-span-2">
             <h4 className="eyebrow">Producto</h4>
-            <ul className="mt-4 space-y-2.5 text-sm text-ivory-100/90">
-              <li><a href="#productos" className="hover:text-cobalt-300 transition-colors">Botika</a></li>
-              <li><a href="#productos" className="hover:text-cobalt-300 transition-colors">PAUTIK</a></li>
-              <li><a href="#productos" className="hover:text-cobalt-300 transition-colors">NOVUMed</a></li>
+            <ul className="mt-2 text-sm text-ivory-100/90">
+              <li><a href="#productos" className="inline-flex min-h-[44px] items-center transition-colors hover:text-cobalt-300">Botika</a></li>
+              <li><a href="#productos" className="inline-flex min-h-[44px] items-center transition-colors hover:text-cobalt-300">PAUTIK</a></li>
+              <li><a href="#productos" className="inline-flex min-h-[44px] items-center transition-colors hover:text-cobalt-300">NOVUMed</a></li>
             </ul>
           </div>
 
           <div className="col-span-6 md:col-span-2">
             <h4 className="eyebrow">Studio</h4>
-            <ul className="mt-4 space-y-2.5 text-sm text-ivory-100/90">
-              <li><a href="#servicios" className="hover:text-cobalt-300 transition-colors">Servicios</a></li>
-              <li><a href="#proceso" className="hover:text-cobalt-300 transition-colors">Proceso</a></li>
-              <li><a href="#proyectos" className="hover:text-cobalt-300 transition-colors">Proyectos</a></li>
+            <ul className="mt-2 text-sm text-ivory-100/90">
+              <li><a href="#servicios" className="inline-flex min-h-[44px] items-center transition-colors hover:text-cobalt-300">Servicios</a></li>
+              <li><a href="#proceso" className="inline-flex min-h-[44px] items-center transition-colors hover:text-cobalt-300">Proceso</a></li>
+              <li><a href="#proyectos" className="inline-flex min-h-[44px] items-center transition-colors hover:text-cobalt-300">Proyectos</a></li>
             </ul>
           </div>
 
           <div className="col-span-12 md:col-span-3">
             <h4 className="eyebrow">Contacto</h4>
-            <ul className="mt-4 space-y-2.5 text-sm text-ivory-100/90">
-              <li><a href="mailto:hola@novum.studio" className="hover:text-cobalt-300 transition-colors">hola@novum.studio</a></li>
-              <li><a href={SITE.whatsapp} className="hover:text-cobalt-300 transition-colors">WhatsApp</a></li>
+            <ul className="mt-2 text-sm text-ivory-100/90">
+              <li><a href="mailto:hola@novum.studio" className="inline-flex min-h-[44px] items-center transition-colors hover:text-cobalt-300">hola@novum.studio</a></li>
+              <li><a href={SITE.whatsapp} className="inline-flex min-h-[44px] items-center transition-colors hover:text-cobalt-300">WhatsApp</a></li>
               <li><span className="text-ivory-300/70">Asunción, Paraguay</span></li>
             </ul>
           </div>
