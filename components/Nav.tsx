@@ -39,7 +39,7 @@ export default function Nav() {
           <a href="#top" className="flex items-center gap-3 group" aria-label="NOVUM Holding — inicio">
             <NovumMark />
             <NovumLogo size="sm" subline={false} className="text-ivory-50" />
-            <span className="hidden sm:inline-block text-[9px] uppercase tracking-ultrawide text-ivory-300 border-l border-white/10 pl-2 self-center">
+            <span className="hidden sm:inline-block text-[12px] uppercase tracking-ultrawide text-ivory-300 border-l border-white/10 pl-2 self-center">
               holding
             </span>
           </a>

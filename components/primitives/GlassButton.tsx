@@ -73,7 +73,7 @@ export function GlassChip({
 
   return (
     <span
-      className={`inline-flex items-center gap-2 rounded-full px-3 py-1 font-mono text-[10px] uppercase tracking-ultrawide ${toneClass} ${
+      className={`inline-flex items-center gap-2 rounded-full px-3 py-1 font-mono text-[12px] uppercase tracking-ultrawide ${toneClass} ${
         shiny ? "shiny-chip" : ""
       }`}
     >

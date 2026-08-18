@@ -297,10 +297,14 @@ html.lenis, html.lenis body { height: auto; }
   line-height: 0.98;
 }
 
+/* 12px y no 10: a 10px con tracking de 0.22em estas etiquetas eran ilegibles en
+   un teléfono, y en el sitio hay ~50 (sector, stack, plazos, estados). Se baja
+   un punto el tracking porque a 12px la letra ya tiene aire propio y con 0.22em
+   las palabras se despegaban de más. */
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.22em;
+  font-size: 12px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: rgba(243,241,234,0.55);
 }

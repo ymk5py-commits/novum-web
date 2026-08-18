@@ -13,10 +13,10 @@ function Shell({ label, children }: { label: string; children: React.ReactNode }
             <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
             <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
           </div>
-          <span className="font-mono text-[10px] uppercase tracking-ultrawide text-ivory-300/60">{label}</span>
+          <span className="font-mono text-[12px] uppercase tracking-ultrawide text-ivory-300/60">{label}</span>
           <span className="inline-flex items-center gap-1.5">
             <span className="h-1.5 w-1.5 rounded-full bg-signal-mint animate-ticker" />
-            <span className="font-mono text-[10px] text-ivory-300/60">LIVE</span>
+            <span className="font-mono text-[12px] text-ivory-300/60">LIVE</span>
           </span>
         </div>
         {children}
@@ -40,12 +40,12 @@ export function MedVisual() {
         ].map(([h, who, what, tone]) => (
           <div key={h} className="flex items-center gap-3 rounded-2xl glass-chip px-3 py-2.5">
             <div className="w-10 shrink-0 font-mono text-xs text-ivory-300/70">{h}</div>
-            <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-cobalt-500/15 font-mono text-[10px] text-cobalt-100 ring-1 ring-cobalt-300/20">
+            <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-cobalt-500/15 font-mono text-[12px] text-cobalt-100 ring-1 ring-cobalt-300/20">
               {(who as string).split(" ").map((w) => w[0]).join("")}
             </span>
             <div className="min-w-0 flex-1">
               <div className="truncate text-sm text-ivory-50">{who}</div>
-              <div className="truncate text-[11px] text-ivory-300/70">{what}</div>
+              <div className="truncate text-[12px] text-ivory-300/70">{what}</div>
             </div>
             <span
               className={`h-2 w-2 rounded-full ${
@@ -56,7 +56,7 @@ export function MedVisual() {
         ))}
         <div className="mt-1 flex items-center gap-2.5 rounded-xl glass-chip px-3 py-2">
           <span className="h-2 w-2 rounded-full bg-signal-mint animate-ticker" />
-          <span className="font-mono text-[11px] text-ivory-200">
+          <span className="font-mono text-[12px] text-ivory-200">
             Botika confirmó 4 turnos por <span className="text-cobalt-300">WhatsApp</span>
           </span>
         </div>
@@ -88,13 +88,13 @@ export function DentalVisual() {
               : s === "out" ? "bg-white/[0.02] ring-white/10 text-ivory-300/30 line-through"
               : "bg-white/[0.04] ring-white/10 text-ivory-300/60";
             return (
-              <div key={t} className={`grid aspect-square place-items-center rounded-md ring-1 font-mono text-[10px] ${cls}`}>
+              <div key={t} className={`grid aspect-square place-items-center rounded-md ring-1 font-mono text-[12px] ${cls}`}>
                 {t}
               </div>
             );
           })}
         </div>
-        <div className="flex flex-wrap gap-3 text-[10px] font-mono text-ivory-300/70">
+        <div className="flex flex-wrap gap-3 text-[12px] font-mono text-ivory-300/70">
           <span className="inline-flex items-center gap-1.5"><i className="h-2 w-2 rounded-sm bg-signal-amber/60" />Caries</span>
           <span className="inline-flex items-center gap-1.5"><i className="h-2 w-2 rounded-sm bg-cobalt-400/70" />Tratado</span>
           <span className="inline-flex items-center gap-1.5"><i className="h-2 w-2 rounded-sm bg-white/15" />Sano</span>
@@ -104,14 +104,14 @@ export function DentalVisual() {
             <div className="eyebrow">Plan de tratamiento</div>
             <div className="font-mono text-xs text-cobalt-200">Gs 2.450.000</div>
           </div>
-          <div className="grid gap-1.5 text-[11px] text-ivory-200/80">
+          <div className="grid gap-1.5 text-[12px] text-ivory-200/80">
             <div className="flex justify-between"><span>Resina · pieza 16</span><span className="text-ivory-300/60">Gs 420.000</span></div>
             <div className="flex justify-between"><span>Endodoncia · pieza 24</span><span className="text-ivory-300/60">Gs 980.000</span></div>
             <div className="flex justify-between"><span>Corona · pieza 26</span><span className="text-ivory-300/60">Gs 1.050.000</span></div>
           </div>
           <div className="mt-2 flex items-center gap-2.5 border-t border-white/5 pt-2">
             <span className="h-2 w-2 rounded-full bg-signal-mint animate-ticker" />
-            <span className="font-mono text-[10px] text-ivory-200">Financiable en 6 cuotas</span>
+            <span className="font-mono text-[12px] text-ivory-200">Financiable en 6 cuotas</span>
           </div>
         </div>
       </div>

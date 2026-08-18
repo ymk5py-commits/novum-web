@@ -34,7 +34,7 @@ function Card({ t }: { t: T }) {
     <figure className="glass rounded-3xl p-6 sm:p-7 w-full select-none">
       <blockquote className="text-ivory-100/90 leading-relaxed text-pretty">"{t.text}"</blockquote>
       <figcaption className="mt-6 flex items-center gap-3">
-        <span className="glass-cobalt grid h-10 w-10 place-items-center rounded-full font-mono text-[11px] text-cobalt-100">
+        <span className="glass-cobalt grid h-10 w-10 place-items-center rounded-full font-mono text-[12px] text-cobalt-100">
           {initials(t.name)}
         </span>
         <div>

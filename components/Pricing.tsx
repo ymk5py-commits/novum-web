@@ -42,7 +42,7 @@ function BillingSwitch({ value, onChange }: { value: 0 | 1; onChange: (v: 0 | 1)
                  menta clara sobre el navy activo, menta oscura (cobalt-700,
                  el único que llega a 4.5:1 sobre claro) sobre el blanco. */
               <span
-                className={`rounded-full px-1.5 py-0.5 font-mono text-[9px] ${
+                className={`rounded-full px-1.5 py-0.5 font-mono text-[12px] ${
                   value === i ? "bg-cobalt-400/20 text-cobalt-100" : "bg-cobalt-700/10 text-cobalt-700"
                 }`}
               >
@@ -201,7 +201,7 @@ export default function Pricing() {
               <h3 className="font-display text-2xl font-light text-white">{destacado.name}</h3>
               {/* Relleno menta sólido ⇒ texto navy. Blanco encima del menta no
                   llega al contraste mínimo. */}
-              <span className="rounded-full bg-cobalt-400 px-3 py-1 font-display text-[11px] font-medium uppercase tracking-[0.18em] text-navy-950">
+              <span className="rounded-full bg-cobalt-400 px-3 py-1 font-display text-[12px] font-medium uppercase tracking-[0.18em] text-navy-950">
                 Más elegido
               </span>
             </div>
@@ -227,7 +227,7 @@ export default function Pricing() {
                 <span className="mb-2 text-sm text-ivory-300">USD / mes</span>
               )}
             </div>
-            <div className="mt-3 font-mono text-[10px] uppercase tracking-ultrawide text-ivory-300">
+            <div className="mt-3 font-mono text-[12px] uppercase tracking-ultrawide text-ivory-300">
               {etiquetaCiclo(destacado, billing)}
             </div>
 
@@ -282,7 +282,7 @@ export default function Pricing() {
                           <span className="mb-1 text-sm text-paper-muted">USD / mes</span>
                         )}
                       </div>
-                      <div className="mt-2 font-mono text-[10px] uppercase tracking-ultrawide text-paper-muted">
+                      <div className="mt-2 font-mono text-[12px] uppercase tracking-ultrawide text-paper-muted">
                         {etiquetaCiclo(p, billing)}
                       </div>
                     </div>
@@ -309,7 +309,7 @@ export default function Pricing() {
           })}
         </div>
 
-        <p className="mt-10 text-center font-mono text-[10px] uppercase tracking-ultrawide text-paper-muted">
+        <p className="mt-10 text-center font-mono text-[12px] uppercase tracking-ultrawide text-paper-muted">
           Precios referenciales en USD · Impuestos no incluidos · Cancelás cuando quieras
         </p>
       </div>

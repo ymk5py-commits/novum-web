@@ -71,7 +71,7 @@ export default function MobileMenu() {
                 ))}
 
                 <div className="mt-6">
-                  <a href="/novumed" className="flex items-center gap-1.5 px-3 font-mono text-[11px] uppercase tracking-ultrawide text-cobalt-300">
+                  <a href="/novumed" className="flex items-center gap-1.5 px-3 font-mono text-[12px] uppercase tracking-ultrawide text-cobalt-300">
                     NOVUMed <ArrowUpRight className="h-3.5 w-3.5" />
                   </a>
                   <div className="mt-2 flex flex-wrap gap-2 px-3">
@@ -84,7 +84,7 @@ export default function MobileMenu() {
                 </div>
 
                 <div className="mt-6">
-                  <a href="/novudent" className="flex items-center gap-1.5 px-3 font-mono text-[11px] uppercase tracking-ultrawide text-cobalt-300">
+                  <a href="/novudent" className="flex items-center gap-1.5 px-3 font-mono text-[12px] uppercase tracking-ultrawide text-cobalt-300">
                     NOVUdent <ArrowUpRight className="h-3.5 w-3.5" />
                   </a>
                   <div className="mt-2 flex flex-wrap gap-2 px-3">

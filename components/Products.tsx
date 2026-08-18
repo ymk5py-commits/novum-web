@@ -215,10 +215,10 @@ function FrameShell({ children, label }: { children: React.ReactNode; label: str
             <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
             <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
           </div>
-          <span className="font-mono text-[10px] uppercase tracking-ultrawide text-ivory-300/60">{label}</span>
+          <span className="font-mono text-[12px] uppercase tracking-ultrawide text-ivory-300/60">{label}</span>
           <div className="flex items-center gap-1.5">
             <span className="h-1.5 w-1.5 rounded-full bg-signal-mint animate-ticker" />
-            <span className="font-mono text-[10px] text-ivory-300/60">LIVE</span>
+            <span className="font-mono text-[12px] text-ivory-300/60">LIVE</span>
           </div>
         </div>
         {children}
@@ -262,7 +262,7 @@ function BotikaVisual() {
             <Send className="h-3.5 w-3.5" />
           </span>
         </div>
-        <div className="mt-1 flex items-center justify-between border-t border-white/5 pt-3 font-mono text-[10px] uppercase tracking-ultrawide text-ivory-300/60">
+        <div className="mt-1 flex items-center justify-between border-t border-white/5 pt-3 font-mono text-[12px] uppercase tracking-ultrawide text-ivory-300/60">
           <span>412ms · 3 tools</span>
           <span className="inline-flex items-center gap-1.5 text-signal-mint"><Check className="h-3 w-3" /> resolved</span>
         </div>
@@ -285,7 +285,7 @@ function Bubble({ side, time, children }: { side: "user" | "agent"; time: string
         >
           {children}
         </div>
-        <span className="mt-1 font-mono text-[9px] text-ivory-300/50">{time}</span>
+        <span className="mt-1 font-mono text-[12px] text-ivory-300/50">{time}</span>
       </div>
     </div>
   );
@@ -293,7 +293,7 @@ function Bubble({ side, time, children }: { side: "user" | "agent"; time: string
 
 function ToolCall({ name }: { name: string }) {
   return (
-    <div className="mt-2 inline-flex items-center gap-1.5 rounded-md border border-cobalt-300/30 bg-cobalt-500/10 px-2 py-1 font-mono text-[10px] text-cobalt-100">
+    <div className="mt-2 inline-flex items-center gap-1.5 rounded-md border border-cobalt-300/30 bg-cobalt-500/10 px-2 py-1 font-mono text-[12px] text-cobalt-100">
       <Check className="h-2.5 w-2.5 text-signal-mint" />
       {name}()
     </div>
@@ -311,7 +311,7 @@ function PautikVisual() {
             {["7d", "30d", "90d"].map((d, i) => (
               <span
                 key={d}
-                className={`rounded-full px-2.5 py-0.5 font-mono text-[10px] ${
+                className={`rounded-full px-2.5 py-0.5 font-mono text-[12px] ${
                   i === 1 ? "bg-cobalt-400 text-navy-950" : "text-ivory-300/70"
                 }`}
               >
@@ -329,7 +329,7 @@ function PautikVisual() {
 
         <div className="glass-chip rounded-2xl p-3 sm:p-4">
           <div className="mb-3 flex items-center justify-between">
-            <div className="flex items-center gap-3 text-[11px]">
+            <div className="flex items-center gap-3 text-[12px]">
               <span className="inline-flex items-center gap-1.5 text-cobalt-200">
                 <span className="h-1.5 w-1.5 rounded-full bg-cobalt-400" />Ingresos
               </span>
@@ -348,7 +348,7 @@ function PautikVisual() {
             <span className="bg-cobalt-300" style={{ width: "31%" }} />
             <span className="bg-signal-coral" style={{ width: "17%" }} />
           </div>
-          <div className="flex justify-between font-mono text-[10px] text-ivory-300/70">
+          <div className="flex justify-between font-mono text-[12px] text-ivory-300/70">
             <span>Meta 52%</span>
             <span>Google 31%</span>
             <span>TikTok 17%</span>
@@ -357,7 +357,7 @@ function PautikVisual() {
 
         <div className="flex items-center gap-2.5 rounded-xl glass-chip px-3 py-2">
           <span className="h-2 w-2 rounded-full bg-signal-mint animate-ticker shadow-[0_0_12px_rgba(123,227,179,0.7)]" />
-          <span className="font-mono text-[11px] text-ivory-200">
+          <span className="font-mono text-[12px] text-ivory-200">
             Auto-bid · +8% en <span className="text-cobalt-300">VENTA — RT</span>
           </span>
         </div>
@@ -372,7 +372,7 @@ function Kpi({ label, value, delta }: { label: string; value: string; delta: str
     <div className="glass-chip rounded-xl sm:rounded-2xl p-2.5 sm:p-3.5">
       <div className="eyebrow truncate">{label}</div>
       <div className="display-tight text-lg sm:text-2xl text-ivory-50 mt-1">{value}</div>
-      <div className="mt-0.5 inline-flex items-center gap-0.5 font-mono text-[10px] text-signal-mint">
+      <div className="mt-0.5 inline-flex items-center gap-0.5 font-mono text-[12px] text-signal-mint">
         {up && <TrendingUp className="h-3 w-3" />}
         {delta}
       </div>
@@ -419,7 +419,7 @@ function NovuMedVisual() {
           {[11, 12, 13, 14, 15, 16, 17].map((n, i) => (
             <span
               key={n}
-              className={`grid h-8 w-8 place-items-center rounded-full font-mono text-[11px] ${
+              className={`grid h-8 w-8 place-items-center rounded-full font-mono text-[12px] ${
                 i === 3 ? "bg-cobalt-400 text-navy-950" : "glass-chip text-ivory-300/70"
               }`}
             >
@@ -468,7 +468,7 @@ function Appt({
   return (
     <div className="flex items-center gap-3 glass-chip rounded-2xl px-3 py-2.5">
       <div className="w-10 shrink-0 font-mono text-xs text-ivory-300/70">{h}</div>
-      <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-cobalt-500/15 font-mono text-[10px] text-cobalt-100 ring-1 ring-cobalt-300/20">
+      <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-cobalt-500/15 font-mono text-[12px] text-cobalt-100 ring-1 ring-cobalt-300/20">
         {apptInitials(who)}
       </span>
       <div className="min-w-0 flex-1">
@@ -476,7 +476,7 @@ function Appt({
           {who}
           {video && <Video className="h-3 w-3 shrink-0 text-cobalt-300" />}
         </div>
-        <div className="truncate text-[11px] text-ivory-300/70">{what}</div>
+        <div className="truncate text-[12px] text-ivory-300/70">{what}</div>
       </div>
       <span className="hidden sm:flex"><GlassChip tone={tone}>{tag}</GlassChip></span>
       <span className={`h-2 w-2 shrink-0 rounded-full sm:hidden ${dot}`} />

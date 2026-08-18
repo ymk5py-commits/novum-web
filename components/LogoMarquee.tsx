@@ -37,7 +37,7 @@ function Pill({ b }: { b: Brand }) {
         }`}
         dangerouslySetInnerHTML={{ __html: b.svg }}
       />
-      <span className="font-mono text-[11px] uppercase tracking-ultrawide text-ivory-200/80">{b.name}</span>
+      <span className="font-mono text-[12px] uppercase tracking-ultrawide text-ivory-200/80">{b.name}</span>
     </span>
   );
 }
@@ -47,7 +47,7 @@ export default function LogoMarquee() {
     <section aria-label="integraciones" className="relative border-y border-white/[0.06] py-8">
       <div className="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-900 to-navy-950" />
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
-        <div className="mb-5 text-center font-mono text-[10px] uppercase tracking-ultrawide text-ivory-300/60">
+        <div className="mb-5 text-center font-mono text-[12px] uppercase tracking-ultrawide text-ivory-300/60">
           Se conecta nativamente con tu stack
         </div>
         <div className="marquee-mask overflow-hidden">

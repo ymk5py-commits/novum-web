@@ -39,7 +39,7 @@ export default function GlobalReach() {
           {cities.map((c) => (
             <span
               key={c}
-              className="glass-chip rounded-full px-3 py-1.5 font-mono text-[10px] uppercase tracking-ultrawide text-ivory-200/80"
+              className="glass-chip rounded-full px-3 py-1.5 font-mono text-[12px] uppercase tracking-ultrawide text-ivory-200/80"
             >
               {c}
             </span>

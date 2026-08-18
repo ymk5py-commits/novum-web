@@ -17,7 +17,7 @@ export default function Footer() {
             </p>
             <div className="mt-6 inline-flex items-center gap-2 glass-chip rounded-full px-3 py-1.5">
               <span className="h-1.5 w-1.5 rounded-full bg-signal-mint animate-ticker" />
-              <span className="font-mono text-[10px] uppercase tracking-ultrawide text-ivory-200">All systems operational</span>
+              <span className="font-mono text-[12px] uppercase tracking-ultrawide text-ivory-200">All systems operational</span>
             </div>
           </div>
 

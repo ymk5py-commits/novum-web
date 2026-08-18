@@ -7,8 +7,8 @@ const MAP: Record<
   { word: string; track: string; sub: string; subTrack: string; line: string; gap: string; pad: string }
 > = {
   sm: { word: "text-lg",  track: "0.30em", sub: "text-[7px]",  subTrack: "0.42em", line: "w-3",  gap: "gap-1.5", pad: "mt-1" },
-  md: { word: "text-3xl", track: "0.32em", sub: "text-[9px]",  subTrack: "0.46em", line: "w-5",  gap: "gap-2",   pad: "mt-1.5" },
-  lg: { word: "text-6xl", track: "0.34em", sub: "text-[11px]", subTrack: "0.5em",  line: "w-8",  gap: "gap-3",   pad: "mt-2" },
+  md: { word: "text-3xl", track: "0.32em", sub: "text-[12px]",  subTrack: "0.46em", line: "w-5",  gap: "gap-2",   pad: "mt-1.5" },
+  lg: { word: "text-6xl", track: "0.34em", sub: "text-[12px]", subTrack: "0.5em",  line: "w-8",  gap: "gap-3",   pad: "mt-2" },
   xl: {
     word: "text-[clamp(3.5rem,13vw,11rem)]",
     track: "0.30em",

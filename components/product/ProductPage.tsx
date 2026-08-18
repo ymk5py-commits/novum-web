@@ -218,7 +218,7 @@ export default function ProductPage({ config, visual }: { config: ProductConfig;
             <div className="eyebrow">Se conecta con</div>
             <div className="mt-5 flex flex-wrap justify-center gap-2">
               {config.integrations.map((t) => (
-                <span key={t} className="rounded-full glass-chip px-4 py-2 font-mono text-[11px] uppercase tracking-ultrawide text-ivory-200/80">
+                <span key={t} className="rounded-full glass-chip px-4 py-2 font-mono text-[12px] uppercase tracking-ultrawide text-ivory-200/80">
                   {t}
                 </span>
               ))}
@@ -272,7 +272,7 @@ export default function ProductPage({ config, visual }: { config: ProductConfig;
                 </motion.div>
               ))}
             </div>
-            <p className="mt-8 text-center font-mono text-[10px] uppercase tracking-ultrawide text-ivory-300/50">
+            <p className="mt-8 text-center font-mono text-[12px] uppercase tracking-ultrawide text-ivory-300/50">
               Precios referenciales en USD · Sin contratos largos · Migración incluida
             </p>
           </div>

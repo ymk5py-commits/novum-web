@@ -237,7 +237,7 @@ export default function CinematicShowcase({
                     <div className="relative w-full h-full pt-12 px-5 pb-8 flex flex-col">
                       <div className="phone-widget flex justify-between items-center mb-8">
                         <div className="flex flex-col">
-                          <span className="text-[10px] text-neutral-400 uppercase tracking-widest font-bold mb-1">Hoy</span>
+                          <span className="text-[12px] text-neutral-400 uppercase tracking-widest font-bold mb-1">Hoy</span>
                           <span className="text-xl font-bold tracking-tight text-white drop-shadow-md">Pipeline</span>
                         </div>
                         <div className="w-9 h-9 rounded-full bg-white/5 text-neutral-200 flex items-center justify-center font-bold text-sm border border-white/10">N</div>
@@ -276,11 +276,11 @@ export default function CinematicShowcase({
 
                 <div className="floating-badge absolute flex top-6 lg:top-12 left-[-15px] lg:left-[-80px] floating-ui-badge rounded-xl lg:rounded-2xl p-3 lg:p-4 items-center gap-3 z-30">
                   <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-gradient-to-b from-[#2E83F5]/20 to-[#0E3F88]/10 flex items-center justify-center border border-[#5FA1FB]/30 text-[#9AC4FF]">✓</div>
-                  <div><p className="text-white text-xs lg:text-sm font-bold tracking-tight">Cita confirmada</p><p className="text-[#9AC4FF]/60 text-[10px] lg:text-xs">Sin intervención</p></div>
+                  <div><p className="text-white text-xs lg:text-sm font-bold tracking-tight">Cita confirmada</p><p className="text-[#9AC4FF]/60 text-[12px] lg:text-xs">Sin intervención</p></div>
                 </div>
                 <div className="floating-badge absolute flex bottom-12 lg:bottom-20 right-[-15px] lg:right-[-80px] floating-ui-badge rounded-xl lg:rounded-2xl p-3 lg:p-4 items-center gap-3 z-30">
                   <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-gradient-to-b from-[#1769E0]/20 to-[#0E3F88]/10 flex items-center justify-center border border-[#5FA1FB]/30 text-[#9AC4FF]">⚡</div>
-                  <div><p className="text-white text-xs lg:text-sm font-bold tracking-tight">Lead nuevo</p><p className="text-[#9AC4FF]/60 text-[10px] lg:text-xs">Creado en CRM</p></div>
+                  <div><p className="text-white text-xs lg:text-sm font-bold tracking-tight">Lead nuevo</p><p className="text-[#9AC4FF]/60 text-[12px] lg:text-xs">Creado en CRM</p></div>
                 </div>
               </div>
             </div>

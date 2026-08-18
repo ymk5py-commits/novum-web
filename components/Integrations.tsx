@@ -20,7 +20,7 @@ const Node = forwardRef<
       {children}
     </div>
     {label && (
-      <span className="font-mono text-[9px] uppercase tracking-ultrawide text-ivory-300/70 text-center leading-tight">
+      <span className="font-mono text-[12px] uppercase tracking-ultrawide text-ivory-300/70 text-center leading-tight">
         {label}
       </span>
     )}
@@ -122,7 +122,7 @@ export default function Integrations() {
           {["Meta Cloud API", "Google Calendar", "HubSpot · Salesforce", "Stripe · Bancard", "n8n · Make"].map((t) => (
             <span
               key={t}
-              className="glass-chip rounded-full px-3 py-1.5 font-mono text-[10px] uppercase tracking-ultrawide text-ivory-200/80"
+              className="glass-chip rounded-full px-3 py-1.5 font-mono text-[12px] uppercase tracking-ultrawide text-ivory-200/80"
             >
               {t}
             </span>

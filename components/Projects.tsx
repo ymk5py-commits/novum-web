@@ -74,7 +74,7 @@ const projects: Project[] = [
 
 /** Etiqueta chica en mono. No se usa `.eyebrow` porque tiene el color del tema
  *  oscuro hardcodeado (ivory al 55%) y sobre papel queda ilegible. */
-const LABEL = "font-mono text-[10px] uppercase tracking-[0.2em] text-paper-muted";
+const LABEL = "font-mono text-[12px] uppercase tracking-[0.2em] text-paper-muted";
 
 export default function Projects() {
   /* La entrada anima SOLO la posición, nunca la opacidad: el sitio ya tuvo el
@@ -123,7 +123,7 @@ export default function Projects() {
                     {p.stack.map((s) => (
                       <li
                         key={s}
-                        className="rounded-full border border-paper-line px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.16em] text-paper-muted"
+                        className="rounded-full border border-paper-line px-2.5 py-1 font-mono text-[12px] uppercase tracking-[0.16em] text-paper-muted"
                       >
                         {s}
                       </li>

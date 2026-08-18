@@ -42,7 +42,7 @@ export default function SpecialtyPage({
           />
           <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 sm:px-8 lg:grid-cols-2">
             <div>
-              <nav className="mb-5 flex items-center gap-2 font-mono text-[10px] uppercase tracking-ultrawide text-ivory-300/60">
+              <nav className="mb-5 flex items-center gap-2 font-mono text-[12px] uppercase tracking-ultrawide text-ivory-300/60">
                 <a href="/" className="hover:text-ivory-100">NOVUM</a><span>/</span>
                 <a href={`/${brand.base}`} className="hover:text-ivory-100">{brand.name}</a><span>/</span>
                 <span className="text-cobalt-300">{s.name}</span>
