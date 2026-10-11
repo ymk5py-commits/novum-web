@@ -1,6 +1,6 @@
 /* Datos del sitio. Regla (design.md § Contenido honesto): nada de cifras, testimonios ni
- * contactos inventados. Los canales de contacto salen de variables de entorno PÚBLICAS
- * (Next las incrusta al compilar); un canal que falta o está mal cargado no se muestra. */
+ * contactos inventados. El correo público fue confirmado por NOVUM; WhatsApp solo se
+ * muestra cuando hay un número válido configurado. */
 
 export type EstadoProducto = "En producción" | "En desarrollo";
 
@@ -16,12 +16,11 @@ export interface ProductoDeCartera {
 
 const soloDigitos = (s: string | undefined) => (s ?? "").replace(/\D/g, "");
 const whatsapp = soloDigitos(process.env.NEXT_PUBLIC_CONTACTO_WHATSAPP);
-const email = (process.env.NEXT_PUBLIC_CONTACTO_EMAIL ?? "").trim();
 
 export const CONTACTO = {
   /** Solo dígitos con código de país (595…), listo para wa.me. */
   whatsapp: whatsapp.length >= 8 && whatsapp.length <= 15 ? whatsapp : undefined,
-  email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? email : undefined,
+  email: "hola@novumholding.lat",
 };
 
 export const NOVUDENT_URL = "https://novudent.novumholding.lat";

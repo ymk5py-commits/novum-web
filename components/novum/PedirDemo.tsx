@@ -16,6 +16,7 @@ export default function PedirDemo({ interes: interesInicial }: { interes?: strin
   const [interes, setInteres] = useState(interesInicial ?? "");
   const [nombre, setNombre] = useState("");
   const [sucio, setSucio] = useState(false);
+  const [correoAlternativo, setCorreoAlternativo] = useState(`mailto:${CONTACTO.email}`);
 
   useEffect(() => {
     if (!sucio || estado === "listo") return;
@@ -49,6 +50,15 @@ export default function PedirDemo({ interes: interesInicial }: { interes?: strin
       document.getElementById(`${id}-${Object.keys(errors)[0]}`)?.focus();
       return;
     }
+    const asunto = `Pedido desde la web · ${datos.interes || "NOVUM"}`;
+    const cuerpo = [
+      `Nombre: ${datos.nombre}`,
+      `Clínica o empresa: ${datos.empresa || "—"}`,
+      `Contacto: ${datos.contacto}`,
+      `Interés: ${datos.interes || "—"}`,
+      `Pedido: ${datos.mensaje || "Solicita una conversación."}`,
+    ].join("\n");
+    setCorreoAlternativo(`mailto:${CONTACTO.email}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`);
     setEstado("enviando");
     try {
       const response = await fetch("/api/demo", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(datos) });
@@ -66,6 +76,7 @@ export default function PedirDemo({ interes: interesInicial }: { interes?: strin
           <h2 id={`${id}-titulo`}>Contanos qué querés construir.</h2>
           <p>Una clínica más ordenada, un proceso conectado o un producto nuevo. Dejanos tus datos y coordinamos una conversación.</p>
           <div className="demo-section__note"><MessageSquareText size={19} aria-hidden /> Te respondemos para coordinar, sin compromiso.</div>
+          <a className="demo-section__email" href={`mailto:${CONTACTO.email}`}>¿Preferís escribirnos? {CONTACTO.email}</a>
         </div>
         {estado === "listo" ? (
           <div className="demo-success" role="status">
@@ -98,7 +109,7 @@ export default function PedirDemo({ interes: interesInicial }: { interes?: strin
             <div aria-hidden className="absolute -left-[9999px] h-px w-px overflow-hidden"><label htmlFor={`${id}-web`}>Sitio web</label><input id={`${id}-web`} name="web" tabIndex={-1} autoComplete="off" /></div>
             <div className="demo-form__submit">
               <button type="submit" className="button button--navy" disabled={estado === "enviando"} aria-busy={estado === "enviando"}>{estado === "enviando" ? "Enviando…" : "Pedir una demo"} <ArrowUpRight size={18} aria-hidden /></button>
-              {estado === "error" && <p role="alert" className="text-sm text-error">No pudimos enviarlo. Probá de nuevo{CONTACTO.email ? <> o escribinos a <a className="vinculo" href={`mailto:${CONTACTO.email}`}>{CONTACTO.email}</a></> : null}.</p>}
+              {estado === "error" && <p role="alert" className="text-sm text-error">No pudimos enviarlo desde la web. <a className="vinculo" href={correoAlternativo}>Abrí tu correo con el pedido preparado</a> y envialo a NOVUM.</p>}
             </div>
           </form>
         )}

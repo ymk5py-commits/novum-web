@@ -5,6 +5,7 @@ import { SITE } from "@/lib/site";
 import Cabecera from "@/components/novum/Cabecera";
 import Pie from "@/components/novum/Pie";
 import DatosEstructurados from "@/components/novum/DatosEstructurados";
+import AsistenteWeb from "@/components/novum/AsistenteWeb";
 
 const inter = Inter({ subsets: ["latin"], variable: "--f-inter", display: "swap" });
 const montserrat = Montserrat({ subsets: ["latin"], weight: ["300", "500"], variable: "--f-montserrat", display: "swap" });
@@ -40,6 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Cabecera />
         <main id="contenido" tabIndex={-1} className="focus:outline-none">{children}</main>
         <Pie />
+        <AsistenteWeb />
         <DatosEstructurados />
       </body>
     </html>

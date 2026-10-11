@@ -35,11 +35,13 @@ Referencia: Manual de marca de Novudent (borrador del 8 de octubre de 2026), sec
 - Novudent: «En producción». NOVUMed, Botika y PAUTIK: «En desarrollo».
 - No se inventan clientes, métricas, precios ni testimonios.
 - La acción principal es pedir una demo; la demo pública de Novudent es la segunda vía para conocer el producto.
-- El formulario mantiene el envío existente a `/api/demo` y la validación de contacto.
+- El formulario y el asistente comparten `/api/demo` y validación de contacto. El asistente responde solo con información confirmada del sitio y toma pedidos en pasos claros.
+- El correo público confirmado es `hola@novumholding.lat`. Un pedido se marca como recibido solo tras confirmación del servicio de envío; ante un fallo, se ofrece un correo preparado.
 
 ## Interacción y accesibilidad
 
 - Menú móvil con `aria-expanded`, Escape y enlaces de 44 px o más.
+- El asistente está disponible en todas las rutas, con diálogo identificado, foco en el campo de texto y cierre con Escape.
 - Estados de foco visibles y contraste suficiente en superficies claras y oscuras.
 - Las capturas usan texto alternativo; los iconos decorativos quedan fuera de la lectura asistida.
 - Animación ligera en hover. `prefers-reduced-motion` desactiva movimiento y scroll suave.

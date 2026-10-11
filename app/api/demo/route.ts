@@ -1,14 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
-import { INTERESES } from "@/lib/site";
+import nodemailer from "nodemailer";
+import { CONTACTO, INTERESES } from "@/lib/site";
 
 /**
- * Pedido de demo → correo a Novum (vía Resend, sin SDK).
+ * Pedido de demo → correo a Novum.
  *
- * POST { nombre, empresa?, contacto, interes?, mensaje?, web? }  →  { ok }
+ * POST { nombre, empresa?, contacto, interes?, mensaje?, origen?, web? }  →  { ok }
  *
- * Env (Vercel): RESEND_API_KEY, EMAIL_FROM («NOVUM <avisos@novumholding.lat>», dominio verificado
- * en Resend) y LEADS_EMAIL (a dónde llegan los pedidos). Sin ellas responde 503: el formulario
- * avisa y ofrece los canales reales que haya.
+ * Env (Vercel): PURELYMAIL_SMTP_USER, PURELYMAIL_SMTP_PASSWORD (contraseña de
+ * aplicación si se usa 2FA). También admite la configuración anterior con
+ * RESEND_API_KEY y EMAIL_FROM. LEADS_EMAIL puede sobrescribir el destinatario.
+ * Sin configuración de envío responde 503 y el sitio ofrece correo directo.
  *
  * `web` es la trampa para robots: si viene con algo, se contesta ok y no se manda nada.
  */
@@ -49,6 +51,7 @@ export async function POST(req: NextRequest) {
   const interesCrudo = recortar(body.interes, 60);
   const interes = (INTERESES as readonly string[]).includes(interesCrudo) ? interesCrudo : "";
   const mensaje = recortar(body.mensaje, 2000);
+  const origen = body.origen === "Asistente web" ? "Asistente web" : "Formulario";
 
   const contactoValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contacto) || contacto.replace(/\D/g, "").length >= 8;
   if (nombre.length < 2 || !contactoValido) {
@@ -57,13 +60,16 @@ export async function POST(req: NextRequest) {
 
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.EMAIL_FROM;
-  const to = process.env.LEADS_EMAIL;
-  if (!apiKey || !from || !to) {
-    console.error("[demo] faltan envs de correo: RESEND_API_KEY / EMAIL_FROM / LEADS_EMAIL");
+  const smtpUser = process.env.PURELYMAIL_SMTP_USER;
+  const smtpPassword = process.env.PURELYMAIL_SMTP_PASSWORD;
+  const to = process.env.LEADS_EMAIL || CONTACTO.email;
+  if ((!smtpUser || !smtpPassword) && (!apiKey || !from)) {
+    console.error("[demo] falta configurar Purelymail SMTP o Resend");
     return NextResponse.json({ ok: false, error: "El formulario todavía no está configurado." }, { status: 503 });
   }
 
   const filas: [string, string][] = [
+    ["Origen", origen],
     ["Nombre", nombre],
     ["Clínica o empresa", empresa || "—"],
     ["Contacto", contacto],
@@ -75,22 +81,48 @@ export async function POST(req: NextRequest) {
     .join("")}</table>`;
   const esCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contacto);
 
-  const r = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
-    body: JSON.stringify({
-      from,
-      to: [to],
-      subject: `Demo${interes ? ` de ${interes}` : ""} · ${nombre}${empresa ? ` (${empresa})` : ""}`,
-      html,
-      text: filas.map(([k, v]) => `${k}: ${v}`).join("\n"),
-      ...(esCorreo ? { reply_to: contacto } : {}),
-    }),
-  }).catch(() => null);
-
-  if (!r || !r.ok) {
-    console.error("[demo] Resend respondió", r?.status, await r?.text().catch(() => ""));
-    return NextResponse.json({ ok: false, error: "No se pudo enviar." }, { status: 502 });
+  const subject = `${origen === "Asistente web" ? "Pedido web" : "Demo"}${interes ? ` de ${interes}` : ""} · ${nombre}${empresa ? ` (${empresa})` : ""}`;
+  const plainText = filas.map(([k, v]) => `${k}: ${v}`).join("\n");
+  if (smtpUser && smtpPassword) {
+    try {
+      const transport = nodemailer.createTransport({
+        host: "smtp.purelymail.com",
+        port: 465,
+        secure: true,
+        auth: { user: smtpUser, pass: smtpPassword },
+        connectionTimeout: 10000,
+        greetingTimeout: 10000,
+        socketTimeout: 10000,
+      });
+      await transport.sendMail({
+        from: `NOVUM Web <${smtpUser}>`,
+        to,
+        subject,
+        html,
+        text: plainText,
+        ...(esCorreo ? { replyTo: contacto } : {}),
+      });
+    } catch (error) {
+      console.error("[demo] Purelymail SMTP no pudo enviar:", error instanceof Error ? error.message : "error desconocido");
+      return NextResponse.json({ ok: false, error: "No se pudo enviar." }, { status: 502 });
+    }
+  } else {
+    const r = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        from,
+        to: [to],
+        subject,
+        html,
+        text: plainText,
+        ...(esCorreo ? { reply_to: contacto } : {}),
+      }),
+    }).catch(() => null);
+    if (!r || !r.ok) {
+      console.error("[demo] Resend respondió", r?.status, await r?.text().catch(() => ""));
+      return NextResponse.json({ ok: false, error: "No se pudo enviar." }, { status: 502 });
+    }
   }
   return NextResponse.json({ ok: true });
 }
