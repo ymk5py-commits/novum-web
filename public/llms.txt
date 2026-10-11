@@ -1,0 +1,44 @@
+# NOVUM Holding
+
+> Holding y studio de sistemas inteligentes con sede en Asunción, Paraguay. Diseñamos, construimos y operamos software con IA, automatización, pauta digital y CRM clínico. Operamos para Paraguay, LATAM, Estados Unidos y Europa.
+
+## Qué hacemos
+NOVUM combina tres productos propietarios con un studio de implementación a la medida. Cada proyecto termina en producción, con métricas de negocio definidas y código que es del cliente.
+
+## Productos
+- **Botika** — Conversational AI. Agentes agénticos que atienden, agendan, califican leads, cobran y venden en Instagram, WhatsApp y Messenger. Integración nativa con Meta, Google Calendar, CRMs y ERPs. Modelo de IA agnóstico (GPT, Claude, Gemini o modelos locales) con observabilidad y guardrails.
+- **PAUTIK** — Plataforma de pauta programática. Unifica Meta, Google, TikTok y X con optimización por reglas y asistente de medios con IA, atribución unificada y reportes white-label. Operación multi-cuenta, multi-cliente y multi-moneda.
+- **NOVUMed** (/novumed) — Software médico / CRM clínico multiespecialidad. Ficha clínica personalizable por especialidad, agenda con recordatorios por WhatsApp, facturación electrónica, telemedicina y agente de IA (Botika). Especialidades con página propia:
+  - Kinesiología (/novumed/kinesiologia)
+  - Psicología (/novumed/psicologia)
+  - Psiquiatría (/novumed/psiquiatria)
+  - Nutrición (/novumed/nutricion)
+  - Oftalmología (/novumed/oftalmologia)
+  - Pediatría (/novumed/pediatria)
+  - Dermatología (/novumed/dermatologia)
+  - Centros estéticos (/novumed/centros-esteticos)
+- **NOVUdent** (/novudent) — Software odontológico. Odontograma y periodontograma interactivos, plan de tratamiento y presupuesto por pieza, financiamiento en cuotas, ortodoncia, laboratorio, análisis de RX con IA y simulador de sonrisa. Especialidades con página propia:
+  - Ortodoncia (/novudent/ortodoncia)
+  - Implantología (/novudent/implantologia)
+  - Estética dental (/novudent/estetica-dental)
+  - Odontopediatría (/novudent/odontopediatria)
+  - Endodoncia (/novudent/endodoncia)
+
+## Servicios
+IA aplicada a negocio (asistentes verticales, copilotos, RAG), automatización end-to-end (n8n, Make, Zapier o código propio), integraciones a medida (ERPs, CRMs, pasarelas, mensajería, agenda), pauta y performance (Meta, Google, TikTok), producto SaaS de cero a MVP en 8 semanas, web y mobile, data y analítica (GA4, Looker), DevOps y operación con SLAs.
+
+## Proceso
+1. Discovery (1 semana) — métrica de éxito, no entregables.
+2. Diseño técnico (1–2 semanas) — arquitectura, costos por unidad y plan de evals.
+3. Build & ship (4–10 semanas) — sprints semanales, demos en vivo, despliegue continuo.
+4. Operación (ongoing) — monitoreo, mejoras y soporte hasta que el sistema corra solo.
+
+## Contacto
+- Email: hola@novum.studio
+- WhatsApp: https://wa.me/595981000000
+- Sede: Asunción, Paraguay
+- Cobertura: Paraguay, LATAM, Estados Unidos, Europa (remoto)
+- Respuesta: menos de 12 horas hábiles
+
+## Notas
+NOVUM construye producto propietario; no revende software de terceros. Trabaja bajo NDA cuando el proyecto lo requiere.

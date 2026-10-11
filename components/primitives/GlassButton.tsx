@@ -1,0 +1,87 @@
+"use client";
+import { ArrowUpRight } from "lucide-react";
+import { ReactNode } from "react";
+
+type Variant = "primary" | "ghost" | "outline";
+
+export function GlassButton({
+  href = "#",
+  children,
+  variant = "primary",
+  icon = true,
+  size = "md",
+}: {
+  href?: string;
+  children: ReactNode;
+  variant?: Variant;
+  icon?: boolean;
+  size?: "sm" | "md" | "lg";
+}) {
+  const base =
+    "group sheen relative inline-flex items-center gap-2 rounded-full font-medium tracking-snug transition-all duration-300 select-none";
+
+  const sizes = {
+    /* `min-h-[44px]` en los tres tamaños: es el mínimo táctil en un teléfono.
+       Con solo el padding, `md` quedaba en 42px y `sm` bastante menos — se
+       arregla acá, en el primitivo, y no botón por botón en cada sección. */
+    sm: "min-h-[44px] px-4 py-2 text-xs",
+    md: "min-h-[44px] px-5 py-2.5 text-sm",
+    lg: "min-h-[44px] px-6 py-3 text-sm",
+  }[size];
+
+  const styles = {
+    primary:
+      "liquid-glass text-ivory-50 hover:-translate-y-0.5 active:translate-y-0",
+    ghost:
+      "glass text-ivory-50 hover:bg-white/[0.05]",
+    outline:
+      "border border-white/12 bg-transparent text-ivory-50 hover:border-cobalt-300/50 hover:bg-cobalt-400/[0.05]",
+  }[variant];
+
+  return (
+    <a href={href} className={`${base} ${sizes} ${styles}`}>
+      <span className="relative z-10">{children}</span>
+      {icon && (
+        <ArrowUpRight className="relative z-10 h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+      )}
+    </a>
+  );
+}
+
+export function GlassChip({
+  children,
+  dot,
+  tone = "neutral",
+  shiny = false,
+}: {
+  children: ReactNode;
+  dot?: boolean;
+  tone?: "neutral" | "cobalt" | "mint" | "amber" | "coral";
+  shiny?: boolean;
+}) {
+  const toneClass = {
+    neutral: "glass-chip text-ivory-200",
+    cobalt: "glass-cobalt text-cobalt-200",
+    mint: "border border-signal-mint/25 bg-signal-mint/[0.08] text-signal-mint backdrop-blur-md",
+    amber: "border border-signal-amber/25 bg-signal-amber/[0.08] text-signal-amber backdrop-blur-md",
+    coral: "border border-signal-coral/25 bg-signal-coral/[0.08] text-signal-coral backdrop-blur-md",
+  }[tone];
+  const dotClass = {
+    neutral: "bg-ivory-200/70",
+    cobalt: "bg-cobalt-500",
+    mint: "bg-signal-mint",
+    amber: "bg-signal-amber",
+    coral: "bg-signal-coral",
+  }[tone];
+
+  return (
+    <span
+      className={`inline-flex items-center gap-2 rounded-full px-3 py-1 font-mono text-[12px] uppercase tracking-ultrawide ${toneClass} ${
+        shiny ? "shiny-chip" : ""
+      }`}
+    >
+      {dot && <span className={`h-1.5 w-1.5 rounded-full ${dotClass}`} />}
+      {children}
+    </span>
+  );
+}
