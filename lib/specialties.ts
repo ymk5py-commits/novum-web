@@ -27,8 +27,8 @@ export const SPECIALTIES: Specialty[] = [
       { t: "Agenda desordenada", d: "Horas superpuestas y huecos que nadie recupera." },
     ],
     faqs: [
-      { q: "¿Puedo registrar la evolución por sesión?", a: "Sí. Cada atención queda registrada con su evolución, y ves el progreso del paciente a lo largo del tratamiento." },
-      { q: "¿Sirve para un centro con varios kinesiólogos?", a: "Sí, agenda por profesional y box, con honorarios y reportes por cada uno." },
+      { q: "¿Puedo registrar la evolución por sesión?", a: "Esa es la idea: cada atención va a quedar registrada con su evolución, para ver el progreso del paciente a lo largo del tratamiento." },
+      { q: "¿Sirve para un centro con varios kinesiólogos?", a: "Está pensado así: agenda por profesional y por box, con lo de cada uno separado." },
     ],
     keywords: ["software kinesiología", "software para kinesiólogos", "ficha kinesiológica digital", "agenda kinesiología"],
   },
@@ -47,8 +47,8 @@ export const SPECIALTIES: Specialty[] = [
       { t: "Cobros y comprobantes", d: "Facturación manual sesión a sesión que consume tu tiempo." },
     ],
     faqs: [
-      { q: "¿La información del paciente es privada?", a: "Sí. NOVUMed protege la ficha con accesos por usuario y confidencialidad reforzada para salud mental." },
-      { q: "¿Puedo atender por videollamada?", a: "Sí, telemedicina integrada: el paciente entra a la sesión desde un link, sin instalar nada." },
+      { q: "¿La información del paciente es privada?", a: "Es un requisito de diseño: la ficha va a tener accesos por usuario, y en salud mental, más reservados todavía." },
+      { q: "¿Puedo atender por videollamada?", a: "Está en el plan: videoconsulta a la que el paciente entra desde un link, sin instalar nada." },
     ],
     keywords: ["software psicólogos", "software para psicólogos", "ficha psicológica digital", "agenda psicología", "telemedicina psicología"],
   },
@@ -67,8 +67,8 @@ export const SPECIALTIES: Specialty[] = [
       { t: "Agenda y cobros", d: "Inasistencias y facturación que se manejan por separado." },
     ],
     faqs: [
-      { q: "¿Puedo emitir recetas?", a: "Sí, con plantillas y firma electrónica, y queda el registro en la ficha del paciente." },
-      { q: "¿Sirve para tratamientos largos?", a: "Sí, la ficha está pensada para seguimiento prolongado con historial de medicación y evoluciones." },
+      { q: "¿Puedo emitir recetas?", a: "Está en el plan: recetas con plantillas y firma electrónica, registradas en la ficha del paciente." },
+      { q: "¿Sirve para tratamientos largos?", a: "La ficha se está diseñando para seguimientos largos, con historial de medicación y evoluciones." },
     ],
     keywords: ["software psiquiatras", "software para psiquiatras", "receta electrónica psiquiatría", "ficha psiquiátrica"],
   },
@@ -87,8 +87,8 @@ export const SPECIALTIES: Specialty[] = [
       { t: "Planes en Word", d: "Armar y enviar planes a mano, una y otra vez." },
     ],
     faqs: [
-      { q: "¿Puedo ver el progreso del paciente?", a: "Sí, con gráficos de antropometría y composición corporal a lo largo del tiempo." },
-      { q: "¿Puedo enviar el plan al paciente?", a: "Sí, generás el plan y lo compartís; además podés recordarle por WhatsApp." },
+      { q: "¿Puedo ver el progreso del paciente?", a: "Está en el plan: gráficos de antropometría y composición corporal a lo largo del tiempo." },
+      { q: "¿Puedo enviar el plan al paciente?", a: "La idea es que armes el plan, lo compartas y le recuerdes al paciente por WhatsApp." },
     ],
     keywords: ["software nutricionistas", "software para nutricionistas", "ficha nutricional digital", "antropometría software", "planes alimentarios software"],
   },
@@ -107,8 +107,8 @@ export const SPECIALTIES: Specialty[] = [
       { t: "Agenda y caja sueltas", d: "Atención y cobranza manejadas por separado." },
     ],
     faqs: [
-      { q: "¿Tiene campos de refracción y agudeza visual?", a: "Sí, la ficha está configurada para oftalmología con sus campos y receta óptica." },
-      { q: "¿Maneja exámenes e imágenes?", a: "Sí, podés adjuntar exámenes e imágenes a la ficha del paciente." },
+      { q: "¿Tiene campos de refracción y agudeza visual?", a: "Están en el diseño de la ficha oftalmológica, junto con la receta óptica." },
+      { q: "¿Maneja exámenes e imágenes?", a: "Está en el plan: adjuntar exámenes e imágenes a la ficha del paciente." },
     ],
     keywords: ["software oftalmólogos", "software para oftalmólogos", "ficha oftalmológica", "receta óptica software"],
   },
@@ -127,8 +127,8 @@ export const SPECIALTIES: Specialty[] = [
       { t: "Vacunas sin registro", d: "Calendario de vacunación disperso y difícil de seguir." },
     ],
     faqs: [
-      { q: "¿Calcula percentiles de crecimiento?", a: "Sí, la ficha pediátrica grafica el crecimiento por percentiles automáticamente." },
-      { q: "¿Recuerda vacunas y controles?", a: "Sí, con recordatorios automáticos a los padres por WhatsApp." },
+      { q: "¿Calcula percentiles de crecimiento?", a: "Está en el plan: la ficha pediátrica va a graficar el crecimiento por percentiles." },
+      { q: "¿Recuerda vacunas y controles?", a: "Está en el plan: recordatorios a los padres por WhatsApp." },
     ],
     keywords: ["software pediatras", "software para pediatras", "curvas de crecimiento software", "control niño sano software"],
   },
@@ -147,8 +147,8 @@ export const SPECIALTIES: Specialty[] = [
       { t: "Agenda y cobros", d: "Atención y caja manejadas por separado." },
     ],
     faqs: [
-      { q: "¿Puedo hacer seguimiento fotográfico?", a: "Sí, cargás fotos a la ficha y comparás antes/después en el tiempo." },
-      { q: "¿Registra procedimientos?", a: "Sí, cada procedimiento queda documentado en la historia del paciente." },
+      { q: "¿Puedo hacer seguimiento fotográfico?", a: "Está en el plan: fotos en la ficha para comparar la evolución en el tiempo." },
+      { q: "¿Registra procedimientos?", a: "Está en el plan: cada procedimiento documentado en la historia del paciente." },
     ],
     keywords: ["software dermatólogos", "software para dermatólogos", "seguimiento fotográfico dermatología", "ficha dermatológica"],
   },
@@ -167,8 +167,8 @@ export const SPECIALTIES: Specialty[] = [
       { t: "Caja e insumos", d: "Cobros e inventario que no se controlan." },
     ],
     faqs: [
-      { q: "¿Tiene ficha estética facial?", a: "Sí, con esquema facial, presupuestos y consentimientos." },
-      { q: "¿Maneja insumos y caja?", a: "Sí, control de insumos, caja y cobranzas integrados." },
+      { q: "¿Tiene ficha estética facial?", a: "Está en el plan: esquema facial, presupuestos y consentimientos." },
+      { q: "¿Maneja insumos y caja?", a: "Está en el plan: insumos, caja y cobranzas en el mismo lugar." },
     ],
     keywords: ["software centros estéticos", "software estética", "ficha estética facial", "presupuestos estética software"],
   },
@@ -179,43 +179,45 @@ export const SPECIALTY_MAP: Record<string, Specialty> = Object.fromEntries(
 );
 
 /* Módulos "núcleo" mostrados en cada página de especialidad */
+/* Lo que comparten todas las especialidades. NOVUMed está EN DESARROLLO: es el plan, no algo que ya existe. */
 export const MEDICAL_CORE = [
-  { t: "Agenda inteligente", d: "Online, por profesional y box, con reagendamiento automático." },
-  { t: "Recordatorios WhatsApp", d: "Confirmación automática por el canal #1 de Paraguay (anti no-show)." },
-  { t: "Facturación electrónica", d: "Emisión, medios de pago, caja y cobranzas." },
-  { t: "Telemedicina", d: "Videoconsulta integrada y portal del paciente." },
-  { t: "Botika (agente IA)", d: "Atiende, agenda y confirma por WhatsApp e Instagram, 24/7." },
-  { t: "Reportes y KPIs", d: "Más de 50 reportes para decidir con datos." },
+  { t: "Agenda", d: "Por profesional y por box, con reserva online." },
+  { t: "Recordatorios por WhatsApp", d: "Confirmación de la cita para bajar las inasistencias." },
+  { t: "Cobros", d: "Medios de pago, caja y cuentas por cobrar." },
+  { t: "Videoconsulta", d: "El paciente entra desde un link, sin instalar nada." },
+  { t: "Ficha por especialidad", d: "Campos pensados para cada práctica." },
+  { t: "Reportes", d: "Lo que se atendió, lo que se cobró y lo que falta." },
 ];
 
+/* Lo que Novudent hace HOY en cualquier especialidad (verificado contra novudent-app). */
 export const DENTAL_CORE = [
-  { t: "Odontograma + presupuesto", d: "Marcás sobre la pieza y el presupuesto se arma solo." },
-  { t: "Financiamiento y cuotas", d: "Cobro en cuotas, créditos y control de morosidad." },
-  { t: "Recordatorios WhatsApp", d: "Confirmación automática y reagendamiento (anti no-show)." },
-  { t: "Análisis de RX con IA", d: "Diagnóstico asistido sobre radiografías." },
-  { t: "Botika (agente IA)", d: "Atiende y agenda por WhatsApp e Instagram, 24/7." },
-  { t: "Caja y comisiones", d: "Control de caja, gastos y comisiones por odontólogo." },
+  { t: "Odontograma por superficies", d: "32 piezas con su forma real; dentición permanente, primaria o mixta." },
+  { t: "Plan de tratamiento y cuotas", d: "Prestaciones por pieza, convenios, descuentos y financiamiento en cuotas." },
+  { t: "Confirmación de citas", d: "Recordatorio por WhatsApp y confirmación por link." },
+  { t: "Radiografías con IA", d: "Análisis asistido de radiografías dentro de la ficha (plan Clínica o Multi)." },
+  { t: "Consentimientos firmados", d: "Documentos clínicos y consentimientos con firma electrónica." },
+  { t: "Caja y liquidaciones", d: "Arqueo, gastos, morosidad y el pago a cada profesional." },
 ];
 
-/* ===== Especialidades dentales (NOVUdent) ===== */
+/* ===== Especialidades dentales (Novudent) ===== */
 export const DENTAL_SPECIALTIES: Specialty[] = [
   {
     slug: "ortodoncia",
     name: "Ortodoncia",
     pro: "ortodoncistas",
     seoLabel: "Software para ortodoncistas",
-    tagline: "Control del tratamiento, cuotas mensuales y evolución por control.",
+    tagline: "Controles mensuales, cuotas y evolución en la ficha.",
     intro:
-      "NOVUdent para ortodoncia: control integral del tratamiento, cobro en cuotas, evolución por control y fotos/radiografías en la ficha. Recordatorios por WhatsApp para que el paciente no falte a sus controles.",
-    ficha: ["Control integral del tratamiento", "Cobro en cuotas mensuales", "Evolución por control", "Fotos y radiografías", "Recordatorios de control"],
+      "Novudent para ortodoncia: módulo de ortodoncia con controles mensuales, cobro en cuotas, evoluciones y radiografías en la ficha, y recordatorio de cita por WhatsApp para que el paciente no falte.",
+    ficha: ["Módulo de ortodoncia con controles mensuales", "Cobro en cuotas con seguimiento de morosidad", "Evoluciones y radiografías en la ficha", "Recordatorio de cita por WhatsApp", "Presupuesto con convenios y descuentos"],
     pains: [
       { t: "Controles que se saltan", d: "Pacientes de tratamiento largo que faltan a sus controles." },
       { t: "Cuotas sin seguir", d: "Cobros mensuales que se pierden sin control de morosidad." },
       { t: "Evolución dispersa", d: "Avances anotados sueltos, sin historial claro." },
     ],
     faqs: [
-      { q: "¿Maneja cuotas mensuales?", a: "Sí, cobro en cuotas con seguimiento de morosidad y avisos automáticos." },
-      { q: "¿Registra la evolución del tratamiento?", a: "Sí, cada control queda con su evolución, fotos y radiografías." },
+      { q: "¿Maneja cuotas mensuales?", a: "Sí: el plan se financia en cuotas y la caja muestra quién debe y desde cuándo, con el recordatorio de deuda a un clic." },
+      { q: "¿Registra la evolución del tratamiento?", a: "Sí: cada control queda con su evolución y sus radiografías en la ficha del paciente." },
     ],
     keywords: ["software ortodoncia", "software para ortodoncistas", "control ortodoncia software", "cuotas ortodoncia"],
   },
@@ -224,18 +226,18 @@ export const DENTAL_SPECIALTIES: Specialty[] = [
     name: "Implantología",
     pro: "implantólogos",
     seoLabel: "Software para implantología",
-    tagline: "Planificación, registro por pieza y análisis de RX con IA.",
+    tagline: "Implantes por pieza, cuotas y radiografías con IA.",
     intro:
-      "NOVUdent para implantología: planificación de implantes, registro por pieza, radiografías con análisis asistido por IA, consentimientos y presupuestos con financiamiento.",
-    ficha: ["Planificación de implantes", "Registro por pieza", "Radiografías + análisis con IA", "Consentimientos informados", "Presupuesto y financiamiento"],
+      "Novudent para implantología: implantes marcados por pieza en el odontograma, radiografías con análisis asistido por IA, consentimientos con firma electrónica y presupuestos financiados en cuotas.",
+    ficha: ["Implantes marcados por pieza en el odontograma", "Presupuesto por pieza y financiamiento en cuotas", "Radiografías con análisis asistido por IA", "Consentimiento con firma electrónica", "Seguimiento de lo que falta cobrar de cada implante"],
     pains: [
       { t: "Sin trazabilidad", d: "Difícil seguir qué implante va en cada pieza y su estado." },
       { t: "Presupuestos altos sin cierre", d: "Tratamientos caros que no se cierran por falta de financiamiento." },
       { t: "RX sin registro", d: "Radiografías sueltas sin asociar a la ficha." },
     ],
     faqs: [
-      { q: "¿Registra implantes por pieza?", a: "Sí, con planificación y seguimiento por cada pieza." },
-      { q: "¿Ofrece financiamiento?", a: "Sí, presupuestos con cobro en cuotas y créditos en línea." },
+      { q: "¿Registra implantes por pieza?", a: "Sí: el implante queda marcado en su pieza del odontograma, con su prestación en el plan de tratamiento." },
+      { q: "¿Ofrece financiamiento?", a: "Sí: el presupuesto se financia en cuotas y la rutina del administrador muestra lo que falta cobrar de cada implante." },
     ],
     keywords: ["software implantología", "software para implantólogos", "registro de implantes software"],
   },
@@ -244,18 +246,18 @@ export const DENTAL_SPECIALTIES: Specialty[] = [
     name: "Estética dental",
     pro: "odontólogos estéticos",
     seoLabel: "Software para estética dental",
-    tagline: "Simulador de sonrisa con IA, presupuestos y antes/después.",
+    tagline: "Simulador de sonrisa con IA, presupuestos y cuotas.",
     intro:
-      "NOVUdent para estética dental: simulador de sonrisa con IA para presentar el tratamiento, presupuestos con financiamiento, fotos antes/después y plan de tratamiento estético.",
-    ficha: ["Simulador de sonrisa con IA", "Presupuestos y financiamiento", "Fotos antes / después", "Plan de tratamiento estético", "Consentimientos informados"],
+      "Novudent para estética dental: simulador de sonrisa con IA para presentar el tratamiento, presupuestos con convenios y cuotas, y consentimientos con firma electrónica.",
+    ficha: ["Simulador de sonrisa con IA", "Presupuestos con convenios y cuotas", "Plan de tratamiento por pieza", "Consentimientos con firma electrónica", "Encuestas de satisfacción"],
     pains: [
       { t: "Difícil cerrar tratamientos", d: "El paciente no visualiza el resultado y duda." },
       { t: "Presupuestos lentos", d: "Cotizar a mano y perder al paciente." },
-      { t: "Sin registro visual", d: "Resultados sin antes/después documentado." },
+      { t: "Tratamientos sin seguimiento", d: "Planes que quedan a medias porque nadie los vuelve a mirar." },
     ],
     faqs: [
-      { q: "¿Tiene simulador de sonrisa?", a: "Sí, genera una proyección con IA del antes/después para presentar el tratamiento." },
-      { q: "¿Maneja financiamiento?", a: "Sí, presupuestos financiables en cuotas para cerrar más tratamientos." },
+      { q: "¿Tiene simulador de sonrisa?", a: "Sí: genera con IA una proyección de cómo quedaría la sonrisa, para presentar el tratamiento." },
+      { q: "¿Maneja financiamiento?", a: "Sí: el presupuesto se puede financiar en cuotas." },
     ],
     keywords: ["software estética dental", "simulador de sonrisa", "diseño de sonrisa software"],
   },
@@ -264,18 +266,18 @@ export const DENTAL_SPECIALTIES: Specialty[] = [
     name: "Odontopediatría",
     pro: "odontopediatras",
     seoLabel: "Software para odontopediatría",
-    tagline: "Odontograma infantil, prevención y recordatorios a los padres.",
+    tagline: "Odontograma con dentición primaria y mixta, y recordatorios de cita.",
     intro:
-      "NOVUdent para odontopediatría: odontograma infantil, control y prevención (fluorización, sellantes), historia clínica y recordatorios automáticos a los padres por WhatsApp.",
-    ficha: ["Odontograma infantil", "Control y prevención", "Fluorización y sellantes", "Historia clínica", "Recordatorios a los padres"],
+      "Novudent para odontopediatría: odontograma con dentición primaria y mixta, historia clínica, plan de tratamiento por pieza y recordatorio de cita por WhatsApp.",
+    ficha: ["Odontograma con dentición primaria y mixta", "Historia clínica y anamnesis digital", "Recordatorio de cita por WhatsApp", "Consentimientos con firma electrónica", "Plan de tratamiento por pieza"],
     pains: [
       { t: "Controles olvidados", d: "Familias que no vuelven al control preventivo." },
       { t: "Sin historial claro", d: "Difícil seguir la evolución del niño." },
       { t: "Comunicación con padres", d: "Avisos manuales que consumen tiempo." },
     ],
     faqs: [
-      { q: "¿Recuerda los controles a los padres?", a: "Sí, recordatorios automáticos por WhatsApp a los responsables." },
-      { q: "¿Tiene odontograma infantil?", a: "Sí, adaptado a dentición temporal y mixta." },
+      { q: "¿Recuerda los controles a los padres?", a: "Novudent manda el recordatorio de la cita por WhatsApp al número cargado en la ficha, que puede ser el del padre o la madre." },
+      { q: "¿Tiene odontograma infantil?", a: "Sí: el odontograma tiene dentición primaria y mixta además de la permanente." },
     ],
     keywords: ["software odontopediatría", "software para odontopediatras", "odontograma infantil"],
   },
@@ -284,18 +286,18 @@ export const DENTAL_SPECIALTIES: Specialty[] = [
     name: "Endodoncia",
     pro: "endodoncistas",
     seoLabel: "Software para endodoncia",
-    tagline: "Registro por conducto, radiografías y evolución del tratamiento.",
+    tagline: "Endodoncia por pieza, radiografías con IA y evolución del tratamiento.",
     intro:
-      "NOVUdent para endodoncia: registro por conducto, radiografías con análisis asistido por IA, evolución del tratamiento y presupuesto por pieza.",
-    ficha: ["Registro por conducto", "Radiografías + análisis con IA", "Evolución del tratamiento", "Presupuesto por pieza", "Consentimientos informados"],
+      "Novudent para endodoncia: la endodoncia marcada por pieza en el odontograma, radiografías con análisis asistido por IA, evoluciones en la ficha y presupuesto por pieza.",
+    ficha: ["Endodoncia marcada por pieza en el odontograma", "Radiografías con análisis asistido por IA", "Evoluciones en la ficha", "Presupuesto por pieza", "Consentimientos con firma electrónica"],
     pains: [
-      { t: "Detalle por conducto", d: "Difícil registrar el detalle de cada conducto." },
+      { t: "Historia dispersa", d: "Radiografías y evoluciones en lugares distintos, difíciles de juntar en la consulta." },
       { t: "RX sin asociar", d: "Radiografías sueltas, fuera de la ficha." },
       { t: "Presupuestos a mano", d: "Cotizaciones lentas por pieza." },
     ],
     faqs: [
-      { q: "¿Registra el detalle por conducto?", a: "Sí, con registro por pieza y por conducto, más radiografías asociadas." },
-      { q: "¿Analiza radiografías?", a: "Sí, con análisis asistido por IA dentro de la ficha." },
+      { q: "¿Registra el detalle por conducto?", a: "Todavía no: la endodoncia queda marcada por pieza en el odontograma y el detalle va en la evolución de la ficha." },
+      { q: "¿Analiza radiografías?", a: "Sí: las radiografías van en la ficha y se pueden analizar con IA (plan Clínica o Multi)." },
     ],
     keywords: ["software endodoncia", "software para endodoncistas", "registro por conducto"],
   },

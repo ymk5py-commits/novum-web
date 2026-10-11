@@ -1,105 +1,60 @@
+/* Imagen Open Graph de NOVUM con el sistema de design.md: papel claro, tinta navy,
+ * wordmark del logo arriba, titular en Newsreader y un filete latón. */
 import { ImageResponse } from "next/og";
 
-async function loadFont(url: string) {
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`font ${url}`);
-  return res.arrayBuffer();
-}
+const fuente = (f: string) =>
+  fetch(`https://cdn.jsdelivr.net/fontsource/fonts/${f}.ttf`).then((r) => {
+    if (!r.ok) throw new Error(`fuente ${f}`);
+    return r.arrayBuffer();
+  });
 
 export const OG_SIZE = { width: 1200, height: 630 };
 export const OG_CONTENT_TYPE = "image/png";
 
-/** Genera una imagen Open Graph de marca NOVUM (navy + azul). */
-export async function brandOG({
-  eyebrow,
-  title,
-  subtitle,
-}: {
-  eyebrow: string;
-  title: string;
-  subtitle?: string;
-}) {
-  const [jost, inter, interSemi] = await Promise.all([
-    loadFont("https://cdn.jsdelivr.net/fontsource/fonts/jost@latest/latin-300-normal.ttf"),
-    loadFont("https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-400-normal.ttf"),
-    loadFont("https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-600-normal.ttf"),
-  ]);
+// Mismos valores que los tokens de app/globals.css, en hex (Satori no entiende oklch).
+const PAPEL = "#f4f6fa";
+const TINTA = "#14213a";
+const GRIS = "#5c6577";
+const FILETE = "#d3d8e1";
+const LATON = "#c8962f";
 
+export async function brandOG({ etiqueta, titulo, bajada }: { etiqueta: string; titulo: string; bajada?: string }) {
+  const [news, mont5, mont3, mono] = await Promise.all([
+    fuente("newsreader@latest/latin-300-normal"),
+    fuente("montserrat@latest/latin-500-normal"),
+    fuente("montserrat@latest/latin-300-normal"),
+    fuente("ibm-plex-mono@latest/latin-400-normal"),
+  ]);
   return new ImageResponse(
     (
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          padding: "72px 80px",
-          background: "linear-gradient(135deg, #15294A 0%, #0A1530 45%, #07142C 100%)",
-          fontFamily: "Inter",
-          position: "relative",
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            top: -160,
-            left: 120,
-            width: 700,
-            height: 500,
-            background: "radial-gradient(circle at center, rgba(47,151,139,0.24) 0%, rgba(7,15,34,0) 70%)",
-            display: "flex",
-          }}
-        />
-
-        {/* eyebrow */}
-        <div style={{ display: "flex" }}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 10,
-              padding: "8px 16px",
-              borderRadius: 999,
-              border: "1px solid rgba(95,161,251,0.35)",
-              background: "rgba(47,151,139,0.12)",
-              color: "#C7E8E2",
-              fontFamily: "InterSemi",
-              fontSize: 22,
-              letterSpacing: 3,
-              textTransform: "uppercase",
-            }}
-          >
-            <div style={{ width: 10, height: 10, borderRadius: 999, background: "#2F978B", display: "flex" }} />
-            {eyebrow}
+      <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", background: PAPEL, color: TINTA, padding: "56px 72px" }}>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <div style={{ fontFamily: "Montserrat", fontWeight: 500, fontSize: 40, letterSpacing: 13, marginRight: -13 }}>NOVUM</div>
+          <div style={{ display: "flex", alignItems: "center", gap: 14, marginTop: 6 }}>
+            <div style={{ width: 54, height: 1, background: TINTA }} />
+            <div style={{ fontFamily: "Montserrat", fontWeight: 300, fontSize: 14, letterSpacing: 6 }}>holding</div>
+            <div style={{ width: 54, height: 1, background: TINTA }} />
           </div>
         </div>
-
-        {/* title + subtitle */}
-        <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
-          <div style={{ display: "flex", fontFamily: "InterSemi", fontSize: 76, color: "#F3F1EA", lineHeight: 1.05, maxWidth: 1000 }}>
-            {title}
+        <div style={{ display: "flex", marginTop: 26, height: 4, borderTop: `1px solid ${TINTA}`, borderBottom: `1px solid ${TINTA}` }} />
+        <div style={{ display: "flex", flexDirection: "column", flex: 1, justifyContent: "flex-end" }}>
+          <div style={{ fontFamily: "Plex Mono", fontSize: 20, color: GRIS }}>{etiqueta}</div>
+          <div style={{ fontFamily: "Newsreader", fontWeight: 300, fontSize: 76, lineHeight: 1.02, letterSpacing: -2, marginTop: 14, maxWidth: 980 }}>{titulo}</div>
+          {bajada ? <div style={{ fontFamily: "Plex Mono", fontSize: 22, color: GRIS, marginTop: 22, maxWidth: 900 }}>{bajada}</div> : null}
+          <div style={{ display: "flex", marginTop: 30, borderTop: `1px solid ${FILETE}` }}>
+            <div style={{ width: 120, height: 3, background: LATON, marginTop: -2 }} />
           </div>
-          {subtitle && (
-            <div style={{ display: "flex", fontSize: 34, color: "#BFD3F5", maxWidth: 940 }}>{subtitle}</div>
-          )}
-        </div>
-
-        {/* brand */}
-        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-          <div style={{ display: "flex", fontFamily: "Jost", fontSize: 34, color: "#F3F1EA", letterSpacing: 10 }}>NOVUM</div>
-          <div style={{ display: "flex", width: 40, height: 2, background: "rgba(243,241,234,0.4)" }} />
-          <div style={{ display: "flex", fontSize: 20, color: "rgba(243,241,234,0.6)", letterSpacing: 6, textTransform: "uppercase" }}>holding</div>
         </div>
       </div>
     ),
     {
       ...OG_SIZE,
       fonts: [
-        { name: "Jost", data: jost, weight: 300 as const, style: "normal" as const },
-        { name: "Inter", data: inter, weight: 400 as const, style: "normal" as const },
-        { name: "InterSemi", data: interSemi, weight: 600 as const, style: "normal" as const },
+        { name: "Newsreader", data: news, weight: 300, style: "normal" },
+        { name: "Montserrat", data: mont5, weight: 500, style: "normal" },
+        { name: "Montserrat", data: mont3, weight: 300, style: "normal" },
+        { name: "Plex Mono", data: mono, weight: 400, style: "normal" },
       ],
-    }
+    },
   );
 }

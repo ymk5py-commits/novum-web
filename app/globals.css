@@ -1,317 +1,244 @@
+/* Hallmark · genre: editorial · design-system: design.md · designed-as-app
+ * theme: custom (vibe: "holding editorial sobrio, navy del logo y latón")
+ *   paper oklch(97.5% 0.006 255) · accent oklch(72% 0.13 78) latón · Newsreader + IBM Plex Sans
+ *   axes: light / roman-serif / warm
+ * nav: N6 · footer: Ft1
+ */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  /* TIPOGRAFÍA — alineada con Novudent y con la identidad de several.
-   *
-   * `display` pasa de Syne (geométrica pesada, 600–800) a Jost en pesos finos:
-   * la referencia construye TODO el display con una sola geométrica ultra-fina,
-   * y Syne peleaba con ese aire. Jost ya estaba cargada acá para el logo.
-   *
-   * `serif` deja de apuntar a Instrument Serif. Es el serif de moda que Carlos
-   * pidió expresamente no usar en ningún proyecto, y además la referencia no
-   * tiene un solo serif. Apunta a Jost para que los tres componentes que aún
-   * piden `font-serif` no queden con la serif del sistema. */
-  --font-logo: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-jbmono), ui-monospace, monospace;
-  --font-serif: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  /* Color — ver design.md § Theme */
+  --color-paper: oklch(97.5% 0.006 255);
+  --color-paper-2: oklch(94.5% 0.009 255);
+  --color-rule: oklch(85% 0.012 255);
+  --color-muted: oklch(46% 0.022 258);
+  --color-ink: oklch(23% 0.055 262);
+  --color-ink-2: oklch(33% 0.05 262);
+  --color-accent: oklch(72% 0.13 78);
+  --color-accent-ink: oklch(47% 0.1 68);
+  --color-on-ink: oklch(95% 0.008 255);
+  --color-on-ink-2: oklch(76% 0.02 255);
+  --color-error: oklch(48% 0.16 28);
+  --color-focus: var(--color-accent-ink);
 
-  --navy-800: #182432;
-  --navy-900: #111B27;
-  --navy-950: #0B121A;
+  /* Tipografía — las variables --f-* las pone next/font en <html> */
+  --font-display: var(--f-newsreader), ui-serif, Georgia, serif;
+  --font-body: var(--f-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--f-plex-mono), ui-monospace, monospace;
+  --font-wordmark: var(--f-montserrat), var(--f-plex-sans), sans-serif;
 
-  /* tokens para el CinematicShowcase (estilo shadcn) */
-  --color-foreground: #F2EEE6;
-  --color-background: #0B121A;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: clamp(2rem, 1.5rem + 2vw, 2.75rem);
+  --text-display-s: clamp(2.25rem, 1.5rem + 3vw, 3.75rem);
+  --text-display: clamp(2.75rem, 1.6rem + 4.6vw, 5.25rem);
+
+  /* Espacio — 4 pt */
+  --space-3xs: 0.125rem;
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+  --space-4xl: 9rem;
+  --gutter: clamp(1rem, 4vw, 3rem);
+  --measure: 62ch;
+
+  /* Movimiento */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms;
+  --dur-short: 220ms;
+  --dur-long: 420ms;
+
+  --radius-control: 2px;
+  --rule-hair: 1px;
+  --z-sticky: 200;
+  --z-modal: 400;
 }
 
-/* utilidades extra */
-.transform-style-3d { transform-style: preserve-3d; }
+html,
+body {
+  overflow-x: clip;
+}
 
-html, body {
-  background: #0B121A;
-  color: #F2EEE6;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  font-feature-settings: "tnum" on, "ss01" on;
+html {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: linear-gradient(180deg, #0B121A 0%, #182432 54%, #0B121A 100%);
-  background-attachment: fixed;
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  line-height: 1.6;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  text-rendering: optimizeLegibility;
 }
 
-/* Lenis smooth scroll */
-html.lenis, html.lenis body { height: auto; }
-.lenis.lenis-smooth { scroll-behavior: auto !important; }
-.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
-.lenis.lenis-stopped { overflow: hidden; }
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: smooth; }
+::selection {
+  background: var(--color-accent);
+  color: var(--color-ink);
 }
 
-/* ===== Rendimiento en mobile: el backdrop-filter (glass) es lo que friza ===== */
-@media (max-width: 768px) {
-  body { background-attachment: scroll; }
-  .glass, .glass-strong, .glass-chip, .glass-cobalt, .liquid-glass {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-  }
-  .glass { background: rgba(15, 31, 61, 0.5); }
-  .glass-strong { background: rgba(15, 31, 61, 0.66); }
-  .glass-chip { background: rgba(255, 255, 255, 0.06); }
-  .glass-cobalt { background: rgba(23, 105, 224, 0.2); }
-  .liquid-glass { background: rgba(23, 105, 224, 0.24); }
-  .aurora { filter: blur(55px); }
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
 }
 
-/* Texto navy, no blanco: sobre el menta el blanco queda en ~2:1 y la selección
-   se vuelve ilegible, que es exactamente lo contrario de para qué sirve. */
-::selection { background: #2F978B; color: #0B121A; }
-
-/* ============ GLASSMORPHISM PRIMITIVES ============ */
-.glass {
-  background: linear-gradient(135deg, rgba(255,255,255,0.045) 0%, rgba(255,255,255,0.015) 100%);
-  backdrop-filter: blur(14px) saturate(105%);
-  -webkit-backdrop-filter: blur(14px) saturate(105%);
-  border: 1px solid rgba(255,255,255,0.055);
-  box-shadow:
-    0 1px 0 0 rgba(255,255,255,0.04) inset,
-    0 0 0 1px rgba(255,255,255,0.035),
-    0 20px 50px -24px rgba(0,0,0,0.45);
-}
-
-.glass-strong {
-  background: linear-gradient(135deg, rgba(255,255,255,0.065) 0%, rgba(255,255,255,0.02) 100%);
-  backdrop-filter: blur(18px) saturate(108%);
-  -webkit-backdrop-filter: blur(18px) saturate(108%);
-  border: 1px solid rgba(255,255,255,0.07);
-}
-
-.glass-chip {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.055);
-  backdrop-filter: blur(10px) saturate(105%);
-  -webkit-backdrop-filter: blur(10px) saturate(105%);
-}
-
-.glass-cobalt {
-  background: linear-gradient(135deg, rgba(47,151,139,0.16) 0%, rgba(47,151,139,0.03) 100%);
-  border: 1px solid rgba(47,151,139,0.26);
-  backdrop-filter: blur(14px) saturate(108%);
-  -webkit-backdrop-filter: blur(14px) saturate(108%);
-}
-
-/* Liquid glass — ahora sobrio, no espejo */
-.liquid-glass {
-  position: relative;
-  background: linear-gradient(135deg, rgba(47,151,139,0.14) 0%, rgba(47,151,139,0.04) 100%);
-  backdrop-filter: blur(12px) saturate(108%);
-  -webkit-backdrop-filter: blur(12px) saturate(108%);
-  border: 1px solid rgba(47,151,139,0.24);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.06),
-    0 14px 34px -18px rgba(15,109,100,0.45);
-}
-.liquid-glass::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0) 35%);
-  -webkit-mask: linear-gradient(#000 0 0);
-  pointer-events: none;
-  opacity: 0.35;
-}
-
-/* Reflection sheen — desactivado: era uno de los brillos que delataban "IA" */
-.sheen {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-.sheen::after {
-  content: none;
-}
-
-/* ============ BACKGROUND TEXTURES ============ */
-.noise {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.08 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-}
-
-.grid-lines {
-  background-image:
-    linear-gradient(to right, rgba(255,255,255,0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,0.035) 1px, transparent 1px);
-  background-size: 72px 72px;
-}
-
-.dotgrid {
-  background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px);
-  background-size: 28px 28px;
-}
-
-/* Rayos de luz del hero (azul, sin lila) */
-@keyframes beam-sweep {
-  0% { transform: translateX(-40%) scaleX(0.5); opacity: 0; }
-  18% { opacity: 1; }
-  82% { opacity: 1; }
-  100% { transform: translateX(150%) scaleX(1); opacity: 0; }
-}
-.hero-beam {
-  position: absolute;
-  height: 1px;
-  border-radius: 9999px;
-  background: linear-gradient(90deg, transparent, rgba(47,151,139,0.55), rgba(151,214,204,0.75), transparent);
-  filter: drop-shadow(0 0 4px rgba(47,151,139,0.45));
-  animation: beam-sweep 8s linear infinite;
-  will-change: transform, opacity;
-}
-
-/* Aurora blob */
-.aurora {
-  position: absolute;
-  border-radius: 9999px;
-  filter: blur(80px);
-  opacity: 0.55;
-  pointer-events: none;
-  will-change: transform, opacity;
-}
-
-/* Border beam — haz que recorre el borde (estilo MagicUI) */
-@property --beam-angle {
-  syntax: "<angle>";
-  inherits: false;
-  initial-value: 0deg;
-}
-.border-beam {
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: conic-gradient(
-    from var(--beam-angle),
-    transparent 0 68%,
-    rgba(47,151,139,0.28) 80%,
-    rgba(88,180,168,0.55) 86%,
-    rgba(47,151,139,0.28) 92%,
-    transparent 100%
-  );
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-  animation: beam-spin 8s linear infinite;
-  pointer-events: none;
-}
-@keyframes beam-spin {
-  to { --beam-angle: 360deg; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .border-beam { animation: none; opacity: 0.5; }
-}
-
-/* Aurora — antes era texto con degradé animado y `background-clip: text`.
- *
- * Se saca: el texto con gradiente recortado es de los clichés que Carlos pidió
- * no usar en NINGÚN proyecto, y además tiene un costo real — con `color:
- * transparent`, si la fuente o el paint fallan el texto queda INVISIBLE, no
- * degradado. La palabra a destacar va en color sólido del acento, que es lo
- * que hace la referencia. Se conserva el nombre de la clase para no tocar los
- * componentes que la usan. */
-.aurora-text {
-  color: #2F978B;
-}
-
-/* Chip con borde brillante animado */
-.shiny-chip { position: relative; isolation: isolate; }
-.shiny-chip::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: conic-gradient(
-    from var(--beam-angle, 0deg),
-    transparent 0 66%,
-    rgba(47,151,139,0.55) 82%,
-    rgba(151,214,204,0.75) 88%,
-    transparent 100%
-  );
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-  animation: beam-spin 7s linear infinite;
-  pointer-events: none;
-}
-
-/* Conic glow */
-.conic-glow {
-  background: conic-gradient(
-    from 180deg at 50% 50%,
-    rgba(47,151,139,0) 0deg,
-    rgba(47,151,139,0.18) 90deg,
-    rgba(47,151,139,0) 180deg,
-    rgba(47,151,139,0.18) 270deg,
-    rgba(47,151,139,0) 360deg
-  );
-}
-
-/* Hairline glow border */
-.hairline {
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02)) border-box;
-  border: 1px solid transparent;
-}
-
-/* ============ TYPOGRAPHY HELPERS ============ */
-.text-balance { text-wrap: balance; }
-.text-pretty { text-wrap: pretty; }
-
-/* Peso 300, no 200: con Bricolage un 200 se lee como placeholder de IA;
-   300 mantiene el aire pero con carácter real. */
-.display-tight {
+h1,
+h2,
+h3 {
   font-family: var(--font-display);
   font-weight: 300;
-  letter-spacing: -0.025em;
-  line-height: 0.98;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+  min-width: 0;
 }
 
-/* 12px y no 10: a 10px con tracking de 0.22em estas etiquetas eran ilegibles en
-   un teléfono, y en el sitio hay ~50 (sector, stack, plazos, estados). Se baja
-   un punto el tracking porque a 12px la letra ya tiene aire propio y con 0.22em
-   las palabras se despegaban de más. */
-.eyebrow {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(243,241,234,0.55);
+p {
+  text-wrap: pretty;
 }
 
-/* Marquee mask */
-.marquee-mask {
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
-          mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+@layer components {
+  .envoltura {
+    width: 100%;
+    max-width: 1240px;
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  .mono {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: 0.02em;
+  }
+
+  /* Botón primario: rectángulo navy (design.md § CTA voice) */
+  .boton {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    min-height: 44px;
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-control);
+    background: var(--color-ink);
+    color: var(--color-on-ink);
+    font-weight: 500;
+    font-size: var(--text-sm);
+    white-space: nowrap;
+    transition: transform var(--dur-micro) var(--ease-out), background-color var(--dur-short) var(--ease-out);
+  }
+  .boton:hover {
+    background: var(--color-ink-2);
+    transform: translateY(-1px);
+  }
+  .boton:active {
+    transform: translateY(0);
+  }
+  .boton:disabled,
+  .boton[aria-disabled="true"] {
+    background: var(--color-muted);
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  /* Link secundario subrayado */
+  .vinculo {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-2xs);
+    font-weight: 500;
+    white-space: nowrap;
+    text-decoration: underline;
+    text-decoration-color: var(--color-rule);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 5px;
+    transition: text-decoration-color var(--dur-short) var(--ease-out);
+  }
+  .vinculo:hover {
+    text-decoration-color: var(--color-accent);
+    text-decoration-thickness: 2px;
+  }
+
+  .filete {
+    border: 0;
+    border-top: var(--rule-hair) solid var(--color-rule);
+  }
+
+  /* Campo de formulario: línea inferior, sin caja */
+  .campo {
+    width: 100%;
+    min-height: 44px;
+    padding: var(--space-xs) 0;
+    background: transparent;
+    border: 0;
+    border-bottom: var(--rule-hair) solid var(--color-ink);
+    border-radius: 0;
+    color: var(--color-ink);
+    font: inherit;
+  }
+  .campo::placeholder {
+    color: var(--color-muted);
+  }
+  .campo:focus-visible {
+    outline: none;
+    border-bottom: 2px solid var(--color-focus);
+  }
+  .campo[aria-invalid="true"] {
+    border-bottom-color: var(--color-error);
+  }
 }
 
-/* Scrollbar minimalista */
-::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: #0B121A; }
-::-webkit-scrollbar-thumb { background: #223040; border-radius: 6px; }
-::-webkit-scrollbar-thumb:hover { background: #2E3E54; }
-
-/* Focus accesible */
-:focus-visible {
-  outline: 2px solid #2F978B;
-  outline-offset: 3px;
-  border-radius: 6px;
+/* Coreografía de carga en CSS (design.md § Motion): corre aunque el JavaScript todavía no haya
+ * llegado, así el titular y el logo nunca quedan en blanco. Motion se encarga de todo lo demás. */
+@keyframes subir {
+  from { transform: translateY(105%); opacity: 0; }
+  to { transform: none; opacity: 1; }
 }
+@keyframes trazar {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes aparecer {
+  from { transform: translateY(12px); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+@keyframes fundido {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.anim-subir { animation: subir 0.85s var(--ease-out) var(--d, 0s) both; }
+.anim-trazar { animation: trazar 1s var(--ease-out) var(--d, 0s) both; }
+.anim-aparecer { animation: aparecer 0.6s var(--ease-out) var(--d, 0s) both; }
+.anim-fundido { animation: fundido 0.6s var(--ease-out) var(--d, 0s) both; }
 
-/* Nota: el movimiento ambiental (auroras, rayos, marquees) se mantiene siempre.
-   El movimiento pesado/scroll se modera por componente cuando hace falta. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 150ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 150ms !important;
+  }
+  .anim-subir,
+  .anim-trazar,
+  .anim-aparecer {
+    animation-name: fundido;
+    animation-delay: 0s;
+  }
+}

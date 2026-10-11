@@ -1,96 +1,127 @@
+/* Datos del sitio. Regla (design.md § Contenido honesto): nada de cifras, testimonios ni
+ * contactos inventados. Los canales de contacto salen de variables de entorno PÚBLICAS
+ * (Next las incrusta al compilar); un canal que falta o está mal cargado no se muestra. */
+
+export type EstadoProducto = "En producción" | "En desarrollo";
+
+export interface ProductoDeCartera {
+  slug: string;
+  nombre: string;
+  queHace: string;
+  paraQuien: string;
+  estado: EstadoProducto;
+  /** Página propia en este sitio; sin ella, la fila lleva al formulario de demo con el producto elegido. */
+  pagina?: string;
+}
+
+const soloDigitos = (s: string | undefined) => (s ?? "").replace(/\D/g, "");
+const whatsapp = soloDigitos(process.env.NEXT_PUBLIC_CONTACTO_WHATSAPP);
+const email = (process.env.NEXT_PUBLIC_CONTACTO_EMAIL ?? "").trim();
+
+export const CONTACTO = {
+  /** Solo dígitos con código de país (595…), listo para wa.me. */
+  whatsapp: whatsapp.length >= 8 && whatsapp.length <= 15 ? whatsapp : undefined,
+  email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? email : undefined,
+};
+
+export const NOVUDENT_URL = "https://novudent.novumholding.lat";
+export const NOVUDENT_DEMO = `${NOVUDENT_URL}/login?demo=1`;
+export const NOVUDENT_PRECIOS = `${NOVUDENT_URL}/precios`;
+
 export const SITE = {
   name: "NOVUM Holding",
   shortName: "NOVUM",
-  url: "https://novum-web-six.vercel.app",
+  url: "https://www.novumholding.lat",
   locale: "es_PY",
   lang: "es",
-  email: "hola@novum.studio",
-  phone: "+595 981 000 000",
-  whatsapp: "https://wa.me/595981000000",
   city: "Asunción",
   country: "Paraguay",
-  founder: "NOVUM",
-  tagline: "Sistemas que piensan, venden y operan por ti.",
+  tagline: "Software propio para clínicas y empresas.",
   description:
-    "NOVUM es un holding y studio de sistemas inteligentes. Diseñamos, construimos y operamos software con IA: agentes conversacionales, automatización, pauta programática y un CRM clínico de nueva generación. Producto propietario, medible y en producción.",
+    "NOVUM es un holding paraguayo de software: cuatro productos propios —Novudent, NOVUMed, Botika y PAUTIK— y un estudio que los instala, los conecta y los opera junto a cada cliente.",
   keywords: [
-    "agencia de IA",
-    "agentes de inteligencia artificial",
+    "software para clínicas dentales",
+    "software odontológico Paraguay",
+    "software para consultorios médicos",
+    "agente de WhatsApp con IA",
     "automatización de procesos",
-    "chatbot WhatsApp",
-    "integración Meta Calendar CRM",
-    "plataforma de pauta digital",
-    "CRM para médicos",
-    "software a la medida",
-    "desarrollo de producto SaaS",
-    "agencia de software Paraguay",
+    "integraciones a medida",
+    "desarrollo de software Paraguay",
     "Asunción Paraguay",
-  ],
-  products: [
-    {
-      slug: "botika",
-      name: "Botika",
-      category: "Conversational AI",
-      tagline: "El agente que cierra.",
-      short: "Agentes agénticos que atienden, agendan, cobran y venden conectados a Meta, Calendar y tu CRM.",
-      description:
-        "Botika es una plataforma de agentes conversacionales agénticos que razonan, deciden y ejecutan dentro de tu stack. Atiende clientes en Instagram, WhatsApp y Messenger; agenda reuniones, califica leads, crea oportunidades en el CRM, cobra y entrega — sin intervención humana. Integración nativa con Meta, Google Calendar, CRMs y ERPs, memoria persistente, modelo agnóstico y observabilidad desde el día uno.",
-    },
-    {
-      slug: "pautik",
-      name: "PAUTIK",
-      category: "Performance Media",
-      tagline: "La consola que tu pauta merece.",
-      short: "Plataforma de pauta programática que unifica Meta, Google, TikTok y X con optimización por IA.",
-      description:
-        "PAUTIK unifica Meta, Google, TikTok y X en un mismo plano de control. Optimización por reglas y asistente de medios con IA, atribución unificada, reportes white-label, biblioteca creativa con scoring de performance y operación multi-cuenta, multi-cliente y multi-moneda.",
-    },
-    {
-      slug: "novumed",
-      name: "NOVUMed",
-      category: "Vertical SaaS · Salud",
-      tagline: "El sistema operativo de tu consultorio.",
-      short: "CRM clínico de nueva generación: historia clínica, agenda inteligente, facturación y telemedicina.",
-      description:
-        "NOVUMed es un CRM clínico de nueva generación diseñado junto a profesionales de la salud. Reemplaza agenda, historia clínica estructurada, facturación electrónica y comunicación con pacientes en un solo producto mobile-first, con recordatorios omnicanal, portal del paciente y telemedicina integrada.",
-    },
-    {
-      slug: "novudent",
-      name: "NOVUdent",
-      category: "Vertical SaaS · Odontología",
-      tagline: "El software de tu clínica dental.",
-      short: "Software odontológico: odontograma, planes de tratamiento, presupuestos, financiamiento y agenda.",
-      description:
-        "NOVUdent es el software 100% odontológico de NOVUM: odontograma y periodontograma interactivos, plan de tratamiento y presupuesto por pieza, financiamiento en cuotas, ortodoncia, laboratorio y agenda con recordatorios por WhatsApp. Suma IA para análisis de radiografías y simulador de sonrisa.",
-    },
-  ],
-  faqs: [
-    {
-      q: "¿Qué hace exactamente NOVUM?",
-      a: "NOVUM es un holding y studio de sistemas inteligentes. Desarrollamos producto propietario —Botika, PAUTIK y NOVUMed— e implementamos software a la medida con IA, automatización, integraciones, pauta digital y desarrollo web y mobile para empresas que quieren resultados medibles, no presentaciones.",
-    },
-    {
-      q: "¿Botika reemplaza a mi equipo de atención al cliente?",
-      a: "Botika automatiza el 70–90% de las conversaciones repetitivas (consultas, agendamiento, cotizaciones, seguimiento) y escala a un humano con todo el contexto cuando hace falta. Tu equipo deja de responder lo mismo mil veces y se enfoca en cerrar y atender casos complejos.",
-    },
-    {
-      q: "¿Con qué plataformas se integran?",
-      a: "Integramos de forma nativa con Meta (Instagram, WhatsApp Cloud API, Messenger), Google Calendar, los principales CRMs y ERPs, pasarelas de pago como Stripe y MercadoPago, mensajería como Twilio y 360dialog, y herramientas de datos como GA4 y Looker. Si tiene API, lo conectamos.",
-    },
-    {
-      q: "¿Cuánto tarda un proyecto?",
-      a: "Un MVP de producto sale en 8 semanas y un agente conversacional puede estar en producción en 4–6 semanas. Trabajamos en sprints semanales con demos en vivo y despliegue continuo desde el día 5, así que ves avances reales cada semana.",
-    },
-    {
-      q: "¿Trabajan con empresas fuera de Paraguay?",
-      a: "Sí. Operamos en remoto para Paraguay, LATAM, Estados Unidos y Europa. Tenemos sede en Asunción pero el equipo está distribuido y respondemos en menos de 12 horas hábiles. Firmamos NDA cuando el proyecto lo requiere.",
-    },
-    {
-      q: "¿El software es propio o de terceros?",
-      a: "Construimos producto propietario y código que es tuyo. Usamos modelos de IA agnósticos (GPT, Claude, Gemini o modelos locales) y la infraestructura que mejor se ajuste a tu costo por unidad. No te amarramos a una caja negra.",
-    },
   ],
 } as const;
 
-export type Product = (typeof SITE.products)[number];
-export type Faq = (typeof SITE.faqs)[number];
+export const CARTERA: ProductoDeCartera[] = [
+  {
+    slug: "novudent",
+    nombre: "Novudent",
+    queHace: "Agenda, ficha, odontograma, presupuestos y caja de la clínica dental.",
+    paraQuien: "Odontología",
+    estado: "En producción",
+    pagina: "/novudent",
+  },
+  {
+    slug: "novumed",
+    nombre: "NOVUMed",
+    queHace: "Agenda e historia clínica para consultorios de otras especialidades.",
+    paraQuien: "Salud",
+    estado: "En desarrollo",
+    pagina: "/novumed",
+  },
+  {
+    slug: "botika",
+    nombre: "Botika",
+    queHace: "Un agente que atiende, responde y agenda por WhatsApp e Instagram.",
+    paraQuien: "Empresas",
+    estado: "En desarrollo",
+  },
+  {
+    slug: "pautik",
+    nombre: "PAUTIK",
+    queHace: "Una sola consola para la pauta de Meta y Google, con reportes por cliente.",
+    paraQuien: "Marketing",
+    estado: "En desarrollo",
+  },
+];
+
+/** Lo que el formulario deja elegir (el valor viaja al correo tal cual). */
+export const INTERESES = [...CARTERA.map((p) => p.nombre), "Un proyecto a medida"] as const;
+
+export const ESTUDIO = [
+  { t: "IA aplicada", d: "Asistentes y agentes que trabajan sobre los datos de tu empresa, con un humano a mano cuando hace falta." },
+  { t: "Automatización", d: "Lo que hoy se copia y se pega entre planillas, sistemas y mensajes, hecho solo." },
+  { t: "Integraciones", d: "WhatsApp, Instagram, Google Calendar, CRM, ERP y pasarelas de pago hablando entre sí." },
+  { t: "Pauta y medición", d: "Campañas en Meta y Google con el embudo medido de punta a punta." },
+  { t: "Producto y web", d: "De la idea al sistema en producción: diseño, código y puesta en marcha." },
+  { t: "Operación", d: "Nos quedamos después del lanzamiento: monitoreo, ajustes y soporte." },
+] as const;
+
+export const PASOS = [
+  { t: "Entender", d: "Conversamos sobre tu negocio, tus datos y lo que hoy no funciona. Definimos cómo se mide el éxito." },
+  { t: "Diseñar", d: "Proponemos la solución y su costo antes de escribir una línea. Vos aprobás." },
+  { t: "Construir", d: "Entregas cortas con demostración en vivo: ves el avance real, no presentaciones." },
+  { t: "Operar", d: "Lo dejamos funcionando y lo seguimos: ajustes, soporte y mejoras." },
+] as const;
+
+export const PREGUNTAS = [
+  {
+    q: "¿Qué es NOVUM?",
+    a: "Un holding paraguayo de software. Tiene cuatro productos propios —Novudent, NOVUMed, Botika y PAUTIK— y un estudio que hace proyectos a medida para empresas.",
+  },
+  {
+    q: "¿Qué puedo usar hoy?",
+    a: "Novudent está en producción y tiene una demo pública que podés recorrer sin registrarte. NOVUMed, Botika y PAUTIK están en desarrollo: si te interesa alguno, pedí una demo y te mostramos el avance.",
+  },
+  {
+    q: "¿Cuánto cuesta?",
+    a: "Los planes de Novudent están publicados en su sitio. Los proyectos del estudio se cotizan según el alcance, después de la primera conversación.",
+  },
+  {
+    q: "¿Hacen proyectos a medida?",
+    a: "Sí. El estudio diseña, construye y opera software para empresas: agentes de IA, automatización, integraciones, pauta y desarrollo web.",
+  },
+  {
+    q: "¿Dónde están?",
+    a: "En Asunción, Paraguay. Trabajamos en remoto con clientes de cualquier lugar.",
+  },
+] as const;

@@ -1,43 +1,18 @@
 import type { Metadata } from "next";
-import { NOVUMED } from "@/lib/products";
+import { NOVUMED } from "@/lib/productos";
+import { SPECIALTIES } from "@/lib/specialties";
 import { SITE } from "@/lib/site";
-import ProductPage from "@/components/product/ProductPage";
-import { MedVisual } from "@/components/product/ProductVisuals";
+import PaginaProducto from "@/components/novum/PaginaProducto";
 
 export const metadata: Metadata = {
-  title: "NOVUMed — Software médico multiespecialidad para Paraguay",
-  description: NOVUMED.intro,
+  title: "NOVUMed — Historia clínica y agenda para consultorios (en desarrollo)",
+  description:
+    "NOVUMed es el producto de NOVUM para consultorios de kinesiología, psicología, nutrición, pediatría y otras especialidades. Está en desarrollo: mirá lo que va a tener y pedí una demo.",
   alternates: { canonical: "/novumed" },
-  keywords: [
-    "software médico", "software para clínicas", "ficha clínica digital",
-    "software kinesiología", "software psicología", "software nutrición",
-    "software oftalmología", "software pediatría", "CRM médico Paraguay",
-  ],
-  openGraph: {
-    title: `NOVUMed — ${NOVUMED.tagline}`,
-    description: NOVUMED.intro,
-    url: `${SITE.url}/novumed`,
-    type: "website",
-  },
-};
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  name: "NOVUMed",
-  applicationCategory: "HealthApplication",
-  operatingSystem: "Web, iOS, Android",
-  description: NOVUMED.intro,
-  url: `${SITE.url}/novumed`,
-  offers: { "@type": "Offer", price: "39", priceCurrency: "USD", availability: "https://schema.org/InStock" },
-  publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
+  keywords: ["software para consultorios", "historia clínica digital", "agenda médica", "software médico Paraguay"],
+  openGraph: { title: "NOVUMed — Historia clínica y agenda para consultorios.", url: `${SITE.url}/novumed`, type: "website" },
 };
 
 export default function Page() {
-  return (
-    <>
-      <ProductPage config={NOVUMED} visual={<MedVisual />} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-    </>
-  );
+  return <PaginaProducto datos={NOVUMED} especialidades={SPECIALTIES} />;
 }
