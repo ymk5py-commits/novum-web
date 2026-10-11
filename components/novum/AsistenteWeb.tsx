@@ -7,13 +7,13 @@ import { CONTACTO, INTERESES, NOVUDENT_DEMO, NOVUDENT_PRECIOS } from "@/lib/site
 type Rol = "asistente" | "visitante";
 type Enlace = { texto: string; href: string };
 type Mensaje = { id: number; rol: Rol; texto: string; enlaces?: Enlace[] };
-type Etapa = "libre" | "interes" | "nombre" | "contacto" | "detalle" | "confirmar" | "enviando";
+type Etapa = "libre" | "interes" | "nombre" | "contacto" | "detalle" | "confirmar";
 type Pedido = { interes: string; nombre: string; contacto: string; mensaje: string };
 
 const bienvenida: Mensaje = {
   id: 0,
   rol: "asistente",
-  texto: "¡Hola! Puedo contarte sobre los productos de NOVUM o tomar tu pedido para que el equipo te responda. ¿Qué necesitás?",
+  texto: "¡Hola! Puedo contarte sobre NOVUM y preparar un correo con tu pedido para el equipo. ¿Qué necesitás?",
 };
 
 const normalizar = (texto: string) => texto.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -99,7 +99,7 @@ export default function AsistenteWeb() {
       return;
     }
     if (/correo|email|mail|escribir|contacto/.test(t)) {
-      agregar("asistente", `Podés escribirnos a ${CONTACTO.email}. Si preferís, también puedo tomar tu pedido por acá.`, [
+      agregar("asistente", `Podés escribirnos a ${CONTACTO.email}. Si preferís, puedo ayudarte a preparar el mensaje por acá.`, [
         { texto: `Escribir a ${CONTACTO.email}`, href: `mailto:${CONTACTO.email}` },
       ]);
       return;
@@ -123,26 +123,26 @@ export default function AsistenteWeb() {
         ]);
         break;
       case "Botika":
-        agregar("asistente", "Botika está en desarrollo. Es el producto de NOVUM para atender consultas y agendar por WhatsApp e Instagram. Puedo tomar tu interés para que el equipo te contacte.");
+        agregar("asistente", "Botika está en desarrollo. Es el producto de NOVUM para atender consultas y agendar por WhatsApp e Instagram. Puedo preparar tu consulta para el equipo.");
         break;
       case "PAUTIK":
-        agregar("asistente", "PAUTIK está en desarrollo. Busca reunir la pauta de Meta y Google con reportes por cliente. Puedo tomar tu interés para que el equipo te contacte.");
+        agregar("asistente", "PAUTIK está en desarrollo. Busca reunir la pauta de Meta y Google con reportes por cliente. Puedo preparar tu consulta para el equipo.");
         break;
       case "Un proyecto a medida":
-        agregar("asistente", "NOVUM también diseña sistemas a medida: automatizaciones, integraciones, agentes y productos web. Contame qué necesitás y el equipo te responderá con un siguiente paso.");
+        agregar("asistente", "NOVUM también diseña sistemas a medida: automatizaciones, integraciones, agentes y productos web. Contame qué necesitás y preparo tu mensaje para el equipo.");
         break;
       default:
         if (/donde|ubicacion|paraguay|asuncion/.test(t)) {
           agregar("asistente", "Estamos en Asunción, Paraguay, y trabajamos también en remoto.");
         } else {
-          agregar("asistente", "No tengo ese detalle confirmado. Si me dejás tu pedido y un contacto, el equipo de NOVUM te responde directamente.");
+          agregar("asistente", "No tengo ese detalle confirmado. Puedo ayudarte a preparar un correo para el equipo de NOVUM.");
         }
     }
   }
 
   function procesar(textoCrudo: string) {
     const texto = textoCrudo.trim();
-    if (!texto || etapa === "enviando") return;
+    if (!texto) return;
     setEntrada("");
     agregar("visitante", texto);
 
@@ -184,41 +184,29 @@ export default function AsistenteWeb() {
         const mensaje = normalizar(texto) === "omitir" ? "" : texto.slice(0, 2000);
         setPedido((actual) => ({ ...actual, mensaje }));
         setEtapa("confirmar");
-        agregar("asistente", `Voy a enviar este pedido al equipo:\n${pedido.interes} · ${pedido.nombre}\nContacto: ${pedido.contacto}${mensaje ? `\n${mensaje}` : ""}\n\n¿Lo envío?`);
+        agregar("asistente", `Tu pedido está listo para preparar:\n${pedido.interes} · ${pedido.nombre}\nContacto: ${pedido.contacto}${mensaje ? `\n${mensaje}` : ""}\n\nTe daré un enlace para abrirlo en tu aplicación de correo. Allí tendrás que pulsar Enviar. ¿Preparo el correo?`);
         return;
       }
       case "confirmar":
-        if (texto === "Enviar pedido") {
-          void enviarPedido();
+        if (texto === "Preparar correo") {
+          prepararPedido();
         } else if (texto === "Cancelar") {
           setEtapa("libre");
           setPedido({ interes: "", nombre: "", contacto: "", mensaje: "" });
           agregar("asistente", "De acuerdo. Si necesitás otra cosa, escribime.");
         } else {
-          agregar("asistente", "Elegí «Enviar pedido» o «Cancelar».");
+          agregar("asistente", "Elegí «Preparar correo» o «Cancelar».");
         }
         return;
     }
   }
 
-  async function enviarPedido() {
-    setEtapa("enviando");
-    try {
-      const respuesta = await fetch("/api/demo", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...pedido, origen: "Asistente web" }),
-      });
-      if (!respuesta.ok) throw new Error("envío fallido");
-      agregar("asistente", "Listo, recibimos tu pedido. El equipo de NOVUM te responderá al contacto que dejaste.");
-      setPedido({ interes: "", nombre: "", contacto: "", mensaje: "" });
-    } catch {
-      agregar("asistente", "No pude enviarlo desde la web. Podés abrir tu correo con el pedido ya escrito y mandarlo directamente a NOVUM.", [
-        { texto: `Enviar a ${CONTACTO.email}`, href: correoPreparado(pedido) },
-      ]);
-    } finally {
-      setEtapa("libre");
-    }
+  function prepararPedido() {
+    agregar("asistente", "Abrí el correo preparado y pulsá Enviar en tu aplicación de correo. Solo así recibiremos tu pedido.", [
+      { texto: `Abrir correo para ${CONTACTO.email}`, href: correoPreparado(pedido) },
+    ]);
+    setPedido({ interes: "", nombre: "", contacto: "", mensaje: "" });
+    setEtapa("libre");
   }
 
   const opciones = etapa === "libre"
@@ -228,7 +216,7 @@ export default function AsistenteWeb() {
       : etapa === "detalle"
         ? ["Omitir"]
         : etapa === "confirmar"
-          ? ["Enviar pedido", "Cancelar"]
+          ? ["Preparar correo", "Cancelar"]
           : [];
 
   return (
@@ -250,11 +238,11 @@ export default function AsistenteWeb() {
           </div>)}
         </div>
         <div className="assistant-panel__composer">
-          {opciones.length > 0 && <div className="assistant-panel__options">{opciones.map((opcion) => <button key={opcion} type="button" disabled={etapa === "enviando"} onClick={() => procesar(opcion)}>{opcion}</button>)}</div>}
+          {opciones.length > 0 && <div className="assistant-panel__options">{opciones.map((opcion) => <button key={opcion} type="button" onClick={() => procesar(opcion)}>{opcion}</button>)}</div>}
           {etapa !== "confirmar" && <form onSubmit={(event) => { event.preventDefault(); procesar(entrada); }}>
             <label className="sr-only" htmlFor="assistant-input">Escribí tu mensaje</label>
-            <input ref={entradaRef} id="assistant-input" value={entrada} onChange={(event) => setEntrada(event.target.value)} maxLength={etapa === "detalle" ? 2000 : 180} disabled={etapa === "enviando"} placeholder={etapa === "enviando" ? "Enviando pedido…" : etapa === "nombre" ? "Tu nombre" : etapa === "contacto" ? "Correo o WhatsApp" : etapa === "detalle" ? "Contanos qué necesitás" : "Escribí tu consulta"} />
-            <button type="submit" aria-label="Enviar mensaje" disabled={!entrada.trim() || etapa === "enviando"}><Send size={18} aria-hidden /></button>
+            <input ref={entradaRef} id="assistant-input" value={entrada} onChange={(event) => setEntrada(event.target.value)} maxLength={etapa === "detalle" ? 2000 : 180} placeholder={etapa === "nombre" ? "Tu nombre" : etapa === "contacto" ? "Correo o WhatsApp" : etapa === "detalle" ? "Contanos qué necesitás" : "Escribí tu consulta"} />
+            <button type="submit" aria-label="Enviar mensaje" disabled={!entrada.trim()}><Send size={18} aria-hidden /></button>
           </form>}
           <a className="assistant-panel__mail" href={`mailto:${CONTACTO.email}`}><Mail size={13} aria-hidden /> {CONTACTO.email}</a>
         </div>

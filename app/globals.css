@@ -242,10 +242,8 @@ textarea.campo { min-height: 115px; resize: vertical; }
 select.campo { color: #31445f; }
 .demo-form__submit { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; grid-column: 1 / -1; }
 .demo-form__submit .button { border: 0; }
-.demo-success { padding: 45px; border: 1px solid #cfe9e8; border-radius: 20px; background: #ebfbfa; }
-.demo-success svg { color: #0d8d86; }
-.demo-success h3 { margin-top: 24px; font-size: 2rem; }
-.demo-success p { max-width: 45ch; margin-top: 10px; color: #53727d; line-height: 1.5; }
+.demo-form__prepared { flex-basis: 100%; padding: 13px 15px; border: 1px solid #b8ddd8; border-radius: 10px; color: #174d52; background: #ebfbf8; font-size: .9rem; line-height: 1.5; }
+.demo-form__prepared a { font-weight: 800; }
 
 /* Product pages */
 .product-hero { position: relative; overflow: hidden; color: white; background: radial-gradient(circle at 82% 48%, rgba(30,120,190,.38), transparent 38%), #081a38; }

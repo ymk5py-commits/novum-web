@@ -8,8 +8,8 @@ Sitio institucional de [NOVUM Holding](https://www.novumholding.lat/), construid
 - `/novudent`: software dental en producción, con capturas reales y enlace a la demo pública.
 - `/novumed`: producto para consultorios en desarrollo.
 - `/novudent/[especialidad]` y `/novumed/[especialidad]`: información por especialidad.
-- `/api/demo`: envío del formulario de contacto.
-- Asistente NOVUM: consultas frecuentes y toma guiada de pedidos en todas las páginas.
+- Formulario de contacto que prepara un correo con los datos del pedido.
+- Asistente NOVUM: consultas frecuentes y preparación guiada de pedidos en todas las páginas.
 
 El diseño compartido está documentado en [design.md](./design.md). Los datos de productos, estados y enlaces viven en `lib/site.ts` y `lib/productos.ts`.
 
@@ -21,17 +21,15 @@ npm run dev
 npm run build
 ```
 
-El correo público es `hola@novumholding.lat`. WhatsApp se muestra solo si existe `NEXT_PUBLIC_CONTACTO_WHATSAPP`. El asistente y el formulario envían a `/api/demo`. Si el servicio de envío falla, ofrecen un correo con el pedido preparado; nunca muestran un éxito falso.
+El correo público es `hola@novumholding.lat`. WhatsApp se muestra solo si existe `NEXT_PUBLIC_CONTACTO_WHATSAPP`. El asistente y el formulario preparan un enlace `mailto:`; el visitante debe abrir su aplicación de correo y pulsar Enviar. El sitio no afirma haber recibido un pedido antes de ese paso.
 
 ### Correo para pedidos
 
-1. Crear una cuenta gratuita en ImprovMX, agregar `novumholding.lat` y crear el alias `hola@novumholding.lat` con destino `ymk5py@gmail.com`. Confirmar el destino en Gmail.
-2. En el DNS del dominio, sustituir los MX de Zoho por los dos MX que indique ImprovMX. Sustituir el SPF de Zoho por el valor recomendado por ImprovMX. Conservar los registros de la web y el DMARC. Verificar en ImprovMX que el reenvío está activo y probar un correo entrante.
-3. Crear una cuenta gratuita en Resend y verificar `novumholding.lat` con los registros DNS que indique su panel. Sus registros de envío en el subdominio `send` no sustituyen los MX de recepción del dominio principal.
-4. Configurar en Vercel `RESEND_API_KEY` y `EMAIL_FROM=NOVUM Web <hola@novumholding.lat>`. Opcionalmente `LEADS_EMAIL` permite otro destinatario. Volver a desplegar tras guardar las variables.
-5. Enviar un pedido de prueba desde la web y confirmar que llega a Gmail mediante el reenvío.
+1. El alias `hola@novumholding.lat` se creó en ImprovMX con destino `ymk5py@gmail.com`.
+2. Los MX del dominio apuntan a ImprovMX y su SPF está publicado. El panel de ImprovMX marca el dominio como activo y registra una entrega de prueba aceptada por Gmail.
+3. Probar el formulario y el asistente en un dispositivo con una aplicación de correo configurada. Confirmar que abren un mensaje dirigido a `hola@novumholding.lat` con los datos y que el usuario lo envía.
 
-ImprovMX gratuito permite recibir mediante reenvío, pero no ofrece un buzón ni envío SMTP desde `hola@novumholding.lat`. Al responder manualmente desde Gmail, el remitente visible será la cuenta de Gmail. Resend solo envía los avisos automáticos de la web. No guardar claves en el repositorio.
+ImprovMX gratuito recibe mediante reenvío, pero no ofrece un buzón ni envío SMTP desde `hola@novumholding.lat`. Al responder manualmente desde Gmail, el remitente visible será la cuenta de Gmail. El envío automático de pedidos queda pendiente para una integración posterior.
 
 ## Publicación
 
