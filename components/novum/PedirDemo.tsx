@@ -20,6 +20,15 @@ export default function PedirDemo({ interes: interesInicial }: { interes?: strin
   const [errores, setErrores] = useState<Errores>({});
   const [interes, setInteres] = useState<string>(interesInicial ?? "");
   const [nombre, setNombre] = useState("");
+  const [sucio, setSucio] = useState(false);
+
+  // Si escribió algo y no lo mandó, avisar antes de cerrar o recargar la pestaña.
+  useEffect(() => {
+    if (!sucio || estado === "listo") return;
+    const avisar = (e: BeforeUnloadEvent) => e.preventDefault();
+    window.addEventListener("beforeunload", avisar);
+    return () => window.removeEventListener("beforeunload", avisar);
+  }, [sucio, estado]);
 
   // Lee ?interes= de la URL (la cartera manda ahí a Botika y PAUTIK, que no tienen página).
   useEffect(() => {
@@ -79,7 +88,7 @@ export default function PedirDemo({ interes: interesInicial }: { interes?: strin
                 transition={{ duration: DUR.long, ease: EASE_OUT }}
                 className="border-t border-rule pt-lg"
               >
-                <p className="font-display text-3xl leading-tight">Listo{nombre.trim() ? `, ${nombre.trim().split(" ")[0]}` : ""}.</p>
+                <p className="break-words font-display text-3xl leading-tight">Listo{nombre.trim() ? `, ${nombre.trim().split(" ")[0]}` : ""}.</p>
                 <p className="mt-sm max-w-[44ch] text-ink-2">Recibimos tu pedido. Te escribimos al contacto que dejaste para coordinar la demo.</p>
               </m.div>
             ) : (
@@ -87,6 +96,7 @@ export default function PedirDemo({ interes: interesInicial }: { interes?: strin
                 key="form"
                 noValidate
                 onSubmit={enviar}
+                onInput={() => setSucio(true)}
                 exit={{ opacity: 0, y: -6, transition: { duration: DUR.short * 0.75, ease: EASE_IN } }}
                 className="grid gap-lg sm:grid-cols-2"
               >
@@ -97,7 +107,7 @@ export default function PedirDemo({ interes: interesInicial }: { interes?: strin
                   <input id={`${id}-empresa`} name="empresa" autoComplete="organization" className="campo" />
                 </Campo>
                 <Campo id={`${id}-contacto`} etiqueta="WhatsApp o correo" error={errores.contacto}>
-                  <input id={`${id}-contacto`} name="contacto" autoComplete="email" inputMode="email" className="campo" aria-invalid={!!errores.contacto} aria-describedby={errores.contacto ? `${id}-contacto-e` : undefined} required />
+                  <input id={`${id}-contacto`} name="contacto" autoComplete="email" spellCheck={false} placeholder="0981 123 456 o ana@clinica.com…" className="campo" aria-invalid={!!errores.contacto} aria-describedby={errores.contacto ? `${id}-contacto-e` : undefined} required />
                 </Campo>
                 <Campo id={`${id}-interes`} etiqueta="Te interesa">
                   <select id={`${id}-interes`} name="interes" className="campo pr-lg" value={interes} onChange={(e) => setInteres(e.target.value)}>
@@ -111,7 +121,7 @@ export default function PedirDemo({ interes: interesInicial }: { interes?: strin
                 </Campo>
                 <div className="sm:col-span-2">
                   <Campo id={`${id}-mensaje`} etiqueta="Algo más que quieras contarnos" opcional>
-                    <textarea id={`${id}-mensaje`} name="mensaje" rows={3} className="campo resize-y" />
+                    <textarea id={`${id}-mensaje`} name="mensaje" rows={3} autoComplete="off" className="campo resize-y" />
                   </Campo>
                 </div>
                 {/* Trampa para robots: una persona no ve ni completa este campo. */}
@@ -171,7 +181,7 @@ function Campo({ id, etiqueta, error, opcional, children }: { id: string; etique
       {children}
       <AnimatePresence>
         {error && (
-          <m.span id={`${id}-e`} className="text-sm text-error" initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
+          <m.span id={`${id}-e`} aria-live="polite" className="text-sm text-error" initial={{ opacity: 0, y: -4 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
             {error}
           </m.span>
         )}

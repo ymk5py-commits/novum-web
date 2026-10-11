@@ -87,6 +87,7 @@ export default function Cartera({ productos }: { productos: ProductoDeCartera[] 
                 {String(i + 1).padStart(2, "0")}
               </m.span>
               <m.span
+                translate="no"
                 className="font-display text-2xl leading-tight decoration-accent decoration-2 underline-offset-[6px] group-hover:underline"
                 variants={{ oculto: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}
                 transition={{ duration: 0.6, ease: EASE_OUT }}
@@ -130,7 +131,7 @@ export default function Cartera({ productos }: { productos: ProductoDeCartera[] 
                 exit={{ opacity: 0, scale: 0.97, transition: { duration: DUR.short * 0.75 } }}
               >
                 {PREVIA[encima.slug] ? (
-                  <Image src={PREVIA[encima.slug]} alt="" width={680} height={425} className="block h-auto w-full" sizes="340px" />
+                  <Image src={PREVIA[encima.slug]} alt="" width={680} height={425} className="block h-auto w-full" sizes="340px" loading="eager" />
                 ) : (
                   <div className="flex aspect-[16/10] flex-col justify-between p-lg">
                     <span className="mono text-muted">{encima.paraQuien}</span>

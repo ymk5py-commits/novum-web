@@ -17,14 +17,14 @@ export default function Preguntas({ preguntas }: { preguntas: readonly { q: stri
     });
 
   return (
-    <dl className="border-b border-rule">
+    <div className="border-b border-rule">
       {preguntas.map((p, i) => {
         const abierta = abiertas.has(i);
         const idR = `${base}-r${i}`;
         const idB = `${base}-b${i}`;
         return (
           <div key={p.q} className="border-t border-rule">
-            <dt>
+            <h3 className="font-sans text-md font-normal leading-normal tracking-normal">
               <button
                 type="button"
                 id={idB}
@@ -45,8 +45,8 @@ export default function Preguntas({ preguntas }: { preguntas: readonly { q: stri
                   +
                 </m.span>
               </button>
-            </dt>
-            <dd
+            </h3>
+            <div
               id={idR}
               role="region"
               aria-labelledby={idB}
@@ -63,10 +63,10 @@ export default function Preguntas({ preguntas }: { preguntas: readonly { q: stri
                   {p.a}
                 </m.p>
               </div>
-            </dd>
+            </div>
           </div>
         );
       })}
-    </dl>
+    </div>
   );
 }

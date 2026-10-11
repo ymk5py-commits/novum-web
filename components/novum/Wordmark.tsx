@@ -24,7 +24,7 @@ export default function Wordmark({
 }) {
   const t = TAMANOS[tamano];
   return (
-    <span className={`inline-flex flex-col items-center font-wordmark leading-none ${className}`} role="img" aria-label="NOVUM holding">
+    <span className={`inline-flex flex-col items-center font-wordmark leading-none ${className}`} role="img" aria-label="NOVUM holding" translate="no">
       <span aria-hidden className="flex font-medium" style={{ fontSize: t.nombre, letterSpacing: "0.32em", marginRight: "-0.32em" }}>
         {LETRAS.map((l, i) => (
           <span key={i} className="inline-block overflow-hidden pb-[0.06em]">

@@ -25,14 +25,21 @@ export default function Cabecera() {
   const pathname = usePathname();
   const ref = useRef<HTMLElement>(null);
   const [barra, setBarra] = useState(false);
+  const alto = useRef(220);
   const [menu, setMenu] = useState(false);
   const idMenu = useId();
   const { scrollY } = useScroll();
 
-  useMotionValueEvent(scrollY, "change", (y) => {
-    const alto = ref.current?.offsetHeight ?? 220;
-    setBarra(y > alto + 40);
-  });
+  // Alto de la cabecera medido fuera del scroll (leerlo en cada evento fuerza un recálculo de layout).
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const ro = new ResizeObserver(([e]) => (alto.current = e.target.getBoundingClientRect().height));
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
+  useMotionValueEvent(scrollY, "change", (y) => setBarra(y > alto.current + 40));
 
   useEffect(() => setMenu(false), [pathname]);
   useEffect(() => {

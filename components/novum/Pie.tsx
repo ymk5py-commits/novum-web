@@ -38,7 +38,7 @@ export default function Pie() {
               <li><a className="hover:underline hover:decoration-accent hover:underline-offset-4" href={`https://wa.me/${CONTACTO.whatsapp}`} target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
             )}
           </ul>
-          <p className="mono text-on-ink-2 sm:text-right">
+          <p className="mono text-on-ink-2 sm:text-right" suppressHydrationWarning>
             © {anio} {SITE.name}
             <br />
             {SITE.city}, {SITE.country}

@@ -73,7 +73,7 @@ export default function PaginaEspecialidad({
         <div className="mt-md space-y-lg">
           {s.faqs.map((f) => (
             <div key={f.q}>
-              <p className="font-display text-xl">{f.q}</p>
+              <h3 className="font-display text-xl tracking-normal">{f.q}</h3>
               <p className="mt-2xs text-ink-2">{f.a}</p>
             </div>
           ))}
