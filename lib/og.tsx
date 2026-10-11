@@ -10,9 +10,10 @@ export const OG_SIZE = { width: 1200, height: 630 };
 export const OG_CONTENT_TYPE = "image/png";
 
 export async function brandOG({ etiqueta, titulo, bajada }: { etiqueta: string; titulo: string; bajada?: string }) {
-  const [mont5, mono] = await Promise.all([
+  const [mont5, inter8, inter4] = await Promise.all([
     fuente("montserrat@latest/latin-500-normal"),
-    fuente("ibm-plex-mono@latest/latin-400-normal"),
+    fuente("inter@latest/latin-800-normal"),
+    fuente("inter@latest/latin-400-normal"),
   ]);
 
   return new ImageResponse(
@@ -25,20 +26,20 @@ export async function brandOG({ etiqueta, titulo, bajada }: { etiqueta: string; 
           <div style={{ fontFamily: "Montserrat", fontWeight: 500, fontSize: 35, letterSpacing: 9, marginRight: -9 }}>NOVUM</div>
           <div style={{ display: "flex", width: "100%", alignItems: "center", gap: 10, marginTop: 9, color: "#9bb8d6" }}>
             <div style={{ display: "flex", flex: 1, height: 1, background: "#9bb8d6" }} />
-            <div style={{ fontFamily: "Plex Mono", fontSize: 11, letterSpacing: 4 }}>holding</div>
+            <div style={{ fontFamily: "Inter", fontSize: 11, letterSpacing: 4 }}>holding</div>
             <div style={{ display: "flex", flex: 1, height: 1, background: "#9bb8d6" }} />
           </div>
         </div>
         <div style={{ zIndex: 1, display: "flex", flexDirection: "column", flex: 1, justifyContent: "flex-end" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 11, fontFamily: "Plex Mono", fontSize: 17, color: "#8ce7f6", textTransform: "uppercase", letterSpacing: 2 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 11, fontFamily: "Inter", fontWeight: 800, fontSize: 17, color: "#8ce7f6", textTransform: "uppercase", letterSpacing: 2.7 }}>
             <div style={{ width: 8, height: 8, borderRadius: 4, background: "#8ce7f6" }} />{etiqueta}
           </div>
-          <div style={{ fontFamily: "Montserrat", fontWeight: 500, fontSize: 64, lineHeight: 1.1, letterSpacing: -3, marginTop: 22, maxWidth: 920 }}>{titulo}</div>
-          {bajada ? <div style={{ fontFamily: "Plex Mono", fontSize: 19, color: "#bbcee5", marginTop: 22, maxWidth: 900 }}>{bajada}</div> : null}
+          <div style={{ fontFamily: "Inter", fontWeight: 800, fontSize: 64, lineHeight: 1.05, letterSpacing: -2.24, marginTop: 22, maxWidth: 920 }}>{titulo}</div>
+          {bajada ? <div style={{ fontFamily: "Inter", fontWeight: 400, fontSize: 19, lineHeight: 1.5, color: "#bbcee5", marginTop: 22, maxWidth: 900 }}>{bajada}</div> : null}
         </div>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", zIndex: 1, marginTop: 38, paddingTop: 18, borderTop: "1px solid rgba(188,222,255,.27)", fontFamily: "Plex Mono", fontSize: 14, color: "#91aeca" }}><span>Productos propios · Software a medida</span><span>novumholding.lat</span></div>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", zIndex: 1, marginTop: 38, paddingTop: 18, borderTop: "1px solid rgba(188,222,255,.27)", fontFamily: "Inter", fontWeight: 400, fontSize: 14, color: "#91aeca" }}><span>Productos propios · Software a medida</span><span>novumholding.lat</span></div>
       </div>
     ),
-    { ...OG_SIZE, fonts: [{ name: "Montserrat", data: mont5, weight: 500, style: "normal" }, { name: "Plex Mono", data: mono, weight: 400, style: "normal" }] },
+    { ...OG_SIZE, fonts: [{ name: "Montserrat", data: mont5, weight: 500, style: "normal" }, { name: "Inter", data: inter8, weight: 800, style: "normal" }, { name: "Inter", data: inter4, weight: 400, style: "normal" }] },
   );
 }

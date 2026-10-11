@@ -9,8 +9,18 @@ NOVUM se presenta como una empresa de productos de software con un estudio detr�
 - Azul profundo para navegación, hero, estudio y pie.
 - Superficies claras para producto, proceso, preguntas y contacto.
 - Cian como acento funcional de marca, sin degradados sobre el texto del cuerpo.
-- Tipografía Geist para lectura y titulares; Montserrat solo para el logotipo; IBM Plex Mono para rótulos pequeños.
+- Inter como única familia para lectura, titulares, etiquetas y piezas compartidas. Titulares en Bold o ExtraBold con espaciado de −3,5 %; etiquetas en Bold, mayúsculas y +16 %; párrafos en Regular o Medium con interlínea de 1,4–1,5. Montserrat queda únicamente en el logotipo.
 - Contenedores de hasta 1280 px, tarjetas de radio moderado, bordes suaves y sombras reservadas para capturas.
+
+## Tipografía de marca
+
+Referencia: Manual de marca de Novudent (borrador del 8 de octubre de 2026), sección 09. Esta regla se extiende a las páginas institucionales de NOVUM para que la cartera de productos comparta una voz visual.
+
+- Titulares principales y de sección: Inter ExtraBold (800), espaciado −3,5 %. Los subtítulos usan Inter Bold (700).
+- Etiquetas y rótulos: Inter Bold (700), mayúsculas, espaciado +16 %. No se usa una fuente monoespaciada como acento.
+- Párrafos y elementos de interfaz: Inter Regular (400) o Medium (500), interlínea 1,5.
+- El logotipo NOVUM conserva su forma; Montserrat solo se carga para ese símbolo tipográfico. El logotipo de Novudent es un activo gráfico que no depende de fuentes web.
+- El acento celeste se reserva para palabras o frases cortas en títulos y elementos de acción. Los párrafos mantienen un color uniforme.
 
 ## Estructura
 

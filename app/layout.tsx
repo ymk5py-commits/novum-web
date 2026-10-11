@@ -1,13 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { IBM_Plex_Mono, Montserrat } from "next/font/google";
-import { GeistSans } from "geist/font/sans";
+import { Inter, Montserrat } from "next/font/google";
 import { SITE } from "@/lib/site";
 import Cabecera from "@/components/novum/Cabecera";
 import Pie from "@/components/novum/Pie";
 import DatosEstructurados from "@/components/novum/DatosEstructurados";
 
-const plexMono = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400"], variable: "--f-plex-mono", display: "swap" });
+const inter = Inter({ subsets: ["latin"], variable: "--f-inter", display: "swap" });
 const montserrat = Montserrat({ subsets: ["latin"], weight: ["300", "500"], variable: "--f-montserrat", display: "swap" });
 
 export const metadata: Metadata = {
@@ -36,7 +35,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang={SITE.lang} className={`${GeistSans.variable} ${plexMono.variable} ${montserrat.variable}`}>
+    <html lang={SITE.lang} className={`${inter.variable} ${montserrat.variable}`}>
       <body>
         <Cabecera />
         <main id="contenido" tabIndex={-1} className="focus:outline-none">{children}</main>

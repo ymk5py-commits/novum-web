@@ -46,7 +46,7 @@ export default function Cartera({ productos }: { productos: ProductoDeCartera[] 
 
   return (
     <div className="relative">
-      <div className={`mono hidden gap-md pb-xs text-muted md:grid ${COLUMNAS}`} aria-hidden>
+      <div className={`micro-label hidden gap-md pb-xs text-muted md:grid ${COLUMNAS}`} aria-hidden>
         <span>Nº</span>
         <span>Producto</span>
         <span>Qué hace</span>
@@ -83,7 +83,7 @@ export default function Cartera({ productos }: { productos: ProductoDeCartera[] 
                 aria-hidden
                 className="absolute inset-0 -z-10 origin-left scale-x-0 bg-paper-2 transition-transform duration-[420ms] ease-out group-hover:scale-x-100 group-focus-visible:scale-x-100"
               />
-              <m.span className="mono pl-2xs text-muted" variants={{ oculto: { opacity: 0 }, visible: { opacity: 1 } }}>
+              <m.span className="micro-label pl-2xs text-muted" variants={{ oculto: { opacity: 0 }, visible: { opacity: 1 } }}>
                 {String(i + 1).padStart(2, "0")}
               </m.span>
               <m.span
@@ -108,7 +108,7 @@ export default function Cartera({ productos }: { productos: ProductoDeCartera[] 
                 {p.paraQuien}
               </m.span>
               <m.span
-                className={`mono col-start-2 flex items-center gap-xs md:col-auto ${p.estado === "En producción" ? "text-accent-ink" : "text-muted"}`}
+                className={`micro-label col-start-2 flex items-center gap-xs md:col-auto ${p.estado === "En producción" ? "text-accent-ink" : "text-muted"}`}
                 variants={{ oculto: { opacity: 0 }, visible: { opacity: 1 } }}
               >
                 <span aria-hidden className={`inline-block h-[7px] w-[7px] rounded-full ${p.estado === "En producción" ? "bg-accent" : "border border-muted"}`} />
@@ -134,9 +134,9 @@ export default function Cartera({ productos }: { productos: ProductoDeCartera[] 
                   <Image src={PREVIA[encima.slug]} alt="" width={680} height={425} className="block h-auto w-full" sizes="340px" loading="eager" />
                 ) : (
                   <div className="flex aspect-[16/10] flex-col justify-between p-lg">
-                    <span className="mono text-muted">{encima.paraQuien}</span>
+                    <span className="micro-label text-muted">{encima.paraQuien}</span>
                     <span className="font-display text-3xl leading-none">{encima.nombre}</span>
-                    <span className="mono flex items-center gap-xs text-muted">
+                    <span className="micro-label flex items-center gap-xs text-muted">
                       <span className="inline-block h-[7px] w-[7px] rounded-full border border-muted" />
                       {encima.estado} · pedí una demo
                     </span>

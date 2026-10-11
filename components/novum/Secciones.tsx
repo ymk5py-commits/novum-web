@@ -67,7 +67,7 @@ export function ComoTrabajamos() {
             variants={{ oculto: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0 } }}
             transition={{ duration: 0.7, ease: EASE_OUT }}
           >
-            <span className="mono text-accent-ink">{String(i + 1).padStart(2, "0")}</span>
+            <span className="micro-label text-accent-ink">{String(i + 1).padStart(2, "0")}</span>
             <h3 className="mt-sm text-2xl">{p.t}</h3>
             <p className="mt-xs max-w-[34ch] text-sm leading-relaxed text-ink-2">{p.d}</p>
           </m.li>
