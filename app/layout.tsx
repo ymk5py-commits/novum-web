@@ -1,14 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { IBM_Plex_Mono, IBM_Plex_Sans, Montserrat, Newsreader } from "next/font/google";
+import { IBM_Plex_Mono, Montserrat } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
 import { SITE } from "@/lib/site";
-import Movimiento from "@/components/novum/Movimiento";
 import Cabecera from "@/components/novum/Cabecera";
 import Pie from "@/components/novum/Pie";
 import DatosEstructurados from "@/components/novum/DatosEstructurados";
 
-const newsreader = Newsreader({ subsets: ["latin"], weight: ["300", "400"], style: ["normal"], variable: "--f-newsreader", display: "swap", adjustFontFallback: false, fallback: ["Georgia", "serif"] });
-const plexSans = IBM_Plex_Sans({ subsets: ["latin"], weight: ["400", "500"], variable: "--f-plex-sans", display: "swap" });
 const plexMono = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400"], variable: "--f-plex-mono", display: "swap" });
 const montserrat = Montserrat({ subsets: ["latin"], weight: ["300", "500"], variable: "--f-montserrat", display: "swap" });
 
@@ -30,7 +28,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#f4f6fa",
+  themeColor: "#091a3a",
   colorScheme: "light",
   width: "device-width",
   initialScale: 1,
@@ -38,15 +36,11 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang={SITE.lang} className={`${newsreader.variable} ${plexSans.variable} ${plexMono.variable} ${montserrat.variable}`}>
+    <html lang={SITE.lang} className={`${GeistSans.variable} ${plexMono.variable} ${montserrat.variable}`}>
       <body>
-        <Movimiento>
-          <Cabecera />
-          <main id="contenido" tabIndex={-1} className="focus:outline-none">
-            {children}
-          </main>
-          <Pie />
-        </Movimiento>
+        <Cabecera />
+        <main id="contenido" tabIndex={-1} className="focus:outline-none">{children}</main>
+        <Pie />
         <DatosEstructurados />
       </body>
     </html>
