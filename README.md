@@ -25,12 +25,13 @@ El correo público es `hola@novumholding.lat`. WhatsApp se muestra solo si exist
 
 ### Correo para pedidos
 
-1. Crear la cuenta de Purelymail, agregar `novumholding.lat` y crear el buzón `hola@novumholding.lat`.
-2. Cambiar en el DNS los MX y SPF de Zoho por los valores mostrados por Purelymail. Agregar el código de propiedad único de la cuenta y los registros DKIM y DMARC indicados allí. Guardar y verificar el dominio en Purelymail.
-3. Configurar en Vercel `PURELYMAIL_SMTP_USER=hola@novumholding.lat` y `PURELYMAIL_SMTP_PASSWORD` (contraseña de aplicación si la cuenta usa 2FA). Opcionalmente `LEADS_EMAIL` permite otro destinatario.
-4. Enviar un pedido de prueba desde la web y confirmar que llega al buzón.
+1. Crear una cuenta gratuita en ImprovMX, agregar `novumholding.lat` y crear el alias `hola@novumholding.lat` con destino `ymk5py@gmail.com`. Confirmar el destino en Gmail.
+2. En el DNS del dominio, sustituir los MX de Zoho por los dos MX que indique ImprovMX. Sustituir el SPF de Zoho por el valor recomendado por ImprovMX. Conservar los registros de la web y el DMARC. Verificar en ImprovMX que el reenvío está activo y probar un correo entrante.
+3. Crear una cuenta gratuita en Resend y verificar `novumholding.lat` con los registros DNS que indique su panel. Sus registros de envío en el subdominio `send` no sustituyen los MX de recepción del dominio principal.
+4. Configurar en Vercel `RESEND_API_KEY` y `EMAIL_FROM=NOVUM Web <hola@novumholding.lat>`. Opcionalmente `LEADS_EMAIL` permite otro destinatario. Volver a desplegar tras guardar las variables.
+5. Enviar un pedido de prueba desde la web y confirmar que llega a Gmail mediante el reenvío.
 
-Se conserva compatibilidad con `RESEND_API_KEY` y `EMAIL_FROM` si ya estaban configuradas, pero Purelymail tiene prioridad cuando sus dos variables están presentes. No guardar contraseñas en el repositorio.
+ImprovMX gratuito permite recibir mediante reenvío, pero no ofrece un buzón ni envío SMTP desde `hola@novumholding.lat`. Al responder manualmente desde Gmail, el remitente visible será la cuenta de Gmail. Resend solo envía los avisos automáticos de la web. No guardar claves en el repositorio.
 
 ## Publicación
 
