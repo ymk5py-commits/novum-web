@@ -1,6 +1,5 @@
 "use client";
-/* Preguntas en acordeón. La respuesta se abre con grid-template-rows 0fr → 1fr (nunca height,
- * design.md § Microinteractions); el «+» gira a «×» con Motion y el texto aparece después. */
+/* Las respuestas cerradas se ocultan por completo para no dejar filas vacías. */
 import { useId, useState } from "react";
 import { m } from "motion/react";
 import { DUR, EASE_OUT } from "@/lib/movimiento";
@@ -50,19 +49,9 @@ export default function Preguntas({ preguntas }: { preguntas: readonly { q: stri
               id={idR}
               role="region"
               aria-labelledby={idB}
-              className="grid transition-[grid-template-rows] duration-[420ms] ease-in-out"
-              style={{ gridTemplateRows: abierta ? "1fr" : "0fr" }}
+              hidden={!abierta}
             >
-              <div className="overflow-hidden" aria-hidden={!abierta}>
-                <m.p
-                  className="max-w-medida pb-lg text-ink-2"
-                  initial={false}
-                  animate={{ opacity: abierta ? 1 : 0, y: abierta ? 0 : -4 }}
-                  transition={{ duration: DUR.long, ease: EASE_OUT, delay: abierta ? 0.08 : 0 }}
-                >
-                  {p.a}
-                </m.p>
-              </div>
+              <p className="max-w-medida pb-lg text-ink-2">{p.a}</p>
             </div>
           </div>
         );
